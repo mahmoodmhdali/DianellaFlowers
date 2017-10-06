@@ -1,0 +1,141 @@
+﻿.site-menu ul > li:hover {
+    background-color: #a8328c;
+}
+
+.site-menu ul > li.active {
+    background-color: #a8328c;
+}
+
+.site-menu ul > li:hover > a {
+    color: white;
+}
+
+.site-menu ul > li.active > a {
+    color: white;
+}
+
+.topbar {
+    border-bottom: 1px solid #a8328c;
+    background-color: #a8328c;
+}
+
+.headerUpdate {
+    border-top: 0;
+    border-bottom: 0;
+    margin-bottom: 0;
+}
+
+.carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+    height: 500px;
+}
+
+.bs-slider {
+    height: 500px !important;
+}
+
+.carousel-inner > .item > img {
+    height: 500px;
+}
+
+.hero-slider {
+    height: 500px !important;
+}
+
+@media (max-width: 768px) {
+    .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+        height: 350px !important;
+    }
+
+    .bs-slider {
+        height: 350px !important;
+    }
+
+    .hero-slider {
+        height: 350px !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+        height: 350px !important;
+    }
+
+    .bs-slider {
+        height: 350px !important;
+    }
+
+    .hero-slider {
+        height: 350px !important;
+    }
+}
+
+/*IPHONE 6*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    .indicators-line > .carousel-indicators {
+        right: 38%;
+    }
+    .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+        height: 250px !important;
+    }
+
+    .bs-slider {
+        height: 250px !important;
+    }
+
+    .hero-slider {
+        height: 250px !important;
+    }
+}
+/*IPHONE 6 PLUS*/
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 3) {
+    .indicators-line > .carousel-indicators {
+        right: 42%;
+    }
+}
+/*IPHONE 5*/
+@media screen and (device-aspect-ratio: 40/71) {
+    .indicators-line > .carousel-indicators {
+        right: 38%;
+    }
+    .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+        height: 250px !important;
+    }
+
+    .bs-slider {
+        height: 250px !important;
+    }
+
+    .hero-slider {
+        height: 250px !important;
+    }
+}
+
+.img-category-1 {
+    height: 203px;
+    width: 179px;
+}
+
+.img-category-2 {
+    height: 94px;
+    width: 83px;
+}
+
+.img-updated {
+    height: 476px !important;
+    width: calc(100% - 30px) !important;
+}
+
+@media (max-width: 768px) {
+    .img-updated {
+        height: 408px !important;
+    }
+}
+
+.img-updated-product-home {
+    height: 144px !important;
+    width: 224px !important;
+}
+
+.scroll-to-top-btn {
+    background-color: #a8328c;
+}
