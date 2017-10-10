@@ -48,7 +48,7 @@
                             <td>
                                 <div class="product-item"><a class="product-thumb" href="#"><img src="<c:url value='/assets/img/shop/cart/01.jpg'/>" alt="Product"></a>
                                     <div class="product-info">
-                                        <h4 class="product-title"><a href="#">Something</a></h4><span><em>Size:</em> 10.5</span><span><em>Color:</em> Dark Blue</span>
+                                        <h4 class="product-title"><a href="#">Something</a></h4>
                                     </div>
                                 </div>
                             </td>
@@ -71,7 +71,7 @@
                             <td>
                                 <div class="product-item"><a class="product-thumb" href="#"><img src="<c:url value='/assets/img/shop/cart/02.jpg'/>" alt="Product"></a>
                                     <div class="product-info">
-                                        <h4 class="product-title"><a href="#">Something</a></h4><span><em>Size:</em> XL</span><span><em>Color:</em> Black</span>
+                                        <h4 class="product-title"><a href="#">Something</a></h4>
                                     </div>
                                 </div>
                             </td>
@@ -94,7 +94,7 @@
                             <td>
                                 <div class="product-item"><a class="product-thumb" href="#"><img src="<c:url value='/assets/img/shop/cart/03.jpg'/>" alt="Product"></a>
                                     <div class="product-info">
-                                        <h4 class="product-title"><a href="#">Something</a></h4><span><em>Size:</em> -</span><span><em>Color:</em> Turquoise</span>
+                                        <h4 class="product-title"><a href="#">Something</a></h4>
                                     </div>
                                 </div>
                             </td>
@@ -129,11 +129,11 @@
                 <div class="column"><a class="btn btn-outline-secondary" href="shop-grid-ls.html"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
                 <div class="column"><a class="btn btn-primary" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Your cart" data-toast-message="is updated successfully!">Update Cart</a><a class="btn btn-success" href="checkout-address.html">Checkout</a></div>
             </div>
-            <!-- Related Products Carousel-->
+<!--             Related Products Carousel
             <h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">You May Also Like</h3>
-            <!-- Carousel-->
+             Carousel
             <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
-                <!-- Product-->
+                 Product
                 <div class="grid-item">
                     <div class="product-card">
                         <div class="product-badge text-danger">22% Off</div><a class="product-thumb" href="shop-single.html"><img src="<c:url value='/assets/img/shop/products/09.jpg'/>" alt="Product"></a>
@@ -147,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Product-->
+                 Product
                 <div class="grid-item">
                     <div class="product-card">
                         <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
@@ -160,7 +160,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Product-->
+                 Product
                 <div class="grid-item">
                     <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="<c:url value='/assets/img/shop/products/12.jpg'/>" alt="Product"></a>
                         <h3 class="product-title"><a href="shop-single.html">Vented Straw Fedora</a></h3>
@@ -171,7 +171,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Product-->
+                 Product
                 <div class="grid-item">
                     <div class="product-card">
                         <div class="rating-stars"><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i>
@@ -184,7 +184,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Product-->
+                 Product
                 <div class="grid-item">
                     <div class="product-card"><a class="product-thumb" href="shop-single.html"><img src="<c:url value='/assets/img/shop/products/04.jpg'/>" alt="Product"></a>
                         <h3 class="product-title"><a href="shop-single.html">Waist Leather Belt</a></h3>
@@ -195,7 +195,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Product-->
+                 Product
                 <div class="grid-item">
                     <div class="product-card">
                         <div class="product-badge text-danger">50% Off</div><a class="product-thumb" href="shop-single.html"><img src="<c:url value='/assets/img/shop/products/01.jpg'/>" alt="Product"></a>
@@ -209,7 +209,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </jsp:attribute>
 

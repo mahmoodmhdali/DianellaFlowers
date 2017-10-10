@@ -442,7 +442,7 @@
                             if ($('.cartData').length == 0) {
                                 $('.noCartFoundDiv').remove();
                                 $('.cartDataDiv').append('<div class="toolbar-dropdown cartData"><div class="dropdown-product-item">\n\
-                                                        <span class="dropdown-product-remove">\n\
+                                                        <span class="dropdown-product-remove remove-from-cart-btn">\n\
                                                         <i class="icon-cross"></i></span>\n\
                                                         <a class="dropdown-product-thumb" href="#"><img src="<c:url value='/compressedImage/'/> ' + bouquetData.id + '" alt="Product">\n\
                                                         </a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a>\n\
@@ -458,7 +458,7 @@
                                                         </div>');
                             } else {
                                 $('.totalCart').html('$' + (parseFloat($('.totalCart').html().replace('$', '')) + parseFloat(bouquetData.price)));
-                                $('.cartData').prepend('<div class="dropdown-product-item"><span class="dropdown-product-remove"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="<c:url value='/compressedImage/'/> ' + bouquetData.id + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details">$' + bouquetData.price + '</span></div></div>');
+                                $('.cartData').prepend('<div class="dropdown-product-item"><span class="dropdown-product-remove remove-from-cart-btn"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="<c:url value='/compressedImage/'/> ' + bouquetData.id + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details">$' + bouquetData.price + '</span></div></div>');
                             }
                         },
                         error: function (error) {
