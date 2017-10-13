@@ -40,12 +40,7 @@ public abstract class AbstractController {
 
     @ModelAttribute("userCartTotalPrice")
     public Double userCartTotalPrice() {
-        List<UserCart> userCart = userCartService.findBySessionId(RequestContextHolder.currentRequestAttributes().getSessionId());
-        Double price = 0.0;
-        for(UserCart cart:userCart){
-            price = price + Double.parseDouble(cart.getBouquetID().getPrice());
-        }
-        return price;
+        return userCartService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId());
     }
 
     public GenericResponse GetBindingResultErrors(BindingResult bindingResult, HashSet<String> bypassFields) {

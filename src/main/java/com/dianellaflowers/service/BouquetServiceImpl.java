@@ -34,4 +34,9 @@ public class BouquetServiceImpl implements BouquetService {
         return bouquetDao.findById(id);
     }
 
+    @Override
+    public List<Bouquet> findHomePageProduct() {
+        return bouquetDao.findHomePageProduct();
+    }
+
 }

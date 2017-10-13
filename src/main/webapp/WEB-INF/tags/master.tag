@@ -237,9 +237,9 @@
                                             <div class="dropdown-product-item" data-cart-id="${userCartItem.getId()}">
                                                 <span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="${userCartItem.getId()}"><i class="icon-cross"></i></span>
                                                 <a class="dropdown-product-thumb" href="#">
-                                                    <img src="<c:url value='/compressedImage/${userCartItem.getBouquetID().getId()}'/>" alt="Product">
+                                                    <img src="<c:url value='/products/compressedImage/${userCartItem.getBouquetID().getId()}'/>" alt="Product">
                                                 </a>
-                                                <div class="dropdown-product-info"><a class="dropdown-product-title" href="#">${userCartItem.getBouquetID().getName()}</a><span class="dropdown-product-details">1 x $${userCartItem.getBouquetID().getPrice()}</span></div>
+                                                <div class="dropdown-product-info"><a class="dropdown-product-title" href="#">${userCartItem.getBouquetID().getName()}</a><span class="dropdown-product-details">$${userCartItem.getBouquetID().getPrice()}</span></div>
                                             </div>
                                         </c:forEach>
                                         <div class="toolbar-dropdown-group">
@@ -431,20 +431,20 @@
                         '_csrf': csrfObj.value
                     };
                     $.ajax({
-                        url: '<c:url value="/addToCart"/>',
+                        url: '<c:url value="/cart/add"/>',
                         data: ajaxData,
                         type: 'post',
                         success: function (data) {
                             $.notify('success', 'Success', 'Product added successfully to your cart', 'topRight')
                             var bouquetData = $.parseJSON(data.responseObject);
                             $('.countCart').html(Number($('.countCart').html()) + 1);
-                            $('.totalCart1').html('$' + (parseFloat($('.totalCart1').html().replace('$', '')) + parseFloat(bouquetData.price)));
+                            $('.totalCart1').html('$' + (data.statusMessage).split("-")[1]);
                             if ($('.cartData').length == 0) {
                                 $('.noCartFoundDiv').remove();
-                                $('.cartDataDiv').append('<div class="toolbar-dropdown cartData"><div class="dropdown-product-item">\n\
-                                                        <span class="dropdown-product-remove remove-from-cart-btn">\n\
+                                $('.cartDataDiv').append('<div class="toolbar-dropdown cartData"><div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("-")[0] + '">\n\
+                                                        <span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("-")[0] + '">\n\
                                                         <i class="icon-cross"></i></span>\n\
-                                                        <a class="dropdown-product-thumb" href="#"><img src="<c:url value='/compressedImage/'/> ' + bouquetData.id + '" alt="Product">\n\
+                                                        <a class="dropdown-product-thumb" href="#"><img src="<c:url value='/products/compressedImage/'/> ' + bouquetData.id + '" alt="Product">\n\
                                                         </a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a>\n\
                                                         <span class="dropdown-product-details">$' + bouquetData.price + '</span></div></div>\n\
                                                         <div class="toolbar-dropdown-group">\n\
@@ -457,8 +457,8 @@
                                                         </div>\n\
                                                         </div>');
                             } else {
-                                $('.totalCart').html('$' + (parseFloat($('.totalCart').html().replace('$', '')) + parseFloat(bouquetData.price)));
-                                $('.cartData').prepend('<div class="dropdown-product-item"><span class="dropdown-product-remove remove-from-cart-btn"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="<c:url value='/compressedImage/'/> ' + bouquetData.id + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details">$' + bouquetData.price + '</span></div></div>');
+                                $('.totalCart').html('$' + (data.statusMessage).split("-")[1]);
+                                $('.cartData').prepend('<div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("-")[0] + '"><span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("-")[0] + '"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="<c:url value='/products/compressedImage/'/> ' + bouquetData.id + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details">$' + bouquetData.price + '</span></div></div>');
                             }
                         },
                         error: function (error) {
@@ -471,22 +471,24 @@
 
                 $('body').on('click', '.remove-from-cart-btn', function (e) {
                     e.preventDefault();
+                    console.log('asdasfasfasfa');
                     var currentBtn = $(this);
                     var cartId = currentBtn.attr("data-cart-id");
                     var userCartDiv = $('div[data-cart-id="' + cartId + '"]');
                     var csrfObj = $.getCSRFObj();
                     currentBtn.lockBtn('');
+                    console.log(cartId);
                     var ajaxData = {
                         'id': cartId,
                         '_csrf': csrfObj.value
                     };
                     $.ajax({
-                        url: '<c:url value="/removeFromCart"/>',
+                        url: '<c:url value="/cart/remove"/>',
                         data: ajaxData,
                         type: 'post',
                         success: function (data) {
+                            console.log(data);
                             $.notify('success', 'Success', 'Product removed successfully from your cart', 'topRight');
-                            var bouquetPrice = data.responseObject;
                             $('.countCart').html(Number($('.countCart').html()) - 1);
                             userCartDiv.remove();
                             if ($('.dropdown-product-item').length == 0) {
@@ -497,8 +499,8 @@
                                         </div>\n\
                                     </div>');
                             } else {
-                                $('.totalCart1').html('$' + (parseFloat($('.totalCart1').html().replace('$', '')) - parseFloat(bouquetPrice)));
-                                $('.totalCart').html('$' + (parseFloat($('.totalCart').html().replace('$', '')) - parseFloat(bouquetPrice)));
+                                $('.totalCart1').html('$' + data.responseObject);
+                                $('.totalCart').html('$' + data.responseObject);
                             }
                         },
                         error: function (error) {

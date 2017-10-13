@@ -6,12 +6,14 @@ import java.util.List;
 
 public interface UserCartService {
 
-    void addUserCart(UserCart userCart) throws Exception;
+    UserCart addUserCart(UserCart userCart) throws Exception;
 
     Bouquet removeUserCart(Integer userCartId, String sessionId) throws Exception;
     
     UserCart findById(Integer Id);
     
     List<UserCart> findBySessionId(String sessionId);
+    
+    double getCartTotal(String sessionId);
 
 }

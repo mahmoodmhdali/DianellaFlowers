@@ -11,4 +11,6 @@ public interface BouquetDao {
 
     List<Bouquet> findByCategoryName(String category);
 
+    List<Bouquet> findHomePageProduct();
+
 }

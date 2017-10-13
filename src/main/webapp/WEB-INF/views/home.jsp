@@ -27,7 +27,7 @@
                     <!-- Third Slide -->
                     <div class="item active">
                         <!-- Slide Background -->
-                                      
+
                         <img src="<c:url value='/assets/img/flowers/1.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
                         <div class="bs-slider-overlay"></div>
 
@@ -209,211 +209,36 @@
         <section class="container padding-top-1x padding-bottom-1x">
             <h3 class="text-center mb-30">Featured Products</h3>
             <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
-                <!-- Product-->
-                <div class="grid-item">
-                    <div class="product-card">
-                        <a class="product-thumb" href="#">
-                            <img style="height: 168px" src="<c:url value='/assets/img/shop/products/011.jpg'/>" alt="Product"></a>
-                        <h3 class="product-title"><a href="#">Something</a></h3>
-                        <h4 class="product-price">
-                            <del class="text-danger text-center" style="font-weight: 500; letter-spacing: .07em; text-transform: uppercase;">$99.99</del>$49.99
-                        </h4>
-                        <div class="product-buttons">
-<!--                            <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>-->
-                            <button class="btn btn-outline-primary btn-sm add-to-cart-btn">Add to Cart</button>
+                <c:choose>
+                    <c:when test="${fn:length(homeProducts) > 0}">
+                        <c:forEach var="bouquet" items="${homeProducts}">
+                            <div class="grid-item">
+                                <div class="product-card">
+                                    <a class="product-thumb" data-lightbox="set" data-title="Click the right half of the image to move forward." href="<c:url value='/products/originalImage/${bouquet.getId()}'/>"><img src="<c:url value='/products/compressedImage/${bouquet.getId()}'/>" alt="Product"></a>
+                                    <h3 class="product-title"><a href="shop-single.html">${bouquet.getName()}</a></h3>
+                                    <h4 class="product-price">
+                                        <c:if test="${bouquet.getPriceAfterSale() != null}">
+                                            <del class="text-danger text-center" style="font-weight: 500; letter-spacing: .07em; text-transform: uppercase;">$${bouquet.getPrice()}</del>$${bouquet.getPriceAfterSale()}
+                                        </c:if>
+                                        <c:if test="${bouquet.getPriceAfterSale() == null}">
+                                            $${bouquet.getPrice()}
+                                        </c:if>
+                                    </h4>
+                                    <div class="product-buttons">
+                                        <button class="btn btn-outline-primary btn-sm add-to-cart-btn" data-bouquet-id="${bouquet.getId()}">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="no-campaigns-div"> 
+                            <div class="text-center"> 
+                                <span><strong>No Products found</strong></span> 
+                            </div> 
                         </div>
-                    </div>
-                </div>
-                <!-- Product-->
-                <div class="grid-item">
-                    <div class="product-card">
-                        <!--                        <div class="rating-stars">
-                            <i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star filled"></i><i class="icon-star"></i>
-                        </div>-->
-                        <a class="product-thumb" href="#">
-                            <img style="height: 168px" src="<c:url value='/assets/img/shop/products/022.jpg'/>" alt="Product"></a>
-                        <div class="text-danger text-center" style="font-weight: 500; letter-spacing: .07em; text-transform: uppercase;"></div>
-                        <h3 class="product-title"><a href="#">Something</a></h3>
-                        <h4 class="product-price">$155.00</h4>
-                        <div class="product-buttons">
-<!--                            <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>-->
-                            <button class="btn btn-outline-primary btn-sm add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product-->
-                <div class="grid-item">
-                    <div class="product-card">
-                        <a class="product-thumb" href="#">
-                            <img style="height: 168px" src="<c:url value='/assets/img/shop/products/033.jpg'/>" alt="Product"></a>
-                        <h3 class="product-title"><a href="#">Something</a></h3>
-                        <h4 class="product-price">$49.50</h4>
-                        <div class="product-buttons">
-<!--                            <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>-->
-                            <button class="btn btn-outline-primary btn-sm add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product-->
-                <div class="grid-item">
-                    <div class="product-card">
-                        <a class="product-thumb" href="#">
-                            <img style="height: 168px" src="<c:url value='/assets/img/shop/products/044.jpg'/>" alt="Product"></a>
-                        <h3 class="product-title"><a href="#">Something</a></h3>
-                        <h4 class="product-price">$90.00</h4>
-                        <div class="product-buttons">
-<!--                            <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>-->
-                            <button class="btn btn-outline-primary btn-sm add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product-->
-                <div class="grid-item">
-                    <div class="product-card">
-                        <a class="product-thumb" href="#">
-                            <img style="height: 168px" src="<c:url value='/assets/img/shop/products/055.jpg'/>" alt="Product"></a>
-                        <h3 class="product-title"><a href="#">Something</a></h3>
-                        <h4 class="product-price">$47.00</h4>
-                        <div class="product-buttons">
-<!--                            <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>-->
-                            <button class="btn btn-outline-primary btn-sm add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product-->
-                <div class="grid-item">
-                    <div class="product-card">
-                        <a class="product-thumb" href="#">
-                            <img style="height: 168px" src="<c:url value='/assets/img/shop/products/066.jpg'/>" alt="Product"></a>
-                        <h3 class="product-title"><a href="#">Something</a></h3>
-                        <h4 class="product-price">
-                            <del class="text-danger text-center" style="font-weight: 500; letter-spacing: .07em; text-transform: uppercase;">$99.99</del>$49.99
-                        </h4>
-                        <div class="product-buttons">
-<!--                            <button class="btn btn-outline-secondary btn-sm btn-wishlist" data-toggle="tooltip" title="Whishlist"><i class="icon-heart"></i></button>-->
-                            <button class="btn btn-outline-primary btn-sm add-to-cart-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Product Widgets-->
-        <section class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="widget widget-featured-products">
-                        <h3 class="widget-title">Top Sellers</h3>
-                        <!-- Entry-->
-                        <div class="entry">
-                            <div class="entry-thumb">
-                                <a href="#">
-                                    <img src="<c:url value='/assets/img/shop/widget/01.jpg'/>" alt="Product"></a>
-                            </div>
-                            <div class="entry-content">
-                                <h4 class="entry-title"><a href="#">Something</a></h4>
-                                <span class="entry-meta">$155.00</span>
-                            </div>
-                        </div>
-                        <!-- Entry-->
-                        <div class="entry">
-                            <div class="entry-thumb">
-                                <a href="#">
-                                    <img src="<c:url value='/assets/img/shop/widget/03.jpg'/>" alt="Product"></a>
-                            </div>
-                            <div class="entry-content">
-                                <h4 class="entry-title"><a href="#">Something</a></h4>
-                                <span class="entry-meta">$49.50</span>
-                            </div>
-                        </div>
-                        <!-- Entry-->
-                        <div class="entry">
-                            <div class="entry-thumb">
-                                <a href="#">
-                                    <img src="<c:url value='/assets/img/shop/widget/04.jpg'/>" alt="Product"></a>
-                            </div>
-                            <div class="entry-content">
-                                <h4 class="entry-title"><a href="#">Something</a></h4>
-                                <span class="entry-meta">$29.99</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="widget widget-featured-products">
-                        <h3 class="widget-title">New Arrivals</h3>
-                        <!-- Entry-->
-                        <div class="entry">
-                            <div class="entry-thumb">
-                                <a href="#">
-                                    <img src="<c:url value='/assets/img/shop/widget/05.jpg'/>" alt="Product"></a>
-                            </div>
-                            <div class="entry-content">
-                                <h4 class="entry-title"><a href="#">Something</a></h4>
-                                <span class="entry-meta">$49.99</span>
-                            </div>
-                        </div>
-                        <!-- Entry-->
-                        <div class="entry">
-                            <div class="entry-thumb">
-                                <a href="#">
-                                    <img src="<c:url value='/assets/img/shop/widget/06.jpg'/>" alt="Product"></a>
-                            </div>
-                            <div class="entry-content">
-                                <h4 class="entry-title"><a href="#">Something</a></h4>
-                                <span class="entry-meta">$200.00</span>
-                            </div>
-                        </div>
-                        <!-- Entry-->
-                        <div class="entry">
-                            <div class="entry-thumb">
-                                <a href="#">
-                                    <img src="<c:url value='/assets/img/shop/widget/07.jpg'/>" alt="Product"></a>
-                            </div>
-                            <div class="entry-content">
-                                <h4 class="entry-title"><a href="#">Something</a></h4>
-                                <span class="entry-meta">$145.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="widget widget-featured-products">
-                        <h3 class="widget-title">Best Rated</h3>
-                        <!-- Entry-->
-                        <div class="entry">
-                            <div class="entry-thumb">
-                                <a href="#">
-                                    <img src="<c:url value='/assets/img/shop/widget/08.jpg'/>" alt="Product"></a>
-                            </div>
-                            <div class="entry-content">
-                                <h4 class="entry-title"><a href="#">Something</a></h4>
-                                <span class="entry-meta">$65.00</span>
-                            </div>
-                        </div>
-                        <!-- Entry-->
-                        <div class="entry">
-                            <div class="entry-thumb">
-                                <a href="#">
-                                    <img src="<c:url value='/assets/img/shop/widget/09.jpg'/>" alt="Product"></a>
-                            </div>
-                            <div class="entry-content">
-                                <h4 class="entry-title"><a href="#">Something</a></h4>
-                                <span class="entry-meta">$36.99</span>
-                            </div>
-                        </div>
-                        <!-- Entry-->
-                        <div class="entry">
-                            <div class="entry-thumb">
-                                <a href="#">
-                                    <img src="<c:url value='/assets/img/shop/widget/10.jpg'/>" alt="Product"></a>
-                            </div>
-                            <div class="entry-content">
-                                <h4 class="entry-title"><a href="#">Something</a></h4>
-                                <span class="entry-meta">$128.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </section>
         <!-- Popular Brands-->

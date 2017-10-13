@@ -66,7 +66,7 @@
                                 <c:forEach var="bouquet" items="${bouquetList}">
                                     <div class="grid-item">
                                         <div class="product-card">
-                                            <a class="product-thumb" data-lightbox="set" data-title="Click the right half of the image to move forward." href="<c:url value='/originalImage/${bouquet.getId()}'/>"><img src="<c:url value='/compressedImage/${bouquet.getId()}'/>" alt="Product"></a>
+                                            <a class="product-thumb" data-lightbox="set" data-title="Click the right half of the image to move forward." href="<c:url value='/products/originalImage/${bouquet.getId()}'/>"><img src="<c:url value='/products/compressedImage/${bouquet.getId()}'/>" alt="Product"></a>
                                             <h3 class="product-title"><a href="shop-single.html">${bouquet.getName()}</a></h3>
                                             <h4 class="product-price">
                                                 <c:if test="${bouquet.getPriceAfterSale() != null}">

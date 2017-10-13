@@ -47,5 +47,15 @@ public class BouquetDaoImpl extends AbstractDao<Integer, Bouquet> implements Bou
         return (List<Bouquet>) crit.list();
     }
     
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Bouquet> findHomePageProduct() {
+        Criteria crit = createEntityCriteria();
+        crit.add(Restrictions.isNull("removedAt"));
+        crit.add(Restrictions.eq("published", true));
+        crit.add(Restrictions.eq("homePageProduct", true));
+        crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        return (List<Bouquet>) crit.list();
+    }
 
 }

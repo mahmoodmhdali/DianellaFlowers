@@ -21,8 +21,8 @@ public class UserCartServiceImpl implements UserCartService {
     UserCartDao userCartDao;
 
     @Override
-    public void addUserCart(UserCart userCart) throws Exception {
-        userCartDao.addUserCart(userCart);
+    public UserCart addUserCart(UserCart userCart) throws Exception {
+        return userCartDao.addUserCart(userCart);
     }
 
     @Override
@@ -39,5 +39,12 @@ public class UserCartServiceImpl implements UserCartService {
     public List<UserCart> findBySessionId(String sessionId) {
         return userCartDao.findBySessionId(sessionId);
     }
+
+    @Override
+    public double getCartTotal(String sessionId) {
+        return userCartDao.getCartTotal(sessionId);
+    }
+    
+    
 
 }

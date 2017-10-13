@@ -6,7 +6,6 @@
 package com.dianellaflowers.dao;
 
 import com.dianellaflowers.model.Bouquet;
-import com.dianellaflowers.model.Subscription;
 import com.dianellaflowers.model.UserCart;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -23,8 +22,9 @@ import org.springframework.stereotype.Repository;
 public class UserCartDaoImpl extends AbstractDao<Integer, UserCart> implements UserCartDao {
 
     @Override
-    public void addUserCart(UserCart userCart) throws Exception {
+    public UserCart addUserCart(UserCart userCart) throws Exception {
         persist(userCart);
+        return userCart;
     }
 
     @Override
@@ -54,4 +54,14 @@ public class UserCartDaoImpl extends AbstractDao<Integer, UserCart> implements U
         return userCartList;
     }
 
+    @Override
+    public double getCartTotal(String sessionId) {
+        List<UserCart> userCart = findBySessionId(sessionId);
+        Double price = 0.0;
+        for(UserCart cart:userCart){
+            price = price + Double.parseDouble(cart.getBouquetID().getPrice());
+        }
+        return Math.floor(price * 100) / 100;
+    }
+    
 }

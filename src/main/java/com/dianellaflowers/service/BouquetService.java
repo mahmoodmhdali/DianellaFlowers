@@ -12,4 +12,6 @@ public interface BouquetService {
 
     List<Bouquet> findByCategoryName(String category);
 
+    List<Bouquet> findHomePageProduct();
+
 }

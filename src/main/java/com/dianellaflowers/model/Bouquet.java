@@ -77,6 +77,10 @@ public class Bouquet implements Serializable {
     @NotNull
     @Column(name = "PUBLISHED")
     private boolean published;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "HOME_PAGE_PRODUCT")
+    private boolean homePageProduct;
     @JoinTable(name = "tbl_bouquet_color", inverseJoinColumns = {
         @JoinColumn(name = "COLOR_ID", referencedColumnName = "ID")}, joinColumns = {
         @JoinColumn(name = "BOUQUET_ID", referencedColumnName = "ID")})
@@ -98,7 +102,7 @@ public class Bouquet implements Serializable {
         this.id = id;
     }
 
-    public Bouquet(Integer id, String name, String price, String priceAfterSale, Date createdAt, Date removedAt, boolean published, UserProfile userProfileID, Category categoryID) {
+    public Bouquet(Integer id, String name, String price, String priceAfterSale, Date createdAt, Date removedAt, boolean published, boolean homePageProduct, UserProfile userProfileID, Category categoryID) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -106,6 +110,7 @@ public class Bouquet implements Serializable {
         this.createdAt = createdAt;
         this.removedAt = removedAt;
         this.published = published;
+        this.homePageProduct = homePageProduct;
         this.userProfileID = userProfileID;
         this.categoryID = categoryID;
     }
@@ -164,6 +169,14 @@ public class Bouquet implements Serializable {
 
     public void setPublished(boolean published) {
         this.published = published;
+    }
+
+    public boolean getHomePageProduct() {
+        return homePageProduct;
+    }
+
+    public void setHomePageProduct(boolean homePageProduct) {
+        this.homePageProduct = homePageProduct;
     }
 
     public Date getCreatedAt() {
