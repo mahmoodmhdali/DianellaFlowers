@@ -139,3 +139,10 @@
 .scroll-to-top-btn {
     background-color: #a8328c;
 }
+
+.indicators-line > .carousel-indicators{
+    right : 0;
+    left: 0;
+    width:100%;
+    margin-left: 0px;
+}

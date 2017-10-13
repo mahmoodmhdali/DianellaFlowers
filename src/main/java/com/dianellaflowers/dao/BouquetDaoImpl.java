@@ -28,25 +28,34 @@ public class BouquetDaoImpl extends AbstractDao<Integer, Bouquet> implements Bou
 
     @SuppressWarnings("unchecked")
     @Override
-    public List<Bouquet> findAll() {
+    public List<Bouquet> findAll(String orderBy, boolean desc) {
         Criteria crit = createEntityCriteria();
-        crit.addOrder(Order.asc("name"));
+        if (desc) {
+            crit.addOrder(Order.desc(orderBy));
+        } else {
+            crit.addOrder(Order.asc(orderBy));
+        }
         return (List<Bouquet>) crit.list();
     }
-    
+
     @SuppressWarnings("unchecked")
     @Override
-    public List<Bouquet> findByCategoryName(String category) {
+    public List<Bouquet> findByCategoryName(String category,String orderBy, boolean desc) {
         Criteria crit = createEntityCriteria();
         crit.add(Restrictions.isNull("removedAt"));
         crit.add(Restrictions.eq("published", true));
+        if (desc) {
+            crit.addOrder(Order.desc(orderBy));
+        } else {
+            crit.addOrder(Order.asc(orderBy));
+        }
         crit.createAlias("categoryID", "category");
         crit.add(Restrictions.eq("category.name", category));
         crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         crit.setFetchMode("categoryID", FetchMode.JOIN);
         return (List<Bouquet>) crit.list();
     }
-    
+
     @SuppressWarnings("unchecked")
     @Override
     public List<Bouquet> findHomePageProduct() {

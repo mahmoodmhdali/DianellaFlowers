@@ -20,13 +20,13 @@ public class BouquetServiceImpl implements BouquetService {
     BouquetDao bouquetDao;
 
     @Override
-    public List<Bouquet> findByCategoryName(String category) {
-        return bouquetDao.findByCategoryName(category);
+    public List<Bouquet> findByCategoryName(String category, String orderBy, boolean desc) {
+        return bouquetDao.findByCategoryName(category, orderBy, desc);
     }
 
     @Override
-    public List<Bouquet> findAll() {
-        return bouquetDao.findAll();
+    public List<Bouquet> findAll(String orderBy, boolean desc) {
+        return bouquetDao.findAll(orderBy, desc);
     }
 
     @Override

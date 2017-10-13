@@ -57,72 +57,8 @@
         </style>
     </head>
     <body>
-        <!-- Off-Canvas Category Menu-->
-        <!--        <div class="offcanvas-container" id="shop-categories">
-                    <div class="offcanvas-header">
-                        <h3 class="offcanvas-title">Shop Categories</h3>
-                    </div>
-                    <nav class="offcanvas-menu">
-                        <ul class="menu">
-                            <li class="has-children"><span><a href="#">Something</a><span class="sub-menu-toggle"></span></span>
-                                <ul class="offcanvas-submenu">
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-children"><span><a href="#">Something</a><span class="sub-menu-toggle"></span></span>
-                                <ul class="offcanvas-submenu">
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-children"><span><a href="#">Something</a><span class="sub-menu-toggle"></span></span>
-                                <ul class="offcanvas-submenu">
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-children"><span><a href="#">Something</a><span class="sub-menu-toggle"></span></span>
-                                <ul class="offcanvas-submenu">
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-children"><span><a href="#">Something</a><span class="sub-menu-toggle"></span></span>
-                                <ul class="offcanvas-submenu">
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>-->
         <!-- Off-Canvas Mobile Menu-->
         <div class="offcanvas-container" id="mobile-menu">
-            <!--        <a class="account-link" href="#">
-                <div class="user-ava">
-                    <img src="img/account/user-ava-md.jpg" alt="Daniel Adams">
-                </div>
-                <div class="user-info">
-                    <h6 class="user-name">Daniel Adams</h6>
-                    <span class="text-sm text-white opacity-60">290 Reward points</span>
-                </div>
-            </a>-->
-
             <nav class="offcanvas-menu">
                 <ul class="menu">
                     <li class="active homeLi"><a href="<c:url value='/'/>"><span>Home</span></a>
@@ -154,21 +90,16 @@
         <!-- Topbar-->
         <div class="topbar">
             <div class="topbar-column">
-                <a class="hidden-md-down" style="color: white" href="mailto:support@flowers.com"><i class="icon-mail"></i>&nbsp; support@flowers.com</a><a class="hidden-md-down" style="color: white" href="tel:0096170880252"><i class="icon-bell"></i>&nbsp; +961 70 880 252</a><a class="social-button sb-facebook shape-none" style="color: white" href="#" target="_blank"><i class="socicon-facebook"></i></a><a class="social-button sb-twitter shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-twitter"></i></a><a class="social-button sb-instagram shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-instagram"></i></a><a class="social-button sb-pinterest shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-pinterest"></i></a>
+                <a class="hidden-md-down" style="color: white" href="mailto:dianellaflowers@gmail.com"><i class="icon-mail"></i>&nbsp; dianellaflowers@gmail.com</a><a class="hidden-md-down" style="color: white" href="tel:0096170880252"><i class="fa fa-phone"></i>&nbsp; +961 70 880 252</a><a class="social-button sb-facebook shape-none" style="color: white" href="#" target="_blank"><i class="socicon-facebook"></i></a><a class="social-button sb-twitter shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-twitter"></i></a><a class="social-button sb-instagram shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-instagram"></i></a><a class="social-button sb-pinterest shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-pinterest"></i></a>
             </div>
         </div>
         <!-- Navbar-->
         <!-- Remove ".navbar-sticky" class to make navigation bar scrollable with the page.-->
         <header class="navbar navbar-sticky headerUpdate">
             <!-- Search-->
-            <!--        <form class="site-search" method="get">
-                        <input type="text" name="site_search" placeholder="Type to search...">
-                        <div class="search-tools"><span class="clear-search">Clear</span><span class="close-search"><i class="icon-cross"></i></span></div>
-                    </form>-->
             <div class="site-branding">
                 <div class="inner">
                     <!-- Off-Canvas Toggle (#shop-categories)-->
-                    <!--                    <a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a>-->
                     <!-- Off-Canvas Toggle (#mobile-menu)-->
                     <a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
                     <!-- Site Logo-->
@@ -208,26 +139,6 @@
             <div class="toolbar">
                 <div class="inner">
                     <div class="tools">
-                        <!--<div class="search"><i class="icon-search"></i></div>-->
-                        <!--<div class="account">
-                            <a href="#"></a><i class="icon-head"></i>
-                            <ul class="toolbar-dropdown">
-                                <li class="sub-menu-user">
-                                    <div class="user-ava">
-                                        <img src="img/account/user-ava-sm.jpg" alt="Daniel Adams">
-                                    </div>
-                                    <div class="user-info">
-                                        <h6 class="user-name">Daniel Adams</h6>
-                                        <span class="text-xs text-muted">290 Reward points</span>
-                                    </div>
-                                </li>
-                                <li><a href="#">My Profile</a></li>
-                                <li><a href="#">Orders List</a></li>
-                                <li><a href="#">Wishlist</a></li>
-                                <li class="sub-menu-separator"></li>
-                                <li><a href="#"><i class="icon-unlock"></i>Logout</a></li>
-                            </ul>
-                        </div>-->
                         <div class="cart cartDataDiv">
                             <a href="#"></a><i class="icon-bag"></i><span class="count countCart">${fn:length(userCartItems)}</span><span class="subtotal totalCart1">$${userCartTotalPrice}</span>
                                 <c:choose>
@@ -237,7 +148,7 @@
                                             <div class="dropdown-product-item" data-cart-id="${userCartItem.getId()}">
                                                 <span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="${userCartItem.getId()}"><i class="icon-cross"></i></span>
                                                 <a class="dropdown-product-thumb" href="#">
-                                                    <img src="<c:url value='/products/compressedImage/${userCartItem.getBouquetID().getId()}'/>" alt="Product">
+                                                    <img src="<c:url value='/products/cardImage/${userCartItem.getBouquetID().getId()}'/>" alt="Product">
                                                 </a>
                                                 <div class="dropdown-product-info"><a class="dropdown-product-title" href="#">${userCartItem.getBouquetID().getName()}</a><span class="dropdown-product-details">$${userCartItem.getBouquetID().getPrice()}</span></div>
                                             </div>
@@ -284,16 +195,10 @@
                                     <li><span class="opacity-50">Monday-Friday:</span>9.00 am - 8.00 pm</li>
                                     <li><span class="opacity-50">Saturday:</span>10.00 am - 6.00 pm</li>
                                 </ul>
-                                <p><a class="navi-link-light" href="mailto:support@flowers.com">support@flowers.com</a></p>
+                                <p><a class="navi-link-light" href="mailto:dianellaflowers@gmail.com">dianellaflowers@gmail.com</a></p>
                                 <a class="social-button shape-circle sb-facebook sb-light-skin" href="#"><i class="socicon-facebook"></i></a><a class="social-button shape-circle sb-twitter sb-light-skin" href="#"><i class="socicon-twitter"></i></a><a class="social-button shape-circle sb-instagram sb-light-skin" href="#"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus sb-light-skin" href="#"><i class="socicon-googleplus"></i></a>
                             </section>
                         </div>
-                        <!--                    <div class="col-lg-3 col-md-6">
-                            <section class="widget widget-light-skin">
-                                <h3 class="widget-title">Our Mobile App</h3>
-                                <a class="market-button apple-button mb-light-skin" href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">App Store</span></a><a class="market-button google-button mb-light-skin" href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">Google Play</span></a><a class="market-button windows-button mb-light-skin" href="#"><span class="mb-subtitle">Download on the</span><span class="mb-title">Windows Store</span></a>
-                            </section>
-                        </div>-->
                         <div class="col-lg-4 col-md-6">
                             <!-- About Us-->
                             <section class="widget widget-links widget-light-skin">
@@ -372,6 +277,9 @@
         <jsp:invoke fragment="js"/>
         <script>
             $('document').ready(function () {
+
+                $('.carousel-indicators').addClass('text-center');
+
                 var URLPath = window.location.pathname.toLowerCase();
                 if (URLPath.indexOf('aboutus') >= 0) {
                     $('.aboutUsLi').addClass('active');
@@ -444,7 +352,7 @@
                                 $('.cartDataDiv').append('<div class="toolbar-dropdown cartData"><div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("-")[0] + '">\n\
                                                         <span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("-")[0] + '">\n\
                                                         <i class="icon-cross"></i></span>\n\
-                                                        <a class="dropdown-product-thumb" href="#"><img src="<c:url value='/products/compressedImage/'/> ' + bouquetData.id + '" alt="Product">\n\
+                                                        <a class="dropdown-product-thumb" href="#"><img src="<c:url value='/products/cardImage/'/> ' + bouquetData.id + '" alt="Product">\n\
                                                         </a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a>\n\
                                                         <span class="dropdown-product-details">$' + bouquetData.price + '</span></div></div>\n\
                                                         <div class="toolbar-dropdown-group">\n\
@@ -458,7 +366,7 @@
                                                         </div>');
                             } else {
                                 $('.totalCart').html('$' + (data.statusMessage).split("-")[1]);
-                                $('.cartData').prepend('<div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("-")[0] + '"><span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("-")[0] + '"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="<c:url value='/products/compressedImage/'/> ' + bouquetData.id + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details">$' + bouquetData.price + '</span></div></div>');
+                                $('.cartData').prepend('<div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("-")[0] + '"><span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("-")[0] + '"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="<c:url value='/products/cardImage/'/> ' + bouquetData.id + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details">$' + bouquetData.price + '</span></div></div>');
                             }
                         },
                         error: function (error) {

@@ -17,6 +17,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -34,9 +35,23 @@ public class BouquetController extends AbstractController {
     ServletContext context;
 
     @GetMapping("/{category}")
-    public String products(ModelMap model, @PathVariable String category) {
-        List<Bouquet> bouquetList = bouquetService.findByCategoryName(category);
+    public String products(ModelMap model, @PathVariable String category, @RequestParam(value = "orderBy", required = false) String orderBy) {
+        boolean desc = false;
+        model.addAttribute("order", orderBy);
+        if (orderBy == null || orderBy.equals("1")) {
+            orderBy = "name";
+        } else if (orderBy.equals("2")) {
+            orderBy = "name";
+            desc = true;
+        } else if (orderBy.equals("3")) {
+            orderBy = "price";
+        } else if (orderBy.equals("4")) {
+            orderBy = "price";
+            desc = true;
+        }
+        List<Bouquet> bouquetList = bouquetService.findByCategoryName(category, orderBy, desc);
         model.addAttribute("bouquetList", bouquetList);
+        model.addAttribute("category", category);
         return "products";
     }
 
@@ -53,6 +68,14 @@ public class BouquetController extends AbstractController {
     public byte[] readcompressedImage(@PathVariable Integer id) {
         Bouquet bouquet = bouquetService.findById(id);
         byte[] photo = Utilities.getFileAsBytes(context.getRealPath(bouquet.getCompressedImagePath()));
+        return photo;
+    }
+
+    @GetMapping(value = "/cardImage/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    @ResponseBody
+    public byte[] readcardImage(@PathVariable Integer id) {
+        Bouquet bouquet = bouquetService.findById(id);
+        byte[] photo = Utilities.getFileAsBytes(context.getRealPath(bouquet.getCartImagePath()));
         return photo;
     }
 

@@ -55,7 +55,6 @@ public class CartController extends AbstractController {
     @PostMapping("/remove")
     @ResponseBody
     public ResponseEntity<GenericResponse> removeFromCart(@RequestParam("id") Integer userCartId) throws Exception {
-        Bouquet bouquet = userCartService.removeUserCart(userCartId, RequestContextHolder.currentRequestAttributes().getSessionId());
         String totalPrice = Double.toString(userCartService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()));
         return new ResponseEntity<GenericResponse>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Success", totalPrice), HttpStatus.OK);
     }

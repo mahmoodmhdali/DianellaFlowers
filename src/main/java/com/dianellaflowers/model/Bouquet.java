@@ -59,14 +59,17 @@ public class Bouquet implements Serializable {
     @Column(name = "PRICE")
     private String price;
     @Basic(optional = false)
-    @Column(name = "PRICE_AFTER_SALE")
-    private String priceAfterSale;
+    @Column(name = "OLD_PRICE")
+    private String oldPrice;
     @Basic(optional = false)
     @Column(name = "ORIGINAL_IMAGE_PATH")
     private String originalImagePath;
     @Basic(optional = false)
     @Column(name = "COMPRESSED_IMAGE_PATH")
     private String compressedImagePath;
+    @Basic(optional = false)
+    @Column(name = "CART_IMAGE_PATH")
+    private String cartImagePath;
     @Column(name = "CREATED_AT")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
@@ -102,11 +105,11 @@ public class Bouquet implements Serializable {
         this.id = id;
     }
 
-    public Bouquet(Integer id, String name, String price, String priceAfterSale, Date createdAt, Date removedAt, boolean published, boolean homePageProduct, UserProfile userProfileID, Category categoryID) {
+    public Bouquet(Integer id, String name, String price, String oldPrice, Date createdAt, Date removedAt, boolean published, boolean homePageProduct, UserProfile userProfileID, Category categoryID) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.priceAfterSale = priceAfterSale;
+        this.oldPrice = oldPrice;
         this.createdAt = createdAt;
         this.removedAt = removedAt;
         this.published = published;
@@ -139,12 +142,12 @@ public class Bouquet implements Serializable {
         this.price = price;
     }
 
-    public String getPriceAfterSale() {
-        return priceAfterSale;
+    public String getOldPrice() {
+        return oldPrice;
     }
 
-    public void setPriceAfterSale(String priceAfterSale) {
-        this.priceAfterSale = priceAfterSale;
+    public void setOldPrice(String oldPrice) {
+        this.oldPrice = oldPrice;
     }
 
     public String getOriginalImage() {
@@ -161,6 +164,14 @@ public class Bouquet implements Serializable {
 
     public void setCompressedImagePath(String compressedImagePath) {
         this.compressedImagePath = compressedImagePath;
+    }
+
+    public String getCartImagePath() {
+        return cartImagePath;
+    }
+
+    public void setCartImagePath(String cartImagePath) {
+        this.cartImagePath = cartImagePath;
     }
 
     public boolean getPublished() {
@@ -256,7 +267,7 @@ public class Bouquet implements Serializable {
         return "{\"id\" : \"" + id + "\","
                 + "\"name\" : \"" + name + "\","
                 + "\"price\" : \"" + price + "\","
-                + "\"priceAfterSale\" : \"" + priceAfterSale + "\","
+                + "\"oldPrice\" : \"" + oldPrice + "\","
                 + "\"originalImagePath\" : \"" + originalImagePath + "\","
                 + "\"compressedImagePath\" : \"" + compressedImagePath + "\"}";
     }

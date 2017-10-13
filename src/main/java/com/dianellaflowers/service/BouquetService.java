@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface BouquetService {
 
-    List<Bouquet> findAll();
+    List<Bouquet> findAll(String orderBy, boolean desc);
 
     Bouquet findById(int id);
 
-    List<Bouquet> findByCategoryName(String category);
+    List<Bouquet> findByCategoryName(String category, String orderBy, boolean desc);
 
     List<Bouquet> findHomePageProduct();
 

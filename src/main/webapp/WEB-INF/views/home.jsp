@@ -148,7 +148,6 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center"><a class="btn btn-outline-secondary margin-top-none" href="#">All Categories</a></div>
         </section>
         <!-- Promo #1-->
         <section class="container-fluid padding-top-1x">
@@ -217,12 +216,10 @@
                                     <a class="product-thumb" data-lightbox="set" data-title="Click the right half of the image to move forward." href="<c:url value='/products/originalImage/${bouquet.getId()}'/>"><img src="<c:url value='/products/compressedImage/${bouquet.getId()}'/>" alt="Product"></a>
                                     <h3 class="product-title"><a href="shop-single.html">${bouquet.getName()}</a></h3>
                                     <h4 class="product-price">
-                                        <c:if test="${bouquet.getPriceAfterSale() != null}">
-                                            <del class="text-danger text-center" style="font-weight: 500; letter-spacing: .07em; text-transform: uppercase;">$${bouquet.getPrice()}</del>$${bouquet.getPriceAfterSale()}
+                                        <c:if test="${bouquet.getOldPrice() != null}">
+                                            <del class="text-danger text-center" style="font-weight: 500; letter-spacing: .07em; text-transform: uppercase;">$${bouquet.getOldPrice()}</del>
                                         </c:if>
-                                        <c:if test="${bouquet.getPriceAfterSale() == null}">
-                                            $${bouquet.getPrice()}
-                                        </c:if>
+                                        $${bouquet.getPrice()}
                                     </h4>
                                     <div class="product-buttons">
                                         <button class="btn btn-outline-primary btn-sm add-to-cart-btn" data-bouquet-id="${bouquet.getId()}">Add to Cart</button>
