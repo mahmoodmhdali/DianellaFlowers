@@ -35,8 +35,9 @@
         <link href="<c:url value='/assets/css/bootstrap-touch-slider.css'/>" rel="stylesheet" />
         <!-- Custom Updates-->
         <link href="<c:url value='/assets/css/CustomUpdated.css'/>" rel="stylesheet" />
-        <!-- LightBox-->
-        <link href="<c:url value='/assets/lightbox2/css/lightbox.css'/>" rel="stylesheet" />
+        <!-- Blueimp-->
+        <link href="<c:url value='/assets/blueimp/css/blueimp-gallery.css'/>" rel="stylesheet" />
+        <link href="<c:url value='/assets/blueimp/css/blueimp-gallery-indicator.css'/>" rel="stylesheet" />
         <jsp:invoke fragment="css"/>
         <style>
             .successStyle{
@@ -90,7 +91,7 @@
         <!-- Topbar-->
         <div class="topbar">
             <div class="topbar-column">
-                <a class="hidden-md-down" style="color: white" href="mailto:dianellaflowers@gmail.com"><i class="icon-mail"></i>&nbsp; dianellaflowers@gmail.com</a><a class="hidden-md-down" style="color: white" href="tel:0096170880252"><i class="fa fa-phone"></i>&nbsp; +961 70 880 252</a><a class="social-button sb-facebook shape-none" style="color: white" href="#" target="_blank"><i class="socicon-facebook"></i></a><a class="social-button sb-twitter shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-twitter"></i></a><a class="social-button sb-instagram shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-instagram"></i></a><a class="social-button sb-pinterest shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-pinterest"></i></a>
+                <a class="hidden-md-down" style="color: white" href="mailto:dianellaflowers@gmail.com"><i class="icon-mail"></i>&nbsp; dianellaflowers@gmail.com</a><a class="hidden-md-down" style="color: white" href="tel:0096170863636"><i class="fa fa-phone"></i>&nbsp; +961 70 863 636</a><a class="social-button sb-facebook shape-none" style="color: white" href="#" target="_blank"><i class="socicon-facebook"></i></a><a class="social-button sb-twitter shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-twitter"></i></a><a class="social-button sb-instagram shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-instagram"></i></a><a class="social-button sb-pinterest shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-pinterest"></i></a>
             </div>
         </div>
         <!-- Navbar-->
@@ -140,7 +141,7 @@
                 <div class="inner">
                     <div class="tools">
                         <div class="cart cartDataDiv">
-                            <a href="#"></a><i class="icon-bag"></i><span class="count countCart">${fn:length(userCartItems)}</span><span class="subtotal totalCart1">$${userCartTotalPrice}</span>
+                            <a href="<c:url value='/cart'/>"></a><i class="icon-bag"></i><span class="count countCart">${fn:length(userCartItems)}</span><span class="subtotal totalCart1">$${userCartTotalPrice}</span>
                                 <c:choose>
                                     <c:when test="${fn:length(userCartItems) > 0}">
                                     <div class="toolbar-dropdown cartData">
@@ -190,7 +191,7 @@
                             <!-- Contact Info-->
                             <section class="widget widget-light-skin">
                                 <h3 class="widget-title">Get In Touch With Us</h3>
-                                <p class="text-white">Phone: (961) 70 880 252</p>
+                                <p class="text-white">Phone: (961) 70 863 636</p>
                                 <ul class="list-unstyled text-sm text-white">
                                     <li><span class="opacity-50">Monday-Friday:</span>9.00 am - 8.00 pm</li>
                                     <li><span class="opacity-50">Saturday:</span>10.00 am - 6.00 pm</li>
@@ -272,8 +273,12 @@
         <!-- Customizer scripts-->
         <script src="<c:url value='/assets/customizer/customizer.js'/>"></script>
         <script src="<c:url value='/assets/js/custom.js'/>"></script>
-        <!-- LightBox-->
-        <script src="<c:url value='/assets/lightbox2/js/lightbox.js'/>"></script>
+        <!-- blueimp -->
+        <script src="<c:url value='/assets/blueimp/js/blueimp-helper.js'/>"></script>
+        <script src="<c:url value='/assets/blueimp/js/blueimp-gallery.js'/>"></script>
+        <script src="<c:url value='/assets/blueimp/js/blueimp-gallery-fullscreen.js'/>"></script>
+        <script src="<c:url value='/assets/blueimp/js/blueimp-gallery-indicator.js'/>"></script>
+        <script src="<c:url value='/assets/blueimp/js/jquery.blueimp-gallery.js'/>"></script>
         <jsp:invoke fragment="js"/>
         <script>
             $('document').ready(function () {
@@ -417,6 +422,17 @@
                             currentBtn.unLockBtn();
                         }
                     });
+                });
+
+                $('#blueimp-gallery').on('open', function () {
+                    $('.topbar').addClass('zIndexZero');
+                    $('.navbar').addClass('zIndexZero');
+                    $('.scroll-to-top-btn').addClass('zIndexZero');
+                });
+                $('#blueimp-gallery').on('closed', function () {
+                    $('.topbar').removeClass('zIndexZero');
+                    $('.navbar').removeClass('zIndexZero');
+                    $('.scroll-to-top-btn').removeClass('zIndexZero');
                 });
 
             });

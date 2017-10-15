@@ -19,6 +19,10 @@
     background-color: #a8328c;
 }
 
+.zIndexZero{
+    z-index: 0 !important;
+}
+
 .headerUpdate {
     border-top: 0;
     border-bottom: 0;
@@ -146,3 +150,5 @@
     width:100%;
     margin-left: 0px;
 }
+
+

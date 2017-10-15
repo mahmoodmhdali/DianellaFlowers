@@ -57,7 +57,9 @@
                                 <c:forEach var="bouquet" items="${bouquetList}">
                                     <div class="grid-item">
                                         <div class="product-card">
-                                            <a class="product-thumb" data-lightbox="set" data-title="Click the right half of the image to move forward." href="<c:url value='/products/originalImage/${bouquet.getId()}'/>"><img src="<c:url value='/products/compressedImage/${bouquet.getId()}'/>" alt="Product"></a>
+                                            <a class="product-thumb" title="${bouquet.getName()}" data-gallery="" href="<c:url value='/products/originalImage/${bouquet.getId()}'/>">
+                                                <img src="<c:url value='/products/compressedImage/${bouquet.getId()}'/>" alt="${bouquet.getName()}">
+                                            </a>
                                             <h3 class="product-title"><a href="shop-single.html">${bouquet.getName()}</a></h3>
                                             <h4 class="product-price">
                                                 <c:if test="${bouquet.getOldPrice() != null}">
@@ -71,6 +73,16 @@
                                         </div>
                                     </div>
                                 </c:forEach>
+                                <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+                                <div id="blueimp-gallery" class="blueimp-gallery">
+                                    <div class="slides"></div>
+                                    <h3 class="title"></h3>
+                                    <a class="prev">‹</a>
+                                    <a class="next">›</a>
+                                    <a class="close">×</a>
+                                    <a class="play-pause"></a>
+                                    <ol class="indicator"></ol>
+                                </div>
                             </c:when>
                             <c:otherwise>
                                 <div class="no-campaigns-div"> 

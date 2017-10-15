@@ -207,13 +207,15 @@
         <!-- Featured Products Carousel-->
         <section class="container padding-top-1x padding-bottom-1x">
             <h3 class="text-center mb-30">Featured Products</h3>
-            <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
+            <div class="owl-carousel links" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: true, &quot;margin&quot;: 30, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;576&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;991&quot;:{&quot;items&quot;:4},&quot;1200&quot;:{&quot;items&quot;:4}} }">
                 <c:choose>
                     <c:when test="${fn:length(homeProducts) > 0}">
                         <c:forEach var="bouquet" items="${homeProducts}">
                             <div class="grid-item">
                                 <div class="product-card">
-                                    <a class="product-thumb" data-lightbox="set" data-title="Click the right half of the image to move forward." href="<c:url value='/products/originalImage/${bouquet.getId()}'/>"><img src="<c:url value='/products/compressedImage/${bouquet.getId()}'/>" alt="Product"></a>
+                                    <a class="product-thumb" title="${bouquet.getName()}" data-gallery="featured" href="<c:url value='/products/originalImage/${bouquet.getId()}'/>">
+                                        <img src="<c:url value='/products/compressedImage/${bouquet.getId()}'/>" alt="${bouquet.getName()}">
+                                    </a>
                                     <h3 class="product-title"><a href="shop-single.html">${bouquet.getName()}</a></h3>
                                     <h4 class="product-price">
                                         <c:if test="${bouquet.getOldPrice() != null}">
@@ -238,6 +240,16 @@
                 </c:choose>
             </div>
         </section>
+        <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+        <div id="blueimp-gallery" class="blueimp-gallery">
+            <div class="slides"></div>
+            <h3 class="title"></h3>
+            <a class="prev">‹</a>
+            <a class="next">›</a>
+            <a class="close">×</a>
+            <a class="play-pause"></a>
+            <ol class="indicator"></ol>
+        </div>
         <!-- Popular Brands-->
         <section class="bg-faded padding-top-2x padding-bottom-2x">
             <div class="container">
