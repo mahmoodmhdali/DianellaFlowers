@@ -96,69 +96,58 @@
                 .replace(/\f/g, "\\f");
         return JSON.parse(returnedData);
     }
-    
-    
-$.notify = function (type, title, message,position) {
-    var icon = 'check';
-    if(type == 'danger'){
-        icon = 'cross';
+
+
+    $.notify = function (type, title, message, position) {
+        var icon = 'check';
+        if (type == 'danger') {
+            icon = 'cross';
+        }
+        iziToast.show({
+            title: title,
+            class: 'iziToast-' + type, //iziToast-warning     iziToast-danger       iziToast-success
+            //titleColor: 'black',
+            //titleSize: '',
+            message: message,
+            //messageColor: 'black',
+            //messageSize: '',
+            //backgroundColor: '',
+            icon: 'icon-circle-' + icon,
+            //iconText: '',
+            //iconColor: '',
+            //image: '',
+            //imageWidth: 50,
+            maxWidth: null,
+            zindex: null,
+            layout: 1,
+            //balloon: false,
+            close: true,
+            rtl: false,
+            position: position, // bottomRight, bottomLeft, , topLeft, topCenter, bottomCenter, center
+            //target: '',
+            targetFirst: true,
+            toastOnce: false,
+            timeout: 5000,
+            drag: true,
+            pauseOnHover: true,
+            resetOnHover: false,
+            progressBar: true,
+            progressBarColor: '#ca70b4',
+            animateInside: true,
+            buttons: {},
+            transitionIn: 'fadeInUp',
+            transitionOut: 'fadeOut',
+            transitionInMobile: 'fadeInUp',
+            transitionOutMobile: 'fadeOutDown',
+            onOpening: function () {},
+            onOpened: function () {},
+            onClosing: function () {},
+            onClosed: function () {}
+        });
     }
-    iziToast.show({
-        title: title,
-        class: 'iziToast-' + type, //iziToast-warning     iziToast-danger       iziToast-success
-        //titleColor: 'black',
-        //titleSize: '',
-        message: message,
-        //messageColor: 'black',
-        //messageSize: '',
-        //backgroundColor: '',
-        icon: 'icon-circle-' + icon,
-        //iconText: '',
-        //iconColor: '',
-        //image: '',
-        //imageWidth: 50,
-        maxWidth: null,
-        zindex: null,
-        layout: 1,
-        //balloon: false,
-        close: true,
-        rtl: false,
-        position: position, // bottomRight, bottomLeft, , topLeft, topCenter, bottomCenter, center
-        //target: '',
-        targetFirst: true,
-        toastOnce: false,
-        timeout: 5000,
-        drag: true,
-        pauseOnHover: true,
-        resetOnHover: false,
-        progressBar: true,
-        progressBarColor: '#ca70b4',
-        animateInside: true,
-        buttons: {},
-        transitionIn: 'fadeInUp',
-        transitionOut: 'fadeOut',
-        transitionInMobile: 'fadeInUp',
-        transitionOutMobile: 'fadeOutDown',
-        onOpening: function () {},
-        onOpened: function () {},
-        onClosing: function () {},
-        onClosed: function () {}
-    });
-}
 
 })(jQuery);
 
 $(document).ready(function () {
-
-//    $(document).ajaxSend(function () {
-//        $('.parsley-error').removeClass('parsley-error');
-//        $('.validationSpanError').remove();
-//        $('.parsley-required').remove();
-//    });
-
-//    $("form").on('submit', function (e) {
-//        $('.parsley-error').removeClass('parsley-error');
-//        $('.validationSpanError').remove();
-//    });
 
 });

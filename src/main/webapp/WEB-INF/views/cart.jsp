@@ -44,91 +44,60 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <div class="product-item"><a class="product-thumb" href="#"><img src="<c:url value='/assets/img/shop/cart/01.jpg'/>" alt="Product"></a>
-                                    <div class="product-info">
-                                        <h4 class="product-title"><a href="#">Something</a></h4>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="count-input">
-                                    <select class="form-control">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td class="text-center text-lg text-medium">$43.90</td>
-                            <td class="text-center text-lg text-medium">$18.00</td>
-                            <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="Remove item"><i class="icon-cross"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="product-item"><a class="product-thumb" href="#"><img src="<c:url value='/assets/img/shop/cart/02.jpg'/>" alt="Product"></a>
-                                    <div class="product-info">
-                                        <h4 class="product-title"><a href="#">Something</a></h4>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="count-input">
-                                    <select class="form-control">
-                                        <option>1</option>
-                                        <option selected>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td class="text-center text-lg text-medium">$24.89</td>
-                            <td class="text-center">&mdash;</td>
-                            <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="Remove item"><i class="icon-cross"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="product-item"><a class="product-thumb" href="#"><img src="<c:url value='/assets/img/shop/cart/03.jpg'/>" alt="Product"></a>
-                                    <div class="product-info">
-                                        <h4 class="product-title"><a href="#">Something</a></h4>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">
-                                <div class="count-input">
-                                    <select class="form-control">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td class="text-center text-lg text-medium">$200.00</td>
-                            <td class="text-center">&mdash;</td>
-                            <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="Remove item"><i class="icon-cross"></i></a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="shopping-cart-footer">
-                <div class="column">
-                    <form class="coupon-form" method="post">
-                        <input class="form-control form-control-sm" type="text" placeholder="Cart Text" required>
-                        <button class="btn btn-outline-primary btn-sm" type="submit">Apply Text</button>
-                    </form>
-                </div>
-                <div class="column text-lg">Subtotal: <span class="text-medium">$289.68</span></div>
-            </div>
-            <div class="shopping-cart-footer">
-                <div class="column"><a class="btn btn-outline-secondary" href="shop-grid-ls.html"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
-                <div class="column"><a class="btn btn-primary" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Your cart" data-toast-message="is updated successfully!">Update Cart</a><a class="btn btn-success" href="checkout-address.html">Checkout</a></div>
-            </div>
+                        <c:choose>
+                            <c:when test="${fn:length(userCartItems) > 0}">
+                                <c:forEach var="userCartItem" items="${userCartItems}">
+                                    <tr data-cart-id="${userCartItem.getId()}">
+                                        <td>
+                                            <div class="product-item"><a class="product-thumb" href="#"><img src="<c:url value='${bouquet.getCompressedImagePath()}'/>" alt="Product"></a>
+                                                <div class="product-info">
+                                                    <h4 class="product-title"><a href="#">${userCartItem.getBouquetID().getName()}</a></h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="count-input">
+                                                <select class="form-control">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td class="text-center text-lg text-medium">$${userCartItem.getBouquetID().getPrice()}</td>
+                                        <td class="text-center text-lg text-medium">$18.00</td>
+                                        <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="Remove item" data-cart-id="${userCartItem.getId()}"><i class="icon-cross"></i></a></td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="shopping-cart-footer">
+                        <div class="column">
+                            <form class="coupon-form" method="post">
+                                <input class="form-control form-control-sm" type="text" placeholder="Cart Text" required>
+                                <button class="btn btn-outline-primary btn-sm" type="submit">Apply Text</button>
+                            </form>
+                        </div>
+                        <div class="column text-lg">Subtotal: <span class="text-medium">$${userCartTotalPrice}</span></div>
+                    </div>
+                    <div class="shopping-cart-footer">
+                        <div class="column"><a class="btn btn-outline-secondary" href="shop-grid-ls.html"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
+                        <div class="column"><a class="btn btn-primary" href="#" data-toast data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Your cart" data-toast-message="is updated successfully!">Update Cart</a><a class="btn btn-success" href="checkout-address.html">Checkout</a></div>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <th colspan="5" class="text-center text-lg">
+                        <br>
+                        Cart is Empty
+                    </th>
+                </tbody>
+            </table>
+        </div>
+    </c:otherwise>
+</c:choose>
 <!--             Related Products Carousel
             <h3 class="text-center padding-top-2x mt-2 padding-bottom-1x">You May Also Like</h3>
              Carousel
@@ -210,15 +179,8 @@
                     </div>
                 </div>
             </div>-->
-        </div>
-    </jsp:attribute>
-
-    <jsp:attribute name="js">
-        <script>
-            $(document).ready(function () {
-                $.notify('success', 'Success', 'response.statusMessage','topRight');
-            });
-        </script>
-
-    </jsp:attribute>
+</div>
+</jsp:attribute>
+<jsp:attribute name="js">
+</jsp:attribute>
 </t:master>
