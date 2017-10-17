@@ -84,6 +84,7 @@ public class SpringConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
+        registry.addResourceHandler("/images/LowProductImages/**").addResourceLocations("/images/LowProductImages/");
     }
 
     /**

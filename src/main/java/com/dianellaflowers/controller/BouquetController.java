@@ -71,12 +71,4 @@ public class BouquetController extends AbstractController {
         return photo;
     }
 
-    @GetMapping(value = "/cardImage/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-    @ResponseBody
-    public byte[] readcardImage(@PathVariable Integer id) {
-        Bouquet bouquet = bouquetService.findById(id);
-        byte[] photo = Utilities.getFileAsBytes(context.getRealPath(bouquet.getCartImagePath()));
-        return photo;
-    }
-
 }

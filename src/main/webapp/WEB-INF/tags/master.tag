@@ -149,7 +149,7 @@
                                             <div class="dropdown-product-item" data-cart-id="${userCartItem.getId()}">
                                                 <span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="${userCartItem.getId()}"><i class="icon-cross"></i></span>
                                                 <a class="dropdown-product-thumb" href="#">
-                                                    <img src="<c:url value='/products/cardImage/${userCartItem.getBouquetID().getId()}'/>" alt="Product">
+                                                    <img src="<c:url value='${userCartItem.getBouquetID().getCompressedImagePath()}'/>" alt="${userCartItem.getBouquetID().getName()}">
                                                 </a>
                                                 <div class="dropdown-product-info"><a class="dropdown-product-title" href="#">${userCartItem.getBouquetID().getName()}</a><span class="dropdown-product-details">$${userCartItem.getBouquetID().getPrice()}</span></div>
                                             </div>
@@ -357,7 +357,7 @@
                                 $('.cartDataDiv').append('<div class="toolbar-dropdown cartData"><div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("-")[0] + '">\n\
                                                         <span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("-")[0] + '">\n\
                                                         <i class="icon-cross"></i></span>\n\
-                                                        <a class="dropdown-product-thumb" href="#"><img src="<c:url value='/products/cardImage/'/> ' + bouquetData.id + '" alt="Product">\n\
+                                                        <a class="dropdown-product-thumb" href="#"><img src="<c:url value='/'/>' + bouquetData.compressedImagePath + '" alt="' + bouquetData.name + '">\n\
                                                         </a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a>\n\
                                                         <span class="dropdown-product-details">$' + bouquetData.price + '</span></div></div>\n\
                                                         <div class="toolbar-dropdown-group">\n\
@@ -371,7 +371,7 @@
                                                         </div>');
                             } else {
                                 $('.totalCart').html('$' + (data.statusMessage).split("-")[1]);
-                                $('.cartData').prepend('<div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("-")[0] + '"><span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("-")[0] + '"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="<c:url value='/products/cardImage/'/> ' + bouquetData.id + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details">$' + bouquetData.price + '</span></div></div>');
+                                $('.cartData').prepend('<div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("-")[0] + '"><span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("-")[0] + '"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="<c:url value='/'/>' + bouquetData.compressedImagePath + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details">$' + bouquetData.price + '</span></div></div>');
                             }
                         },
                         error: function (error) {

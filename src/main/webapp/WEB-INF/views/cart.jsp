@@ -49,7 +49,7 @@
                                 <c:forEach var="userCartItem" items="${userCartItems}">
                                     <tr data-cart-id="${userCartItem.getId()}">
                                         <td>
-                                            <div class="product-item"><a class="product-thumb" href="#"><img src="<c:url value='${bouquet.getCompressedImagePath()}'/>" alt="Product"></a>
+                                            <div class="product-item"><a class="product-thumb" href="#"><img src="<c:url value='${userCartItem.getBouquetID().getCompressedImagePath()}'/>" alt="${userCartItem.getBouquetID().getName()}"></a>
                                                 <div class="product-info">
                                                     <h4 class="product-title"><a href="#">${userCartItem.getBouquetID().getName()}</a></h4>
                                                 </div>
@@ -67,7 +67,7 @@
                                             </div>
                                         </td>
                                         <td class="text-center text-lg text-medium">$${userCartItem.getBouquetID().getPrice()}</td>
-                                        <td class="text-center text-lg text-medium">$18.00</td>
+                                        <td class="text-center text-lg text-medium">$</td>
                                         <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="Remove item" data-cart-id="${userCartItem.getId()}"><i class="icon-cross"></i></a></td>
                                     </tr>
                                 </c:forEach>

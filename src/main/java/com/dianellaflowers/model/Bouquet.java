@@ -67,9 +67,6 @@ public class Bouquet implements Serializable {
     @Basic(optional = false)
     @Column(name = "COMPRESSED_IMAGE_PATH")
     private String compressedImagePath;
-    @Basic(optional = false)
-    @Column(name = "CART_IMAGE_PATH")
-    private String cartImagePath;
     @Column(name = "CREATED_AT")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
@@ -164,14 +161,6 @@ public class Bouquet implements Serializable {
 
     public void setCompressedImagePath(String compressedImagePath) {
         this.compressedImagePath = compressedImagePath;
-    }
-
-    public String getCartImagePath() {
-        return cartImagePath;
-    }
-
-    public void setCartImagePath(String cartImagePath) {
-        this.cartImagePath = cartImagePath;
     }
 
     public boolean getPublished() {

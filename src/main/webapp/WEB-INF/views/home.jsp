@@ -213,8 +213,8 @@
                         <c:forEach var="bouquet" items="${homeProducts}">
                             <div class="grid-item">
                                 <div class="product-card">
-                                    <a class="product-thumb" title="${bouquet.getName()}" data-gallery="featured" href="<c:url value='/products/originalImage/${bouquet.getId()}'/>">
-                                        <img src="<c:url value='/products/compressedImage/${bouquet.getId()}'/>" alt="${bouquet.getName()}">
+                                    <a class="product-thumb" title="${bouquet.getName()}" data-gallery="featured" href="<c:url value='${bouquet.getOriginalImage()}'/>">
+                                        <img src="<c:url value='${bouquet.getCompressedImagePath()}'/>" alt="${bouquet.getName()}">
                                     </a>
                                     <h3 class="product-title"><a href="shop-single.html">${bouquet.getName()}</a></h3>
                                     <h4 class="product-price">
