@@ -6,12 +6,20 @@
 package com.dianellaflowers.service;
 
 import com.dianellaflowers.dao.UserCartDao;
+import com.dianellaflowers.enumeration.ResponseMessageType;
+import com.dianellaflowers.enumeration.ResponseStatus;
 import com.dianellaflowers.model.Bouquet;
 import com.dianellaflowers.model.UserCart;
+import com.dianellaflowers.response.GenericResponse;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.context.request.RequestContextHolder;
 
 @Transactional
 @Service("userCartService")
@@ -22,12 +30,23 @@ public class UserCartServiceImpl implements UserCartService {
 
     @Override
     public UserCart addUserCart(UserCart userCart) throws Exception {
-        return userCartDao.addUserCart(userCart);
+        UserCart existingUserCart = userCartDao.findBySessioIdAndBouquetID(userCart.getSessionID(), userCart.getBouquetID().getId());
+        if (existingUserCart != null) {
+            existingUserCart.setQuantity(Integer.toString(Integer.parseInt(existingUserCart.getQuantity()) + 1));
+            return existingUserCart;
+        } else {
+            return userCartDao.addUserCart(userCart);
+        }
     }
 
     @Override
     public Bouquet removeUserCart(Integer userCartId, String sessionId) throws Exception {
         return userCartDao.removeUserCart(userCartId, sessionId);
+    }
+
+    @Override
+    public void clearBySessionID(String sessionID) {
+        userCartDao.clearBySessionID(sessionID);
     }
 
     @Override
@@ -44,7 +63,39 @@ public class UserCartServiceImpl implements UserCartService {
     public double getCartTotal(String sessionId) {
         return userCartDao.getCartTotal(sessionId);
     }
-    
-    
+
+    @Override
+    public GenericResponse updateCart(String[] IDs, String[] quantities) {
+        GenericResponse genericResponse = null;
+        if (IDs.length != quantities.length) {
+            genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.NOTIFICATION.ordinal(), "Internal Server Error !", "");
+        } else {
+            for (int i = 0; i < IDs.length; i++) {
+                UserCart userCart = findById(Integer.parseInt(IDs[i]));
+                if (userCart == null) {
+                    genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.NOTIFICATION.ordinal(), "Internal Server Error !", "");
+                    break;
+                } else if (!userCart.getSessionID().equals(RequestContextHolder.currentRequestAttributes().getSessionId())) {
+                    genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.NOTIFICATION.ordinal(), "Internal Server Error !", "");
+                    break;
+                } else if (quantities[i] == null || quantities[i].equals("")) {
+                    genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.NOTIFICATION.ordinal(), "Quantity is required **", "");
+                    break;
+                } else {
+                    try {
+                        int quantity = Integer.parseInt(quantities[i]);
+                        userCart.setQuantity(Integer.toString(quantity));
+                    } catch (Exception ex) {
+                        genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.NOTIFICATION.ordinal(), "Not a Valid Number **", "");
+                        break;
+                    }
+                }
+            }
+        }
+        if (genericResponse == null) {
+            genericResponse = new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), Double.toString(getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId())), findBySessionId(RequestContextHolder.currentRequestAttributes().getSessionId()));
+        }
+        return genericResponse;
+    }
 
 }

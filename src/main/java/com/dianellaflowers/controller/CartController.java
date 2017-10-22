@@ -7,17 +7,21 @@ package com.dianellaflowers.controller;
 
 import com.dianellaflowers.enumeration.ResponseMessageType;
 import com.dianellaflowers.enumeration.ResponseStatus;
-import com.dianellaflowers.model.Bouquet;
+import com.dianellaflowers.model.Subscription;
 import com.dianellaflowers.model.UserCart;
 import com.dianellaflowers.response.GenericResponse;
 import com.dianellaflowers.service.BouquetService;
 import java.util.Date;
-import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,11 +49,21 @@ public class CartController extends AbstractController {
         return "successPayment";
     }
 
+    @GetMapping("/shipping")
+    public String address(Model model) {
+        if ((userCartService.findBySessionId(RequestContextHolder.currentRequestAttributes().getSessionId())).size() <= 0) {
+            return "error404";
+        } else {
+            model.addAttribute("tax", userCartService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) / 10);
+            return "AddressCheckOut";
+        }
+    }
+
     @PostMapping("/add")
     @ResponseBody
     public ResponseEntity<GenericResponse> addToCart(@RequestParam("id") Integer bouquetId) throws Exception {
         UserCart userCart = userCartService.addUserCart(new UserCart(RequestContextHolder.currentRequestAttributes().getSessionId(), false, new Date(), bouquetService.findById(bouquetId)));
-        return new ResponseEntity<GenericResponse>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), userCart.getId() + "-" + userCartService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()), bouquetService.findById(bouquetId).toString()), HttpStatus.OK);
+        return new ResponseEntity<GenericResponse>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), userCart.getId() + "~" + userCartService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) + "~" + userCart.getQuantity(), bouquetService.findById(bouquetId).toString()), HttpStatus.OK);
     }
 
     @PostMapping("/remove")
@@ -58,6 +72,25 @@ public class CartController extends AbstractController {
         userCartService.removeUserCart(userCartId, RequestContextHolder.currentRequestAttributes().getSessionId());
         String totalPrice = Double.toString(userCartService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()));
         return new ResponseEntity<GenericResponse>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Success", totalPrice), HttpStatus.OK);
+    }
+
+    @PostMapping("/clearCart")
+    @ResponseBody
+    public ResponseEntity<GenericResponse> removeFromCart() throws Exception {
+        userCartService.clearBySessionID(RequestContextHolder.currentRequestAttributes().getSessionId());
+        return new ResponseEntity<GenericResponse>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Success", ""), HttpStatus.OK);
+    }
+
+    @PostMapping("/updateCart")
+    @ResponseBody
+    public ResponseEntity<GenericResponse> updateCart(@RequestParam("cardID") String[] cartIds, @RequestParam("quantity") String[] cartQuantities) throws Exception {
+        return new ResponseEntity<GenericResponse>(userCartService.updateCart(cartIds, cartQuantities), HttpStatus.OK);
+    }
+
+    @PostMapping("/orderDetail")
+    @ResponseBody
+    public ResponseEntity<String> orderDetail(ModelMap model) throws Exception {
+        return new ResponseEntity<String>("", HttpStatus.OK);
     }
 
 }

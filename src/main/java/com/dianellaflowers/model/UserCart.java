@@ -54,6 +54,9 @@ public class UserCart implements Serializable {
     @JoinColumn(name = "BOUQUET_ID", referencedColumnName = "ID")
     @ManyToOne(fetch = FetchType.LAZY)
     private Bouquet bouquetID;
+    @Basic(optional = false)
+    @Column(name = "QUANTITY")
+    private String quantity;
 
     public UserCart() {
     }
@@ -84,6 +87,15 @@ public class UserCart implements Serializable {
     public void setSessionID(String sessionID) {
         this.sessionID = sessionID;
     }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+    
 
     public void setSuccess(boolean success) {
         this.success = success;

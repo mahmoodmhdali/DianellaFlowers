@@ -67,4 +67,15 @@ public class BouquetDaoImpl extends AbstractDao<Integer, Bouquet> implements Bou
         return (List<Bouquet>) crit.list();
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Bouquet> findCartBouquetBySessionID(String sessionID) {
+        Criteria crit = createEntityCriteria();
+        crit.createAlias("userCartCollection", "userCartCollectionAlias");
+        crit.add(Restrictions.eq("userCartCollectionAlias.sessionID", sessionID));
+        crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        List<Bouquet> bouquetList = (List<Bouquet>) crit.list();
+        return bouquetList;
+    }
+
 }

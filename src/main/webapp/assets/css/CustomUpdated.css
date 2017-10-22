@@ -14,6 +14,10 @@
     color: white;
 }
 
+.site-menu{
+    border-bottom: 0px;
+}
+
 .topbar {
     border-bottom: 1px solid #a8328c;
     background-color: #a8328c;
@@ -151,4 +155,7 @@
     margin-left: 0px;
 }
 
-
+.checkout-steps > a > .angle{
+    width: 14px;
+    height: 0;
+}

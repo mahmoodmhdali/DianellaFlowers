@@ -151,7 +151,10 @@
                                                 <a class="dropdown-product-thumb" href="#">
                                                     <img src="<c:url value='${userCartItem.getBouquetID().getCompressedImagePath()}'/>" alt="${userCartItem.getBouquetID().getName()}">
                                                 </a>
-                                                <div class="dropdown-product-info"><a class="dropdown-product-title" href="#">${userCartItem.getBouquetID().getName()}</a><span class="dropdown-product-details">$${userCartItem.getBouquetID().getPrice()}</span></div>
+                                                <div class="dropdown-product-info"><a class="dropdown-product-title" href="#">${userCartItem.getBouquetID().getName()}</a>
+                                                    <span class="dropdown-product-details productQuantity">${userCartItem.getQuantity()}</span>
+                                                    <span class="dropdown-product-details"> x $${userCartItem.getBouquetID().getPrice()}</span>
+                                                </div>
                                             </div>
                                         </c:forEach>
                                         <div class="toolbar-dropdown-group">
@@ -159,8 +162,8 @@
                                             <div class="column text-right"><span class="text-lg text-medium totalCart">$${userCartTotalPrice}</span></div>
                                         </div>
                                         <div class="toolbar-dropdown-group">
-                                            <div class="column"><a class="btn btn-sm btn-block btn-secondary" href="<c:url value='/cart'/>">View Cart</a></div>
-                                            <div class="column"><a class="btn btn-sm btn-block btn-primary" href="#">Checkout</a></div>
+                                            <div class="column"><a class="btn btn-sm btn-block btn-outline-primary" href="<c:url value='/cart'/>">View Cart</a></div>
+                                            <div class="column"><a class="btn btn-sm btn-block btn-outline-danger clearCart" href="#">Clear Cart</a></div>
                                         </div>
                                     </div>
                                 </c:when>
@@ -348,30 +351,38 @@
                         data: ajaxData,
                         type: 'post',
                         success: function (data) {
-                            $.notify('success', 'Success', 'Product added successfully to your cart', 'topRight')
+                            $.notify('success', 'Success', 'Product added successfully to your cart', 'topLeft');
                             var bouquetData = $.parseJSON(data.responseObject);
-                            $('.countCart').html(Number($('.countCart').html()) + 1);
-                            $('.totalCart1').html('$' + (data.statusMessage).split("-")[1]);
+                            $('.totalCart1').html('$' + (data.statusMessage).split("~")[1]);
                             if ($('.cartData').length == 0) {
+                                $('.countCart').html(Number($('.countCart').html()) + 1);
                                 $('.noCartFoundDiv').remove();
-                                $('.cartDataDiv').append('<div class="toolbar-dropdown cartData"><div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("-")[0] + '">\n\
-                                                        <span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("-")[0] + '">\n\
+                                $('.cartDataDiv').append('<div class="toolbar-dropdown cartData"><div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("~")[0] + '">\n\
+                                                        <span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("~")[0] + '">\n\
                                                         <i class="icon-cross"></i></span>\n\
                                                         <a class="dropdown-product-thumb" href="#"><img src="<c:url value='/'/>' + bouquetData.compressedImagePath + '" alt="' + bouquetData.name + '">\n\
                                                         </a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a>\n\
-                                                        <span class="dropdown-product-details">$' + bouquetData.price + '</span></div></div>\n\
+\n\                                                     <span class="dropdown-product-details productQuantity">' + (data.statusMessage).split("~")[2] + '</span>\n\
+                                                        <span class="dropdown-product-details"> x $' + bouquetData.price + '</span></div></div>\n\
                                                         <div class="toolbar-dropdown-group">\n\
                                                             <div class="column"><span class="text-lg">Total:</span></div>\n\
                                                             <div class="column text-right"><span class="text-lg text-medium totalCart">$' + bouquetData.price + '</span></div>\n\
                                                         </div>\n\
                                                         <div class="toolbar-dropdown-group">\n\
-                                                            <div class="column"><a class="btn btn-sm btn-block btn-secondary" href="<c:url value='/cart'/>">View Cart</a></div>\n\
-                                                            <div class="column"><a class="btn btn-sm btn-block btn-primary" href="#">Checkout</a></div>\n\
+                                                            <div class="column"><a class="btn btn-sm btn-block btn-outline-primary" href="<c:url value='/cart'/>">View Cart</a></div>\n\
+                                                            <div class="column"><a class="btn btn-sm btn-block btn-outline-danger clearCart" href="#">Clear Cart</a></div>\n\
                                                         </div>\n\
                                                         </div>');
                             } else {
-                                $('.totalCart').html('$' + (data.statusMessage).split("-")[1]);
-                                $('.cartData').prepend('<div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("-")[0] + '"><span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("-")[0] + '"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="<c:url value='/'/>' + bouquetData.compressedImagePath + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details">$' + bouquetData.price + '</span></div></div>');
+                                var userCartDiv = $('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]');
+                                if (userCartDiv.length > 0) {
+                                    var newQuantity = parseInt($('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]').find($('.productQuantity')).html());
+                                    $('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]').find($('.productQuantity')).html(++newQuantity);
+                                } else {
+                                    $('.countCart').html(Number($('.countCart').html()) + 1);
+                                    $('.cartData').prepend('<div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="<c:url value='/'/>' + bouquetData.compressedImagePath + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details productQuantity">' + (data.statusMessage).split("~")[2] + '</span><span class="dropdown-product-details"> x $' + bouquetData.price + '</span></div></div>');
+                                }
+                                $('.totalCart').html('$' + (data.statusMessage).split("~")[1]);
                             }
                         },
                         error: function (error) {
@@ -384,13 +395,12 @@
 
                 $('body').on('click', '.remove-from-cart-btn', function (e) {
                     e.preventDefault();
-                    console.log('asdasfasfasfa');
                     var currentBtn = $(this);
                     var cartId = currentBtn.attr("data-cart-id");
                     var userCartDiv = $('div[data-cart-id="' + cartId + '"]');
+                    var userCartTR = $('tr[data-cart-id="' + cartId + '"]');
                     var csrfObj = $.getCSRFObj();
                     currentBtn.lockBtn('');
-                    console.log(cartId);
                     var ajaxData = {
                         'id': cartId,
                         '_csrf': csrfObj.value
@@ -401,7 +411,7 @@
                         type: 'post',
                         success: function (data) {
                             console.log(data);
-                            $.notify('success', 'Success', 'Product removed successfully from your cart', 'topRight');
+                            $.notify('success', 'Success', 'Product removed successfully from your cart', 'topLeft');
                             $('.countCart').html(Number($('.countCart').html()) - 1);
                             userCartDiv.remove();
                             if ($('.dropdown-product-item').length == 0) {
@@ -415,6 +425,56 @@
                                 $('.totalCart1').html('$' + data.responseObject);
                                 $('.totalCart').html('$' + data.responseObject);
                             }
+                            if (userCartTR.length > 0) {
+                                $('.totalCartPrice').html('$' + data.responseObject);
+                                userCartTR.remove();
+                                $('.tooltip').hide();
+                                if ($('.carItem').length == 0) {
+                                    $('.shopping-cart-footer').remove();
+                                    $('.shopping-cart-footer').remove();
+                                    $('.cartBody').append('<th colspan="5" class="text-center text-lg">\n\
+                                                            <br>\n\
+                                                            Cart is Empty\n\
+                                                            </th>');
+                                }
+                            }
+                        },
+                        error: function (error) {
+                        },
+                        complete: function () {
+                            currentBtn.unLockBtn();
+                        }
+                    });
+                });
+
+                $('body').on('click', '.clearCart', function (e) {
+                    e.preventDefault();
+                    var currentBtn = $(this);
+                    currentBtn.lockBtn('');
+                    var csrfObj = $.getCSRFObj();
+                    var ajaxData = {
+                        '_csrf': csrfObj.value
+                    };
+                    $.ajax({
+                        url: '<c:url value="/cart/clearCart"/>',
+                        data: ajaxData,
+                        type: 'post',
+                        success: function () {
+                            $.notify('success', 'Success', 'Products removed successfully from your cart', 'topLeft');
+                            $('.countCart').html('0');
+                            $('.totalCart1').html('$0.0');
+                            $('.cartData').replaceWith('<div class="toolbar-dropdown noCartFoundDiv">\n\
+                                        <div class="toolbar-dropdown-group notFound text-center">\n\
+                                            Cart is Empty\n\
+                                        </div>\n\
+                                    </div>');
+                            $('.cartBody').empty();
+                            $('.shopping-cart-footer').remove();
+                            $('.shopping-cart-footer').remove();
+                            $('.cartBody').append('<th colspan="5" class="text-center text-lg">\n\
+                                                            <br>\n\
+                                                            Cart is Empty\n\
+                                                            </th>');
                         },
                         error: function (error) {
                         },
@@ -429,6 +489,7 @@
                     $('.navbar').addClass('zIndexZero');
                     $('.scroll-to-top-btn').addClass('zIndexZero');
                 });
+
                 $('#blueimp-gallery').on('closed', function () {
                     $('.topbar').removeClass('zIndexZero');
                     $('.navbar').removeClass('zIndexZero');

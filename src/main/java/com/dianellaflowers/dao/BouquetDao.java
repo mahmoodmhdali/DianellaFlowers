@@ -12,5 +12,7 @@ public interface BouquetDao {
     List<Bouquet> findByCategoryName(String category, String orderBy, boolean desc);
 
     List<Bouquet> findHomePageProduct();
+    
+    List<Bouquet> findCartBouquetBySessionID(String sessionID);
 
 }
