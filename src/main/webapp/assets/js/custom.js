@@ -37,16 +37,15 @@
         var currentForm = this;
         $('.validation-error').remove();
         $.each(errors.responseObject, function (index, element) {
-            console.log(index + '====' + element);
             var currentInput = $(currentForm).find('[name=' + index + ']');
             if (currentInput.length > 0) {
                 currentInput.addClass('parsley-error');
-                currentInput.after('<span class="validation-error text-danger validationSpanError" id="' + index + '">' + element + '</span>');
+                currentInput.after('<span style="margin-left:20px" class="validation-error text-danger validationSpanError" id="' + index + '">' + element + '</span>');
             } else {
                 currentInput = $(currentForm).find('[data-error-index=' + index + ']');
                 if (currentInput.length > 0) {
                     currentInput.addClass('parsley-error');
-                    currentInput.after('<span class="validation-error text-danger validationSpanError" id="' + index + '">' + element + '</span>');
+                    currentInput.after('<span style="margin-left:20px" class="validation-error text-danger validationSpanError" id="' + index + '">' + element + '</span>');
                 }
             }
         });
@@ -62,7 +61,6 @@
     };
 
     $.handleAjaxRequest = function (response, formToHandle) {
-        console.log(response);
         if (response.statusCode === 1) {
             formToHandle.HandleFormErrors(response);
         } else if (response.statusCode === 2) {

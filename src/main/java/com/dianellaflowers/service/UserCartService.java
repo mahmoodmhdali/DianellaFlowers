@@ -11,13 +11,7 @@ public interface UserCartService {
 
     Bouquet removeUserCart(Integer userCartId, String sessionId) throws Exception;
     
-    void clearBySessionID(String sessionID);
-    
     UserCart findById(Integer Id);
-    
-    List<UserCart> findBySessionId(String sessionId);
-    
-    double getCartTotal(String sessionId);
     
     GenericResponse updateCart(String[] IDs, String[] quantities);
 

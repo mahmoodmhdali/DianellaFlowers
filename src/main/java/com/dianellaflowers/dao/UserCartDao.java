@@ -10,14 +10,6 @@ public interface UserCartDao {
 
     Bouquet removeUserCart(Integer userCartId, String sessionId) throws Exception;
     
-    void clearBySessionID(String sessionID);
-    
     UserCart findById(Integer Id);
-    
-    List<UserCart> findBySessionId(String sessionId);
-    
-    UserCart findBySessioIdAndBouquetID(String sessionId, Integer bouquetId);
-    
-    double getCartTotal(String sessionId);
 
 }

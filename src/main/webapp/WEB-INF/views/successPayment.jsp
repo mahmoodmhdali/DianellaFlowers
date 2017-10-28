@@ -10,6 +10,7 @@
 <t:master>
     <jsp:attribute name="css">
         <title>Dianella Flowers | Payment Success</title>
+        <!--<link href="<c:url value='/assets/css/normalize.css'/>" rel="stylesheet" />-->
         <sec:csrfMetaTags />
     </jsp:attribute>
     <jsp:attribute name="body">
@@ -20,7 +21,7 @@
                 </div>
                 <div class="column">
                     <ul class="breadcrumbs">
-                        <li><a href="index.html">Home</a>
+                        <li><a href="<c:url value='/'/>">Home</a>
                         </li>
                         <li class="separator">&nbsp;</li>
                         <li>Checkout</li>
@@ -30,11 +31,17 @@
         </div>
         <!-- Page Content-->
         <div class="container padding-bottom-3x mb-2">
+            <div class="checkout-steps">
+                <a class="active" href="#">4. Success</a>
+                <a><span class="angle"></span>3. Payment</a>
+                <a><span class="angle"></span>2. Shipping</a>
+                <a><span class="angle"></span>1. Cart</a>
+            </div>
             <div class="card text-center">
                 <div class="card-block padding-top-2x">
                     <h3 class="card-title">Thank you for your order!</h3>
                     <p class="card-text">Your order has been placed and will be processed as soon as possible.</p>
-                    <p class="card-text">Make sure you make note of your order number, which is <span class="text-medium">34VB5540K83</span></p>
+                    <p class="card-text">Make sure you make note of your order number, which is <span class="text-medium">${trackId}</span></p>
                     <u>You can now:</u>
                     <div class="padding-top-1x padding-bottom-1x"><a class="btn btn-outline-secondary" href="<c:url value='/products/wedding'/>">Go Back Shopping</a><a class="btn btn-outline-primary" href="<c:url value='/contactUs'/>">Contact Us</a></div>
                 </div>
@@ -43,6 +50,6 @@
     </jsp:attribute>
 
     <jsp:attribute name="js">
-
+<!--        <script src="<c:url value='/assets/js/examples.js'/>"></script>-->
     </jsp:attribute>
 </t:master>

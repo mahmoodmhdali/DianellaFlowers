@@ -32,7 +32,7 @@
         <!-- Page Content-->
         <div class="container padding-bottom-3x mb-1">
             <div class="checkout-steps">
-                <a href="#">4. Review</a>
+                <a href="#">4. Success</a>
                 <a href="#"><span class="angle"></span>3. Payment</a>
                 <a href="#"><span class="angle"></span>2. Shipping</a>
                 <a class="active" href="#"><span class="angle"></span>1. Cart</a>

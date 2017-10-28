@@ -58,7 +58,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/login").usernameParameter("email").passwordParameter("password")
                 .and().rememberMe().rememberMeParameter("remember-me").tokenRepository(tokenRepository)
                 .tokenValiditySeconds(86400 * 2)
-                .and().csrf().ignoringAntMatchers("/test/**").and()
+                .and().csrf().ignoringAntMatchers("/test/**")
+                .and().csrf().ignoringAntMatchers("/payfort/**").and()
                 .exceptionHandling().accessDeniedPage("/accessdenied")
                 .and().sessionManagement().maximumSessions(5).expiredUrl("/login?expired").sessionRegistry(sessionRegistry());
         // To limit login for users

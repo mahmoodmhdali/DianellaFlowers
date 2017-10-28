@@ -146,12 +146,12 @@
                                     <c:when test="${fn:length(userCartItems) > 0}">
                                     <div class="toolbar-dropdown cartData">
                                         <c:forEach var="userCartItem" items="${userCartItems}">
-                                            <div class="dropdown-product-item" data-cart-id="${userCartItem.getId()}">
-                                                <span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="${userCartItem.getId()}"><i class="icon-cross"></i></span>
-                                                <a class="dropdown-product-thumb" href="#">
+                                            <div class="dropdown-product-item" style="cursor: default" data-cart-id="${userCartItem.getId()}">
+                                                <span class="dropdown-product-remove remove-from-cart-btn" style="cursor: pointer" data-cart-id="${userCartItem.getId()}"><i class="icon-cross"></i></span>
+                                                <a class="dropdown-product-thumb">
                                                     <img src="<c:url value='${userCartItem.getBouquetID().getCompressedImagePath()}'/>" alt="${userCartItem.getBouquetID().getName()}">
                                                 </a>
-                                                <div class="dropdown-product-info"><a class="dropdown-product-title" href="#">${userCartItem.getBouquetID().getName()}</a>
+                                                <div class="dropdown-product-info"><a class="dropdown-product-title">${userCartItem.getBouquetID().getName()}</a>
                                                     <span class="dropdown-product-details productQuantity">${userCartItem.getQuantity()}</span>
                                                     <span class="dropdown-product-details"> x $${userCartItem.getBouquetID().getPrice()}</span>
                                                 </div>
@@ -357,8 +357,8 @@
                             if ($('.cartData').length == 0) {
                                 $('.countCart').html(Number($('.countCart').html()) + 1);
                                 $('.noCartFoundDiv').remove();
-                                $('.cartDataDiv').append('<div class="toolbar-dropdown cartData"><div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("~")[0] + '">\n\
-                                                        <span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("~")[0] + '">\n\
+                                $('.cartDataDiv').append('<div class="toolbar-dropdown cartData"><div class="dropdown-product-item" style="cursor: default" data-cart-id="' + (data.statusMessage).split("~")[0] + '">\n\
+                                                        <span class="dropdown-product-remove remove-from-cart-btn" style="cursor: pointer" data-cart-id="' + (data.statusMessage).split("~")[0] + '">\n\
                                                         <i class="icon-cross"></i></span>\n\
                                                         <a class="dropdown-product-thumb" href="#"><img src="<c:url value='/'/>' + bouquetData.compressedImagePath + '" alt="' + bouquetData.name + '">\n\
                                                         </a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a>\n\
@@ -374,13 +374,14 @@
                                                         </div>\n\
                                                         </div>');
                             } else {
+                                console.log(data.statusMessage);
                                 var userCartDiv = $('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]');
                                 if (userCartDiv.length > 0) {
                                     var newQuantity = parseInt($('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]').find($('.productQuantity')).html());
                                     $('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]').find($('.productQuantity')).html(++newQuantity);
                                 } else {
                                     $('.countCart').html(Number($('.countCart').html()) + 1);
-                                    $('.cartData').prepend('<div class="dropdown-product-item" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><span class="dropdown-product-remove remove-from-cart-btn" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="<c:url value='/'/>' + bouquetData.compressedImagePath + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details productQuantity">' + (data.statusMessage).split("~")[2] + '</span><span class="dropdown-product-details"> x $' + bouquetData.price + '</span></div></div>');
+                                    $('.cartData').prepend('<div class="dropdown-product-item" style="cursor: default" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><span class="dropdown-product-remove remove-from-cart-btn" style="cursor: pointer" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="<c:url value='/'/>' + bouquetData.compressedImagePath + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details productQuantity">' + (data.statusMessage).split("~")[2] + '</span><span class="dropdown-product-details"> x $' + bouquetData.price + '</span></div></div>');
                                 }
                                 $('.totalCart').html('$' + (data.statusMessage).split("~")[1]);
                             }

@@ -7,10 +7,12 @@ package com.dianellaflowers.controller;
 
 import com.dianellaflowers.enumeration.ResponseMessageType;
 import com.dianellaflowers.enumeration.ResponseStatus;
-import com.dianellaflowers.model.Subscription;
+import com.dianellaflowers.model.HelperCheckOut;
 import com.dianellaflowers.model.UserCart;
 import com.dianellaflowers.response.GenericResponse;
 import com.dianellaflowers.service.BouquetService;
+import com.dianellaflowers.service.CheckoutRequestService;
+import com.dianellaflowers.service.UserCartService;
 import java.util.Date;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,22 +42,32 @@ public class CartController extends AbstractController {
     @Autowired
     BouquetService bouquetService;
 
+    @Autowired
+    UserCartService userCartService;
+
+    @Autowired
+    CheckoutRequestService checkoutRequestService;
+
     @GetMapping()
     public String cart() {
         return "cart";
     }
 
-    @GetMapping("/successPayment")
-    public String successPayment() {
+    @GetMapping("/successPayment/{trackId}")
+    public String successPayment(Model model, @PathVariable String trackId) {
+        if (checkoutRequestService.findByTrackId(trackId) == null) {
+            return "error404";
+        }
+        model.addAttribute("trackId", trackId);
         return "successPayment";
     }
 
     @GetMapping("/shipping")
     public String address(Model model) {
-        if ((userCartService.findBySessionId(RequestContextHolder.currentRequestAttributes().getSessionId())).size() <= 0) {
+        if ((checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true)) == null) {
             return "error404";
         } else {
-            model.addAttribute("tax", userCartService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) / 10);
+            model.addAttribute("tax", checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) / 10);
             return "AddressCheckOut";
         }
     }
@@ -62,35 +75,39 @@ public class CartController extends AbstractController {
     @PostMapping("/add")
     @ResponseBody
     public ResponseEntity<GenericResponse> addToCart(@RequestParam("id") Integer bouquetId) throws Exception {
-        UserCart userCart = userCartService.addUserCart(new UserCart(RequestContextHolder.currentRequestAttributes().getSessionId(), false, new Date(), bouquetService.findById(bouquetId)));
-        return new ResponseEntity<GenericResponse>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), userCart.getId() + "~" + userCartService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) + "~" + userCart.getQuantity(), bouquetService.findById(bouquetId).toString()), HttpStatus.OK);
+        UserCart userCart = checkoutRequestService.addCheckoutRequest(new UserCart(new Date(), bouquetService.findById(bouquetId)));
+        return new ResponseEntity<>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), userCart.getId() + "~" + checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) + "~" + userCart.getQuantity(), bouquetService.findById(bouquetId).toString()), HttpStatus.OK);
     }
 
     @PostMapping("/remove")
     @ResponseBody
     public ResponseEntity<GenericResponse> removeFromCart(@RequestParam("id") Integer userCartId) throws Exception {
         userCartService.removeUserCart(userCartId, RequestContextHolder.currentRequestAttributes().getSessionId());
-        String totalPrice = Double.toString(userCartService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()));
-        return new ResponseEntity<GenericResponse>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Success", totalPrice), HttpStatus.OK);
+        String totalPrice = Double.toString(checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()));
+        return new ResponseEntity<>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Success", totalPrice), HttpStatus.OK);
     }
 
     @PostMapping("/clearCart")
     @ResponseBody
     public ResponseEntity<GenericResponse> removeFromCart() throws Exception {
-        userCartService.clearBySessionID(RequestContextHolder.currentRequestAttributes().getSessionId());
-        return new ResponseEntity<GenericResponse>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Success", ""), HttpStatus.OK);
+        checkoutRequestService.clearBySessionID(RequestContextHolder.currentRequestAttributes().getSessionId());
+        return new ResponseEntity<>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Success", ""), HttpStatus.OK);
     }
 
     @PostMapping("/updateCart")
     @ResponseBody
     public ResponseEntity<GenericResponse> updateCart(@RequestParam("cardID") String[] cartIds, @RequestParam("quantity") String[] cartQuantities) throws Exception {
-        return new ResponseEntity<GenericResponse>(userCartService.updateCart(cartIds, cartQuantities), HttpStatus.OK);
+        return new ResponseEntity<>(userCartService.updateCart(cartIds, cartQuantities), HttpStatus.OK);
     }
 
     @PostMapping("/orderDetail")
     @ResponseBody
-    public ResponseEntity<String> orderDetail(ModelMap model) throws Exception {
-        return new ResponseEntity<String>("", HttpStatus.OK);
+    public ResponseEntity<GenericResponse> orderDetail(ModelMap model, @Valid @ModelAttribute HelperCheckOut helperCheckOut, BindingResult result) throws Exception {
+        GenericResponse genericResponse = this.GetBindingResultErrors(result, null);
+        if (genericResponse == null) {
+            genericResponse = checkoutRequestService.updateCheckoutRequets(helperCheckOut);
+        }
+        return new ResponseEntity<GenericResponse>(genericResponse, HttpStatus.OK);
     }
 
 }

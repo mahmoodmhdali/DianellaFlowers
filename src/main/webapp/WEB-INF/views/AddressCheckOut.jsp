@@ -35,7 +35,7 @@
                 <form id="shippingForm" class="col-xl-9 col-lg-8">
                     <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
                     <div class="checkout-steps">
-                        <a href="#">4. Review</a>
+                        <a href="#">4. Success</a>
                         <a href="#"><span class="angle"></span>3. Payment</a>
                         <a class="active" href="#"><span class="angle"></span>2. Shipping</a>
                         <a href="<c:url value='/cart'/>"><span class="angle"></span>1. Cart</a>
@@ -60,7 +60,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="checkout-email">E-mail Address</label>
-                                <input class="form-control" name="emailAddress" type="email" id="checkout-email">
+                                <input class="form-control" name="email" type="text" id="checkout-email">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -74,14 +74,16 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="checkout-city">City</label>
-                                <select class="form-control" name="city" id="checkout-city">
-                                    <option>Choose city</option>
-                                    <option>Amsterdam</option>
-                                    <option>Berlin</option>
-                                    <option>Geneve</option>
-                                    <option>New York</option>
-                                    <option>Paris</option>
-                                </select>
+                                <!--                                <select class="form-control" name="city" id="checkout-city">
+                                                                    <option>Choose city</option>
+                                                                    <option>Amsterdam</option>
+                                                                    <option>Berlin</option>
+                                                                    <option>Geneve</option>
+                                                                    <option>New York</option>
+                                                                    <option>Paris</option>
+                                                                </select>-->
+                                <input type="hidden" name="city" value="Beirut">
+                                <input class="form-control" name="city" type="text" value="Beirut" id="checkout-city" disabled>
                             </div>
                         </div>
                     </div>
@@ -89,7 +91,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="address">Text to set on card</label>
-                                <textarea class="form-control" rows="5" name="cardText" type="text" id="checkout-address1"></textarea>
+                                <textarea style="resize: none;" class="form-control" rows="5" name="cardText" type="text" id="checkout-address1"></textarea>
                             </div>
                         </div>
                     </div>
@@ -103,7 +105,7 @@
                     </div>
                     <div class="checkout-footer">
                         <div class="column"><a class="btn btn-outline-secondary" href="<c:url value='/cart'/>"><i class="icon-arrow-left"></i><span class="hidden-xs-down">&nbsp;Back To Cart</span></a></div>
-                        <div class="column"><button class="btn btn-primary" type="submit"><span class="hidden-xs-down">Continue&nbsp;</span><i class="icon-arrow-right"></i></button></div>
+                        <div class="column"><button class="btn btn-primary submitFormBtn" type="submit"><span class="hidden-xs-down">Continue&nbsp;</span><i class="icon-arrow-right"></i></button></div>
                     </div>
                 </form>
                 <!-- Sidebar          -->
@@ -134,28 +136,52 @@
                         </section>
                     </aside>
                 </div>
+                <form method="post" action="https://sbcheckout.payfort.com/FortAPI/paymentPage" id="payfortForm" name="form1">
+                    <button type="submit" class="btn btn-primary"> Submit Form</button>
+                </form>
             </div>
         </div>
     </jsp:attribute>
     <jsp:attribute name="js">
         <script>
             $('document').ready(function () {
+
                 $('#shippingForm').on('submit', function (e) {
                     e.preventDefault();
+                    $('.submitFormBtn').lockBtn('');
                     $.ajax({
                         url: '<c:url value="/cart/orderDetail"/>',
                         data: $(this).serialize(),
                         type: 'post',
                         success: function (data) {
-                            window.location.href = '<c:url value="/cart/successPayment"/>';
+                            if (data.statusCode == '0')
+                            {
+                                formCreation(data.responseObject);
+                                $('#payfortForm').submit();
+                                //window.location.href = '<c:url value="/cart/successPayment/"/>' + data.statusMessage;
+                            } else {
+                                $.handleAjaxRequest(data, $('#shippingForm'));
+                            }
                         },
                         error: function (error) {
                             console.log(error);
                         },
                         complete: function () {
+                            $('.submitFormBtn').unLockBtn();
                         }
                     });
                 });
+
+
+                function formCreation(data) {
+                    $.each(data, function (key, value) {
+                        console.log(key);
+                        console.log(value);
+                        $('#payfortForm').append('<input type="hidden" name="' + key + '" value="' + value + '">');
+                    });
+                }
+                
+                
             });
         </script>
     </jsp:attribute>

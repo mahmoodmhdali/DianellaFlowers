@@ -2,9 +2,10 @@ package com.dianellaflowers.controller;
 
 import com.dianellaflowers.enumeration.ResponseMessageType;
 import com.dianellaflowers.enumeration.ResponseStatus;
+import com.dianellaflowers.model.CheckoutRequest;
 import com.dianellaflowers.model.UserCart;
 import com.dianellaflowers.response.GenericResponse;
-import com.dianellaflowers.service.UserCartService;
+import com.dianellaflowers.service.CheckoutRequestService;
 import com.dianellaflowers.utilities.WebUtils;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -26,8 +27,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 public abstract class AbstractController {
 
     @Autowired
-    UserCartService userCartService;
-    
+    CheckoutRequestService checkoutRequestService;
+
     @ModelAttribute("remoteIP")
     public String getRemoteIP() {
         return WebUtils.getClientIp();
@@ -35,12 +36,17 @@ public abstract class AbstractController {
 
     @ModelAttribute("userCartItems")
     public List<UserCart> userCartItems() {
-        return userCartService.findBySessionId(RequestContextHolder.currentRequestAttributes().getSessionId());
+        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true);
+        List<UserCart> userCart = null;
+        if(checkoutRequest != null){
+            userCart = checkoutRequest.getUserCartCollectionn();
+        }
+        return userCart;
     }
 
     @ModelAttribute("userCartTotalPrice")
     public Double userCartTotalPrice() {
-        return userCartService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId());
+        return checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId());
     }
 
     public GenericResponse GetBindingResultErrors(BindingResult bindingResult, HashSet<String> bypassFields) {
@@ -54,7 +60,7 @@ public abstract class AbstractController {
             }
         }
         if (!mp.isEmpty()) {
-            return new GenericResponse(ResponseStatus.VALIDATION_ERROR.ordinal(),ResponseMessageType.ININPUT.ordinal(), "Validation Error", mp);
+            return new GenericResponse(ResponseStatus.VALIDATION_ERROR.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Validation Error", mp);
         }
         return null;
     }

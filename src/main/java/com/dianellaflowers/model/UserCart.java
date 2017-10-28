@@ -21,7 +21,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -42,12 +41,6 @@ public class UserCart implements Serializable {
     @Column(name = "ID")
     private Integer id;
     @Basic(optional = false)
-    @Column(name = "Session_ID")
-    private String sessionID;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "SUCCESS")
-    private boolean success;
     @Column(name = "CREATED_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
@@ -57,6 +50,9 @@ public class UserCart implements Serializable {
     @Basic(optional = false)
     @Column(name = "QUANTITY")
     private String quantity;
+    @JoinColumn(name = "CHECKOUT_REQUEST_ID", referencedColumnName = "ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CheckoutRequest checkoutRequestId;
 
     public UserCart() {
     }
@@ -65,9 +61,7 @@ public class UserCart implements Serializable {
         this.id = id;
     }
 
-    public UserCart(String sessionID, boolean success, Date createdDate, Bouquet bouquetID) {
-        this.sessionID = sessionID;
-        this.success = success;
+    public UserCart(Date createdDate, Bouquet bouquetID) {
         this.createdDate = createdDate;
         this.bouquetID = bouquetID;
     }
@@ -80,29 +74,12 @@ public class UserCart implements Serializable {
         this.id = id;
     }
 
-    public String getSessionID() {
-        return sessionID;
-    }
-
-    public void setSessionID(String sessionID) {
-        this.sessionID = sessionID;
-    }
-
     public String getQuantity() {
         return quantity;
     }
 
     public void setQuantity(String quantity) {
         this.quantity = quantity;
-    }
-    
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    public boolean getSuccess() {
-        return success;
     }
 
     public Date getCreatedDate() {
@@ -120,6 +97,15 @@ public class UserCart implements Serializable {
 
     public void setBouquetID(Bouquet bouquetID) {
         this.bouquetID = bouquetID;
+    }
+
+    @XmlTransient
+    public CheckoutRequest getCheckoutRequestId() {
+        return checkoutRequestId;
+    }
+
+    public void setCheckoutRequestId(CheckoutRequest checkoutRequestId) {
+        this.checkoutRequestId = checkoutRequestId;
     }
 
     @Override

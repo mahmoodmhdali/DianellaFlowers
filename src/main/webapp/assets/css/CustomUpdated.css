@@ -159,3 +159,40 @@
     width: 14px;
     height: 0;
 }
+
+.cartData{
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+body::-webkit-scrollbar {
+    width: 0.6em;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #a8328c;
+    outline: 1px solid #a8328c;
+}
+
+.cartData::-webkit-scrollbar {
+    width: 0.6em;
+}
+
+.cartData::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.cartData::-webkit-scrollbar-thumb {
+    background-color: #a8328c;
+    outline: 1px solid #a8328c;
+}
+
+.parsley-error{
+    border-color: #ff5252;
+    color: #606975;
+}
