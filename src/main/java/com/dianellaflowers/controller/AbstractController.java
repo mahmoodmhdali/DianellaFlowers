@@ -2,9 +2,11 @@ package com.dianellaflowers.controller;
 
 import com.dianellaflowers.enumeration.ResponseMessageType;
 import com.dianellaflowers.enumeration.ResponseStatus;
+import com.dianellaflowers.model.Category;
 import com.dianellaflowers.model.CheckoutRequest;
 import com.dianellaflowers.model.UserCart;
 import com.dianellaflowers.response.GenericResponse;
+import com.dianellaflowers.service.CategoryService;
 import com.dianellaflowers.service.CheckoutRequestService;
 import com.dianellaflowers.utilities.WebUtils;
 import java.util.HashMap;
@@ -29,6 +31,9 @@ public abstract class AbstractController {
     @Autowired
     CheckoutRequestService checkoutRequestService;
 
+    @Autowired
+    CategoryService categoryService;
+
     @ModelAttribute("remoteIP")
     public String getRemoteIP() {
         return WebUtils.getClientIp();
@@ -38,10 +43,15 @@ public abstract class AbstractController {
     public List<UserCart> userCartItems() {
         CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true);
         List<UserCart> userCart = null;
-        if(checkoutRequest != null){
+        if (checkoutRequest != null) {
             userCart = checkoutRequest.getUserCartCollectionn();
         }
         return userCart;
+    }
+
+    @ModelAttribute("categories")
+    public List<Category> cateries() {
+        return categoryService.findAll();
     }
 
     @ModelAttribute("userCartTotalPrice")

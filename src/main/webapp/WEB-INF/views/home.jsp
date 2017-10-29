@@ -85,7 +85,7 @@
         </section>
         <!-- Top Categories-->
         <section class="container padding-top-2x">
-            <h3 class="text-center mb-30">Top Categories</h3>
+            <h3 class="text-center mb-30">Coming Soon Categories</h3>
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="card mb-30">
@@ -101,9 +101,8 @@
                             </div>
                         </a>
                         <div class="card-body text-center">
-                            <h4 class="card-title">Something</h4>
-                            <p class="text-muted">Starting from $49.99</p>
-                            <a class="btn btn-outline-primary btn-sm" href="<c:url value='/products/wedding'/>">View Products</a>
+                            <h4 class="card-title">Mother's Day</h4>
+                            <p class="text-muted">Coming Soon</p>
                         </div>
                     </div>
                 </div>
@@ -121,9 +120,8 @@
                             </div>
                         </a>
                         <div class="card-body text-center">
-                            <h4 class="card-title">Something</h4>
-                            <p class="text-muted">Starting from $56.00</p>
-                            <a class="btn btn-outline-primary btn-sm" href="<c:url value='/products/wedding'/>">View Products</a>
+                            <h4 class="card-title">Teacher's Day</h4>
+                            <p class="text-muted">Coming Soon</p>
                         </div>
                     </div>
                 </div>
@@ -141,9 +139,8 @@
                             </div>
                         </a>
                         <div class="card-body text-center">
-                            <h4 class="card-title">Something</h4>
-                            <p class="text-muted">Starting from $27.00</p>
-                            <a class="btn btn-outline-primary btn-sm" href="<c:url value='/products/wedding'/>">View Products</a>
+                            <h4 class="card-title">It's Christmas</h4>
+                            <p class="text-muted">Coming Soon</p>
                         </div>
                     </div>
                 </div>
@@ -216,7 +213,7 @@
                                     <a class="product-thumb" title="${bouquet.getName()}" data-gallery="featured" href="<c:url value='${bouquet.getOriginalImage()}'/>">
                                         <img src="<c:url value='${bouquet.getCompressedImagePath()}'/>" alt="${bouquet.getName()}">
                                     </a>
-                                    <h3 class="product-title"><a href="shop-single.html">${bouquet.getName()}</a></h3>
+                                    <h3 class="product-title"><a href="#">${bouquet.getName()}</a></h3>
                                     <h4 class="product-price">
                                         <c:if test="${bouquet.getOldPrice() != null}">
                                             <del class="text-danger text-center" style="font-weight: 500; letter-spacing: .07em; text-transform: uppercase;">$${bouquet.getOldPrice()}</del>

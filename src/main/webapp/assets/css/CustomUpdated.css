@@ -31,6 +31,7 @@
     border-top: 0;
     border-bottom: 0;
     margin-bottom: 0;
+    box-shadow: 0 3px 25px 0 rgba(47, 56, 68, 0.22);
 }
 
 .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
@@ -195,4 +196,8 @@ body::-webkit-scrollbar-thumb {
 .parsley-error{
     border-color: #ff5252;
     color: #606975;
+}
+
+.sub-menu, .toolbar-dropdown{
+    z-index: 2;
 }

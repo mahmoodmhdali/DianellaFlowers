@@ -50,7 +50,7 @@ public class BouquetDaoImpl extends AbstractDao<Integer, Bouquet> implements Bou
             crit.addOrder(Order.asc(orderBy));
         }
         crit.createAlias("categoryID", "category");
-        crit.add(Restrictions.eq("category.name", category));
+        crit.add(Restrictions.eq("category.path", category));
         crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         crit.setFetchMode("categoryID", FetchMode.JOIN);
         return (List<Bouquet>) crit.list();

@@ -16,14 +16,14 @@
         <div class="page-title">
             <div class="container">
                 <div class="column">
-                    <h1 style="text-transform: capitalize;">${category}</h1>
+                    <h1 style="text-transform: capitalize;">${category.getDisplay()}</h1>
                 </div>
                 <div class="column">
                     <ul class="breadcrumbs">
                         <li><a href="<c:url value='/'/>">Home</a>
                         </li>
                         <li class="separator">&nbsp;</li>
-                        <li style="text-transform: capitalize;">${category}</li>
+                        <li style="text-transform: capitalize;">${category.getDisplay()}</li>
                     </ul>
                 </div>
             </div>
@@ -33,6 +33,11 @@
             <div class="row">
                 <!-- Products-->
                 <div class="col-xl-12 col-lg-12 order-lg-2">
+                    <c:if test="${category.getId() == '5'}">
+                        <div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 30px;">
+                            All flowers selected in a single order are arranged in a <strong>Same</strong> Bouquet.
+                        </div>
+                    </c:if>
                     <!-- Shop Toolbar-->
                     <div class="shop-toolbar padding-bottom-1x mb-2">
                         <div class="column">
@@ -60,7 +65,7 @@
                                             <a class="product-thumb" title="${bouquet.getName()}" data-gallery="" href="<c:url value='${bouquet.getOriginalImage()}'/>">
                                                 <img src="<c:url value='${bouquet.getCompressedImagePath()}'/>" alt="${bouquet.getName()}">
                                             </a>
-                                            <h3 class="product-title"><a href="shop-single.html">${bouquet.getName()}</a></h3>
+                                            <h3 class="product-title"><a href="#">${bouquet.getName()}</a></h3>
                                             <h4 class="product-price">
                                                 <c:if test="${bouquet.getOldPrice() != null}">
                                                     <del class="text-danger text-center" style="font-weight: 500; letter-spacing: .07em; text-transform: uppercase;">$${bouquet.getOldPrice()}</del>
@@ -102,7 +107,7 @@
         <script>
             $('body').on('change', '#sorting', function (e) {
                 e.preventDefault();
-                window.location.href = '<c:url value="/products/${category}"/>?orderBy=' + $(this).val();
+                window.location.href = '<c:url value="/products/${category.getPath()}"/>?orderBy=' + $(this).val();
             });
         </script>
     </jsp:attribute>

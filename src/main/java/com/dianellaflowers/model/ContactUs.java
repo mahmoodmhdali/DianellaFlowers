@@ -8,31 +8,27 @@ package com.dianellaflowers.model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
  * @author Mahmoud
  */
 @Entity
-@Table(name = "tbl_categories")
+@Table(name = "tbl_contact_us")
 @XmlRootElement
 @JsonIdentityInfo(generator = JSOGGenerator.class)
-public class Category implements Serializable {
+public class ContactUs implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -41,28 +37,34 @@ public class Category implements Serializable {
     @Column(name = "ID")
     private Integer id;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 256)
-    @Column(name = "PATH")
-    private String path;
+    @Column(name = "NAME")
+    @Size (min = 3, max = 50, message = "Name should be between 3 and 20 characters")
+    @NotBlank(message = "Name is required")
+    private String name;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 256)
-    @Column(name = "DISPLAY")
-    private String display;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "categoryID", cascade = CascadeType.ALL)
-    private Collection<Bouquet> bouquetCollection;
+    @Column(name = "EMAIL")
+    @Email
+    @NotBlank(message = "Email is required")
+    private String email;
+    @Basic(optional = false)
+    @Column(name = "SUBJECT")
+    @Size (min = 3, max = 50, message = "Subject should be between 3 and 20 characters")
+    @NotBlank(message = "Subject is required")
+    private String subject;
+    @Basic(optional = false)
+    @Column(name = "CATEGORY")
+    private String category;
+    @Basic(optional = false)
+    @Column(name = "QUESTION")
+    @Size (max = 2000, message = "QUESTION should be maximum 2000 characters")
+    @NotBlank(message = "Question is required")
+    private String question;
 
-    public Category() {
+    public ContactUs() {
     }
 
-    public Category(Integer id) {
+    public ContactUs(Integer id) {
         this.id = id;
-    }
-
-    public Category(Integer id, String display) {
-        this.id = id;
-        this.display = display;
     }
 
     public Integer getId() {
@@ -73,29 +75,44 @@ public class Category implements Serializable {
         this.id = id;
     }
 
-    public String getDisplay() {
-        return display;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setDisplay(String display) {
-        this.display = display;
+    public String getName() {
+        return name;
     }
 
-    public String getPath() {
-        return path;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public String getSubject() {
+        return subject;
     }
 
-    @XmlTransient
-    public Collection<Bouquet> getBouquetCollection() {
-        return bouquetCollection;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setBouquetCollection(Collection<Bouquet> bouquetCollection) {
-        this.bouquetCollection = bouquetCollection;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public String getQuestion() {
+        return question;
     }
 
     @Override
@@ -108,10 +125,10 @@ public class Category implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Category)) {
+        if (!(object instanceof ContactUs)) {
             return false;
         }
-        Category other = (Category) object;
+        ContactUs other = (ContactUs) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

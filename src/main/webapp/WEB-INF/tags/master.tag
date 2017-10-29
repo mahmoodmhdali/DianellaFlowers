@@ -66,20 +66,18 @@
                     </li>
                     <li class="categoriesLi has-children"><span><a href="#">Categories</a><span class="sub-menu-toggle"></span></span>
                         <ul class="offcanvas-submenu">
-                            <li><a href="<c:url value='/products/wedding'/>">Wedding</a></li>
-                            <li><a href="<c:url value='/products/valentine'/>">Valentine</a></li>
-                            <li><a href="<c:url value='/products/other'/>">Other</a></li>
+                            <c:choose>
+                                <c:when test="${fn:length(categories) > 0}">
+                                    <c:forEach var="category" items="${categories}">
+                                        <c:if test="${category.getDisplay() != 'Flowers, your way'}">
+                                            <li><a href="<c:url value='/products/'/>${category.getPath()}">${category.getDisplay()}</a></li>
+                                            </c:if>
+                                        </c:forEach>
+                                    </c:when>
+                                </c:choose>
                         </ul>
                     </li>
-                    <li class="has-children"><span><a href="#">Something</a><span class="sub-menu-toggle"></span></span>
-                        <ul class="offcanvas-submenu">
-                            <li><a href="#">Sub Something</a></li>
-                            <li><a href="#">Sub Something</a></li>
-                            <li><a href="#">Sub Something</a></li>
-                            <li><a href="#">Sub Something</a></li>
-                            <li><a href="#">Sub Something</a></li>
-                            <li><a href="#">Sub Something</a></li>
-                        </ul>
+                    <li class="flowersLi"><a href="<c:url value='/products/Flowers'/>"><span>Flowers, your way</span></a>
                     </li>
                     <li class="contactUsLi"><a href="<c:url value='/contactUs'/>"><span>Contact Us</span></a>
                     </li>
@@ -115,20 +113,18 @@
                     </li>
                     <li class="categoriesLi"><a href="#"><span>Categories</span></a>
                         <ul class="sub-menu">
-                            <li><a href="<c:url value='/products/wedding'/>">Wedding</a></li>
-                            <li><a href="<c:url value='/products/valentine'/>">Valentine</a></li>
-                            <li><a href="<c:url value='/products/other'/>">Other</a></li>
+                            <c:choose>
+                                <c:when test="${fn:length(categories) > 0}">
+                                    <c:forEach var="category" items="${categories}">
+                                        <c:if test="${category.getDisplay() != 'Flowers, your way'}">
+                                            <li><a href="<c:url value='/products/'/>${category.getPath()}">${category.getDisplay()}</a></li>
+                                            </c:if>
+                                        </c:forEach>
+                                    </c:when>
+                                </c:choose>
                         </ul>
                     </li>
-                    <li><a href="#"><span>Something</span></a>
-                        <ul class="sub-menu">
-                            <li><a href="#">Sub Something</a></li>
-                            <li><a href="#">Sub Something</a></li>
-                            <li><a href="#">Sub Something</a></li>
-                            <li><a href="#">Sub Something</a></li>
-                            <li><a href="#">Sub Something</a></li>
-                            <li><a href="#">Sub Something</a></li>
-                        </ul>
+                    <li class="flowersLi"><a href="<c:url value='/products/Flowers'/>"><span>Flowers, your way</span></a>
                     </li>
                     <li class="contactUsLi"><a href="<c:url value='/contactUs'/>"><span>Contact Us</span></a>
                     </li>
@@ -206,26 +202,26 @@
                         <div class="col-lg-4 col-md-6">
                             <!-- About Us-->
                             <section class="widget widget-links widget-light-skin">
-                                <h3 class="widget-title">About Us</h3>
+                                <h3 class="widget-title">Dianella Flowers</h3>
                                 <ul>
-                                    <li><a href="#">Careers</a></li>
-                                    <li><a href="#">About flowers</a></li>
-                                    <li><a href="#">Our Story</a></li>
-                                    <li><a href="#">Services</a></li>
+                                    <li><a href="<c:url value='/'/>">Home</a></li>
+                                    <li><a href="<c:url value='/contactUs'/>">Contact Us</a></li>
+                                    <li><a href="<c:url value='/aboutUs'/>">About Us</a></li>
                                 </ul>
                             </section>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <!-- Account / Shipping Info-->
                             <section class="widget widget-links widget-light-skin">
-                                <h3 class="widget-title">Something</h3>
+                                <h3 class="widget-title">Categories</h3>
                                 <ul>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
-                                    <li><a href="#">Sub Something</a></li>
+                                    <c:choose>
+                                        <c:when test="${fn:length(categories) > 0}">
+                                            <c:forEach var="category" items="${categories}">
+                                                <li><a href="<c:url value='/products/'/>${category.getPath()}">${category.getDisplay()}</a></li>
+                                                </c:forEach>
+                                            </c:when>
+                                        </c:choose>
                                 </ul>
                             </section>
                         </div>
@@ -293,9 +289,11 @@
                     $('.aboutUsLi').addClass('active');
                 } else if (URLPath.indexOf('contactus') >= 0) {
                     $('.contactUsLi').addClass('active');
+                } else if (URLPath.indexOf('products/flowers') >= 0) {
+                    $('.flowersLi').addClass('active');
                 } else if (URLPath.indexOf('products') >= 0) {
                     $('.categoriesLi').addClass('active');
-                } else {
+                } else if (URLPath === '/dianellaflowers/') {
                     $('.homeLi').addClass('active');
                 }
                 $('.subscribe-form').on('submit', function (e)

@@ -5,11 +5,21 @@
  */
 package com.dianellaflowers.errorHandler;
 
+import com.dianellaflowers.model.Category;
+import com.dianellaflowers.model.CheckoutRequest;
+import com.dianellaflowers.model.UserCart;
+import com.dianellaflowers.service.CategoryService;
+import com.dianellaflowers.service.CheckoutRequestService;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.CannotCreateTransactionException;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
 /**
@@ -18,6 +28,12 @@ import org.springframework.web.servlet.NoHandlerFoundException;
  */
 @ControllerAdvice
 public class HandleGlobalException {
+
+    @Autowired
+    CheckoutRequestService checkoutRequestService;
+
+    @Autowired
+    CategoryService categoryService;
 
     @ExceptionHandler(value = {Exception.class})
     @ResponseBody
@@ -34,7 +50,15 @@ public class HandleGlobalException {
     }
 
     @ExceptionHandler(NoHandlerFoundException.class)
-    public String handleError404(HttpServletRequest request, Exception e) {
+    public String handleError404(HttpServletRequest request, Exception e, Model model) {
+        model.addAttribute("categories", categoryService.findAll());
+        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true);
+        List<UserCart> userCart = null;
+        if (checkoutRequest != null) {
+            userCart = checkoutRequest.getUserCartCollectionn();
+        }
+        model.addAttribute("userCartItems", userCart);
+        model.addAttribute("userCartTotalPrice", checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()));
         return "error404";
     }
 

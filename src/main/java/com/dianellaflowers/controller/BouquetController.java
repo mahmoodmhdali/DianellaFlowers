@@ -6,7 +6,9 @@
 package com.dianellaflowers.controller;
 
 import com.dianellaflowers.model.Bouquet;
+import com.dianellaflowers.model.Category;
 import com.dianellaflowers.service.BouquetService;
+import com.dianellaflowers.service.CategoryService;
 import com.dianellaflowers.utilities.Utilities;
 import java.util.List;
 import javax.servlet.ServletContext;
@@ -33,6 +35,9 @@ public class BouquetController extends AbstractController {
 
     @Autowired
     ServletContext context;
+    
+    @Autowired
+    CategoryService categoryService;
 
     @GetMapping("/{category}")
     public String products(ModelMap model, @PathVariable String category, @RequestParam(value = "orderBy", required = false) String orderBy) {
@@ -49,9 +54,13 @@ public class BouquetController extends AbstractController {
             orderBy = "price";
             desc = true;
         }
+        Category categoryobject = categoryService.findByCategoryPath(category);
+        if(categoryobject == null){
+            return "error404";
+        }
         List<Bouquet> bouquetList = bouquetService.findByCategoryName(category, orderBy, desc);
         model.addAttribute("bouquetList", bouquetList);
-        model.addAttribute("category", category);
+        model.addAttribute("category", categoryobject);
         return "products";
     }
 

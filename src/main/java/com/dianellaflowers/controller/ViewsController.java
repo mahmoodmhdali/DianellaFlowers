@@ -26,6 +26,11 @@ public class ViewsController extends AbstractController {
         return "aboutUs";
     }
 
+    @GetMapping("/contactUs")
+    public String contactUs() {
+        return "contactUs";
+    }
+
     @GetMapping(value = {"/", "/"})
     public String load(ModelMap model) {
         model.addAttribute("homeProducts", bouquetService.findHomePageProduct());

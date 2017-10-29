@@ -35,7 +35,11 @@
                 <div class="col-md-7 text-md-left text-center">
                     <div class="mt-30 hidden-md-up"></div>
                     <h2>Select and Buy Online.</h2>
-                    <p>Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something .</p><a class="text-medium text-decoration-none" href="shop-grid-ls.html">View Products&nbsp;<i class="icon-arrow-right"></i></a>
+                    <p style="text-align: justify;">Flowers are the most magical gift. Flowers can bring someone out of his/her busy life to a piece of joyful cloud, it can recover someone’s soul, it makes someone feels better.
+                        This is my belief of my online shop. I am passionate about it.
+                        I like to see people’s happy faces when they receive flowers from their loved ones...
+                        I don’t just send flowers, but I wish to deliver the happiness to make someone’s day. A happy day for your family, lover, friends, colleagues... with just a single click, call, or a text. 
+                        Dianella flowers, free delivery service with the finest quality.</p>
                 </div>
             </div>
             <hr>
