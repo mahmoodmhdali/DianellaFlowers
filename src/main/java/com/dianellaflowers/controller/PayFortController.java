@@ -6,6 +6,7 @@
 package com.dianellaflowers.controller;
 
 import com.dianellaflowers.response.PayfortResponse;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,9 +21,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/payfort")
 public class PayFortController extends AbstractController {
 
-    @PostMapping("/purchase/response")
+    @PostMapping(value = "/purchase/response", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public String createUser(@RequestBody PayfortResponse payfortResponse) {
+    public String createUser(PayfortResponse payfortResponse) {
         String her = payfortResponse.toString();
         return her;
     }
@@ -64,5 +66,4 @@ public class PayFortController extends AbstractController {
 //        // Print response
 //        return sb.toString();
 //    }
-
 }

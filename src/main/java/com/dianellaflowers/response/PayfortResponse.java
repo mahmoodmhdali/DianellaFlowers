@@ -5,31 +5,55 @@
  */
 package com.dianellaflowers.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  *
  * @author mahmo
  */
 public class PayfortResponse {
+    
+    @JsonProperty("command")
     String command;
+    @JsonProperty("access_code")
     String access_code;
+    @JsonProperty("merchant_identifier")
     String merchant_identifier;
+    @JsonProperty("merchant_reference")
     String merchant_reference;
+    @JsonProperty("amount")
     String amount;
+    @JsonProperty("currency")
     String currency;
+    @JsonProperty("language")
     String language;
+    @JsonProperty("customer_email")
     String customer_email;
+    @JsonProperty("signature")
     String signature;
+    @JsonProperty("fort_id")
     String fort_id;
+    @JsonProperty("payment_option")
     String payment_option;
+    @JsonProperty("eci")
     String eci;
+    @JsonProperty("order_description")
     String order_description;
+    @JsonProperty("customer_ip")
     String customer_ip;
+    @JsonProperty("customer_name")
     String customer_name;
+    @JsonProperty("response_message")
     String response_message;
+    @JsonProperty("response_code")
     String response_code;
+    @JsonProperty("status")
     String status;
+    @JsonProperty("card_holder_name")
     String card_holder_name;
+    @JsonProperty("expiry_date")
     String expiry_date;
+    @JsonProperty("card_number")
     String card_number;
 
     public String getCommand() {
