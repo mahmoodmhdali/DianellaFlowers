@@ -124,8 +124,8 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
                 checkoutRequest.setResponseMessage("Pending On Payfort Page");
                 
                 MessageDigest digest = MessageDigest.getInstance("SHA-256");
-                String toHash = "TESTSHAINaccess_code=xnE9X7l7TmhOklqA4nyqamount=1000command=PURCHASEcurrenc\n" +
-                                "y=USDcustomer_email=mahmoudmhdali@gmail.comlanguage=enmerchant_identifier=ppEaCGylmerch\n" +
+                String toHash = "TESTSHAINaccess_code=xnE9X7l7TmhOklqA4nyqamount=1000command=PURCHASEcurrenc" +
+                                "y=USDcustomer_email=mahmoudmhdali@gmail.comlanguage=enmerchant_identifier=ppEaCGylmerch" +
                                 "ant_reference=XYZ9239-yu898TESTSHAIN";
                 byte[] hash = digest.digest(toHash.getBytes(StandardCharsets.UTF_8));
                 String sha256hex = new String(Hex.encode(hash));
