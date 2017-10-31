@@ -6,8 +6,12 @@
 package com.dianellaflowers.controller;
 
 import com.dianellaflowers.response.PayfortResponse;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,12 +25,46 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/payfort")
 public class PayFortController extends AbstractController {
 
-    @PostMapping(value = "/purchase/response", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/purchase/online/response", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     @ResponseBody
-    public String createUser(PayfortResponse payfortResponse) {
-        String her = payfortResponse.toString();
-        return her;
+    public String onlineResponse(@RequestBody final MultiValueMap<String, String> payfortResponse) {
+        String fullResponse = "";
+        payfortResponse.remove("signature");
+        Set<String> keys = payfortResponse.keySet();
+        for (String key : keys) {
+            fullResponse = fullResponse + key + "=" + payfortResponse.get(key);
+        }
+
+        return fullResponse.replace("[", "").replace("]", "");
+    }
+
+    @PostMapping(value = "/purchase/online/response/signature", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @ResponseBody
+    public String onlineResponseSignature(@RequestBody final MultiValueMap<String, String> payfortResponse) {
+        String fullResponse = "";
+        
+        List<String> signature = payfortResponse.get("signature");
+        payfortResponse.remove("signature");
+        
+        Set<String> keys = payfortResponse.keySet();
+        for (String key : keys) {
+            fullResponse = fullResponse + key + "=" + payfortResponse.get(key);
+        }
+
+        return signature + "===============" + fullResponse.replace("[", "").replace("]", "");
+    }
+
+    @PostMapping(value = "/purchase/offline/response", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @ResponseBody
+    public String offlineResponse(@RequestBody final MultiValueMap<String, String> payfortResponse) {
+        String fullResponse = "";
+        payfortResponse.remove("signature");
+        Set<String> keys = payfortResponse.keySet();
+        for (String key : keys) {
+            fullResponse = fullResponse + key + "=" + payfortResponse.get(key);
+        }
+
+        return fullResponse.replace("[", "").replace("]", "");
     }
 
 //    @GetMapping("/purchase/response")

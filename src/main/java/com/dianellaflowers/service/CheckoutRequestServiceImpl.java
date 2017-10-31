@@ -110,9 +110,12 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
     public GenericResponse updateCheckoutRequets(HelperCheckOut helperCheckOut) {
         GenericResponse genericResponse = null;
         CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true);
+//        String totalAmount = Double.toString(getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) * 100);
+        String totalAmount = "10000";
+        String merchantIdentifier = Utilities.getSaltString(checkoutRequest.getId());
         if (checkoutRequest != null) {
             try {
-                checkoutRequest.setTrackId(Utilities.getSaltString(checkoutRequest.getId()));
+                checkoutRequest.setTrackId(merchantIdentifier);
                 checkoutRequest.setFirstName(helperCheckOut.getFirstName());
                 checkoutRequest.setLastName(helperCheckOut.getLastName());
                 checkoutRequest.setEmail(helperCheckOut.getEmail());
@@ -122,25 +125,25 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
                 checkoutRequest.setAddress(helperCheckOut.getAddress());
                 checkoutRequest.setResponseCode("0");
                 checkoutRequest.setResponseMessage("Pending On Payfort Page");
-                
+
                 MessageDigest digest = MessageDigest.getInstance("SHA-256");
-                String toHash = "TESTSHAINaccess_code=xnE9X7l7TmhOklqA4nyqamount=1000command=PURCHASEcurrenc" +
-                                "y=USDcustomer_email=mahmoudmhdali@gmail.comlanguage=enmerchant_identifier=ppEaCGylmerch" +
-                                "ant_reference=XYZ9239-yu898TESTSHAIN";
+                String toHash = "TESTSHAINaccess_code=xnE9X7l7TmhOklqA4nyqamount=" + totalAmount + "command=PURCHASEcurrency=USD"
+                        + "customer_email=" + checkoutRequest.getEmail() + "language=enmerchant_identifier=ppEaCGylmerch"
+                        + "ant_reference=" + merchantIdentifier + "TESTSHAIN";
                 byte[] hash = digest.digest(toHash.getBytes(StandardCharsets.UTF_8));
                 String sha256hex = new String(Hex.encode(hash));
-                
+
                 HashMap<String, String> payfortForm = new HashMap<>();
                 payfortForm.put("access_code", "xnE9X7l7TmhOklqA4nyq");
-                payfortForm.put("amount", "1000");
+                payfortForm.put("amount", totalAmount);
                 payfortForm.put("command", "PURCHASE");
                 payfortForm.put("currency", "USD");
-                payfortForm.put("customer_email", "mahmoudmhdali@gmail.com");
+                payfortForm.put("customer_email", checkoutRequest.getEmail());
                 payfortForm.put("language", "en");
                 payfortForm.put("merchant_identifier", "ppEaCGyl");
-                payfortForm.put("merchant_reference", "XYZ9239-yu898");
+                payfortForm.put("merchant_reference", merchantIdentifier);
                 payfortForm.put("signature", sha256hex);
-                
+
                 genericResponse = new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), checkoutRequest.getTrackId(), payfortForm);
             } catch (NoSuchAlgorithmException ex) {
                 Logger.getLogger(CheckoutRequestServiceImpl.class.getName()).log(Level.SEVERE, null, ex);

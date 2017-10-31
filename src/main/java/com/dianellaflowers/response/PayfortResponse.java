@@ -31,10 +31,14 @@ public class PayfortResponse {
     String customer_email;
     @JsonProperty("signature")
     String signature;
+    @JsonProperty("token_name")
+    String token_name;
     @JsonProperty("fort_id")
     String fort_id;
     @JsonProperty("payment_option")
     String payment_option;
+    @JsonProperty("sadad_olp")
+    String sadad_olp;
     @JsonProperty("eci")
     String eci;
     @JsonProperty("order_description")
@@ -43,6 +47,18 @@ public class PayfortResponse {
     String customer_ip;
     @JsonProperty("customer_name")
     String customer_name;
+    @JsonProperty("merchant_extra")
+    String merchant_extra;
+    @JsonProperty("merchant_extra1")
+    String merchant_extra1;
+    @JsonProperty("merchant_extra2")
+    String merchant_extra2;
+    @JsonProperty("merchant_extra3")
+    String merchant_extra3;
+    @JsonProperty("merchant_extra4")
+    String merchant_extra4;
+    @JsonProperty("authorization_code")
+    String authorization_code ;
     @JsonProperty("response_message")
     String response_message;
     @JsonProperty("response_code")
@@ -55,6 +71,100 @@ public class PayfortResponse {
     String expiry_date;
     @JsonProperty("card_number")
     String card_number;
+    @JsonProperty("remember_me")
+    String remember_me;
+    @JsonProperty("phone_number")
+    String phone_number;
+    @JsonProperty("settlement_reference")
+    String settlement_reference;
+
+    public String getSettlement_reference() {
+        return settlement_reference;
+    }
+
+    public void setSettlement_reference(String settlement_reference) {
+        this.settlement_reference = settlement_reference;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public String getRemember_me() {
+        return remember_me;
+    }
+
+    public void setRemember_me(String remember_me) {
+        this.remember_me = remember_me;
+    }
+
+    public String getAuthorization_code() {
+        return authorization_code;
+    }
+
+    public void setAuthorization_code(String authorization_code) {
+        this.authorization_code = authorization_code;
+    }
+
+    public String getMerchant_extra4() {
+        return merchant_extra4;
+    }
+
+    public void setMerchant_extra4(String merchant_extra4) {
+        this.merchant_extra4 = merchant_extra4;
+    } 
+
+    public String getMerchant_extra3() {
+        return merchant_extra3;
+    }
+
+    public void setMerchant_extra3(String merchant_extra3) {
+        this.merchant_extra3 = merchant_extra3;
+    }
+
+    public String getMerchant_extra2() {
+        return merchant_extra2;
+    }
+
+    public void setMerchant_extra2(String merchant_extra2) {
+        this.merchant_extra2 = merchant_extra2;
+    }
+
+    public String getMerchant_extra1() {
+        return merchant_extra1;
+    }
+
+    public void setMerchant_extra1(String merchant_extra1) {
+        this.merchant_extra1 = merchant_extra1;
+    }
+
+    public String getMerchant_extra() {
+        return merchant_extra;
+    }
+
+    public void setMerchant_extra(String merchant_extra) {
+        this.merchant_extra = merchant_extra;
+    }
+
+    public String getSadad_olp() {
+        return sadad_olp;
+    }
+
+    public void setSadad_olp(String sadad_olp) {
+        this.sadad_olp = sadad_olp;
+    }
+
+    public String getToken_name() {
+        return token_name;
+    }
+
+    public void setToken_name(String token_name) {
+        this.token_name = token_name;
+    }
 
     public String getCommand() {
         return command;

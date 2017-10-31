@@ -10,13 +10,17 @@ import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.UUID;
 import javax.mail.internet.AddressException;
@@ -24,6 +28,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
+import org.springframework.security.crypto.codec.Hex;
 import org.springframework.stereotype.Component;
 
 /**
@@ -145,18 +150,27 @@ public class Utilities {
         calendar.set(Calendar.MILLISECOND, 0);
         return calendar.getTime();
     }
-    
+
     public static String getSaltString(Integer id) {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
-        while (salt.length() < 10) { // length of the random string.
+        while (salt.length() < 5) { // length of the random string.
             int index = (int) (rnd.nextFloat() * SALTCHARS.length());
             salt.append(SALTCHARS.charAt(index));
         }
         String saltStr = salt.toString();
-        return saltStr + "_" + id;
 
+        String SALTCHARS1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        StringBuilder salt1 = new StringBuilder();
+        Random rnd1 = new Random();
+        while (salt1.length() < 5) { // length of the random string.
+            int index = (int) (rnd1.nextFloat() * SALTCHARS1.length());
+            salt1.append(SALTCHARS1.charAt(index));
+        }
+        String saltStr1 = salt1.toString();
+
+        return saltStr + "-" + id + saltStr1;
     }
 
 }
