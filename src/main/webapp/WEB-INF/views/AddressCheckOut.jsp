@@ -212,7 +212,7 @@
                             if (data.statusCode == '0')
                             {
                                 formCreation(data.responseObject);
-//                                $('#payfortForm').submit();
+                                $('#payfortForm').submit();
                                 //window.location.href = '<c:url value="/cart/successPayment/"/>' + data.statusMessage;
                             } else {
                                 $.handleAjaxRequest(data, $('#shippingForm'));
