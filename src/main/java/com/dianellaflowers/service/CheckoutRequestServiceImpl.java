@@ -29,6 +29,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.codec.Hex;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.context.request.RequestContextHolder;
 
 /**
@@ -110,8 +111,7 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
     public GenericResponse updateCheckoutRequets(HelperCheckOut helperCheckOut) {
         GenericResponse genericResponse = null;
         CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true);
-//        String totalAmount = Double.toString(getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) * 100);
-        String totalAmount = "10000";
+        String totalAmount = Double.toString((int) (getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) * 100));
         String merchantIdentifier = Utilities.getSaltString(checkoutRequest.getId());
         if (checkoutRequest != null) {
             try {
@@ -127,10 +127,10 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
                 checkoutRequest.setResponseMessage("Pending On Payfort Page");
 
                 MessageDigest digest = MessageDigest.getInstance("SHA-256");
-                String toHash = "TESTSHAINaccess_code=xnE9X7l7TmhOklqA4nyqamount=" + totalAmount + "command=PURCHASEcurrency=USD"
+                String toHash = "access_code=xnE9X7l7TmhOklqA4nyqamount=" + totalAmount + "command=PURCHASEcurrency=USD"
                         + "customer_email=" + checkoutRequest.getEmail() + "language=enmerchant_identifier=ppEaCGylmerch"
-                        + "ant_reference=" + merchantIdentifier + "TESTSHAIN";
-                byte[] hash = digest.digest(toHash.getBytes(StandardCharsets.UTF_8));
+                        + "ant_reference=" + merchantIdentifier;
+                byte[] hash = digest.digest(("TESTSHAIN" + toHash + "TESTSHAIN").getBytes(StandardCharsets.UTF_8));
                 String sha256hex = new String(Hex.encode(hash));
 
                 HashMap<String, String> payfortForm = new HashMap<>();
@@ -150,6 +150,22 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
             }
         } else {
             genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Internal Server Error!", "");
+        }
+        return genericResponse;
+    }
+
+    @Override
+    public GenericResponse afterPayfortResponse(MultiValueMap<String, String> payfortResponse) throws NoSuchAlgorithmException {
+        GenericResponse genericResponse = null;
+        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(payfortResponse.get("merchant_reference").get(0), false);
+        if (checkoutRequest != null) {
+            if (Utilities.checkIfValidPayfortResponse(payfortResponse)) {
+                genericResponse = new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), checkoutRequest.getTrackId(), "");
+            } else {
+                genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Not a valid signature!", "");
+            }
+        } else {
+            genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), "No such track ID!", "");
         }
         return genericResponse;
     }

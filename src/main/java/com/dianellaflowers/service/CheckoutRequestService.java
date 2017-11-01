@@ -9,6 +9,8 @@ import com.dianellaflowers.model.CheckoutRequest;
 import com.dianellaflowers.model.HelperCheckOut;
 import com.dianellaflowers.model.UserCart;
 import com.dianellaflowers.response.GenericResponse;
+import java.security.NoSuchAlgorithmException;
+import org.springframework.util.MultiValueMap;
 
 /**
  *
@@ -31,5 +33,7 @@ public interface CheckoutRequestService {
     GenericResponse updateCheckoutRequets(HelperCheckOut helperCheckOut);
     
     CheckoutRequest findByTrackId(String TrackId);
+    
+    GenericResponse afterPayfortResponse(MultiValueMap<String, String> payfortResponse) throws NoSuchAlgorithmException;
     
 }

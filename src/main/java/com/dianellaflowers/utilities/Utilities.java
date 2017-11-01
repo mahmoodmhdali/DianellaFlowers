@@ -22,6 +22,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.UUID;
 import javax.mail.internet.AddressException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.crypto.codec.Hex;
 import org.springframework.stereotype.Component;
+import org.springframework.util.MultiValueMap;
 
 /**
  *
@@ -171,6 +174,24 @@ public class Utilities {
         String saltStr1 = salt1.toString();
 
         return saltStr + "-" + id + saltStr1;
+    }
+
+    public static boolean checkIfValidPayfortResponse(MultiValueMap<String, String> payfortResponse) throws NoSuchAlgorithmException {
+        String fullResponse = "";
+        String payfortSignature = payfortResponse.get("signature").get(0);
+        payfortResponse.remove("signature");
+        Set<String> keys = new TreeSet<String>(payfortResponse.keySet());
+        for (String key : keys) {
+            fullResponse = fullResponse + key + "=" + payfortResponse.get(key);
+        }
+
+        fullResponse = fullResponse.replace("[", "").replace("]", "");
+
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] hash = digest.digest(("TESTSHAOUT" + fullResponse + "TESTSHAOUT").getBytes(StandardCharsets.UTF_8));
+        String sha256hex = new String(Hex.encode(hash));
+
+        return payfortSignature.equals(sha256hex) && payfortResponse.get("merchant_identifier").get(0).equals("ppEaCGyl") && payfortResponse.get("access_code").get(0).equals("xnE9X7l7TmhOklqA4nyq");
     }
 
 }
