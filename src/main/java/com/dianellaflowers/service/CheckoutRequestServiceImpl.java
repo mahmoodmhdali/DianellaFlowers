@@ -108,14 +108,16 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
     }
 
     @Override
-    public GenericResponse updateCheckoutRequets(HelperCheckOut helperCheckOut) {
+    public GenericResponse updateCheckoutRequets(HelperCheckOut helperCheckOut, String time) {
         GenericResponse genericResponse = null;
         CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true);
-        String totalAmount = Double.toString((int) (getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) * 100));
+        String totalAmount = Integer.toString((int) (getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) * 100));
         String merchantIdentifier = Utilities.getSaltString(checkoutRequest.getId());
         if (checkoutRequest != null) {
             try {
+                checkoutRequest.setShippingTime(time);
                 checkoutRequest.setTrackId(merchantIdentifier);
+                checkoutRequest.setShippingDateTime(helperCheckOut.getShippingDateTime());
                 checkoutRequest.setFirstName(helperCheckOut.getFirstName());
                 checkoutRequest.setLastName(helperCheckOut.getLastName());
                 checkoutRequest.setEmail(helperCheckOut.getEmail());
@@ -125,6 +127,7 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
                 checkoutRequest.setAddress(helperCheckOut.getAddress());
                 checkoutRequest.setResponseCode("0");
                 checkoutRequest.setResponseMessage("Pending On Payfort Page");
+                checkoutRequest.setLastStatusUpdateDate(new Date());
 
                 MessageDigest digest = MessageDigest.getInstance("SHA-256");
                 String toHash = "access_code=xnE9X7l7TmhOklqA4nyqamount=" + totalAmount + "command=PURCHASEcurrency=USD"
@@ -155,17 +158,28 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
     }
 
     @Override
-    public GenericResponse afterPayfortResponse(MultiValueMap<String, String> payfortResponse) throws NoSuchAlgorithmException {
+    public GenericResponse afterPayfortResponse(MultiValueMap<String, String> payfortResponse, String userStatus) throws NoSuchAlgorithmException {
         GenericResponse genericResponse = null;
         CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(payfortResponse.get("merchant_reference").get(0), false);
         if (checkoutRequest != null) {
             if (Utilities.checkIfValidPayfortResponse(payfortResponse)) {
-                genericResponse = new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), checkoutRequest.getTrackId(), "");
+                checkoutRequest.setLastStatusUpdateDate(new Date());
+                checkoutRequest.setResponseCode(payfortResponse.get("status").get(0));
+                checkoutRequest.setResponseMessage(payfortResponse.get("response_message").get(0));
+                checkoutRequest.setUserStatus(userStatus);
+                checkoutRequest.setCardNumber(payfortResponse.get("card_number").get(0));
+                checkoutRequest.setCustomerIP(payfortResponse.get("customer_ip").get(0));
+                if (payfortResponse.get("status").get(0).equals("14")) {
+                    checkoutRequest.setCheckoutDate(new Date());
+                    genericResponse = new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.NONE.ordinal(), checkoutRequest.getTrackId(), "");
+                } else {
+                    genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), payfortResponse.get("response_message").get(0), checkoutRequest);
+                }
             } else {
-                genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Not a valid signature!", "");
+                genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Not a valid signature!", checkoutRequest);
             }
         } else {
-            genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), "No such track ID!", "");
+            genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), "No such track ID!", checkoutRequest);
         }
         return genericResponse;
     }

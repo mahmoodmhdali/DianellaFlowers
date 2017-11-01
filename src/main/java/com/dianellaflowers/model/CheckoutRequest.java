@@ -24,6 +24,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -75,9 +76,25 @@ public class CheckoutRequest implements Serializable {
     @Column(name = "ADDRESS")
     private String address;
     @Basic(optional = false)
+    @Column(name = "CARD_NUMBER")
+    private String cardNumber;
+    @Basic(optional = false)
+    @Column(name = "CUSTOMER_IP")
+    private String customerIP;
+    @Basic(optional = false)
+    @Column(name = "USER_STATUS")
+    private String userStatus;
+    @Basic(optional = false)
     @Column(name = "LAST_STATUS_UPDATE_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastStatusUpdateDate;
+    @Column(name = "SHIPPING_DATE")
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "MMM, dd yyyy")
+    private Date shippingDateTime;
+    @Basic(optional = false)
+    @Column(name = "SHIPPING_TIME")
+    private String shippingTime;
     @Column(name = "CHECKOUT_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date checkoutDate;
@@ -130,6 +147,14 @@ public class CheckoutRequest implements Serializable {
 
     public void setLastStatusUpdateDate(Date lastStatusUpdateDate) {
         this.lastStatusUpdateDate = lastStatusUpdateDate;
+    }
+    
+    public Date getShippingDateTime() {
+        return shippingDateTime;
+    }
+
+    public void setShippingDateTime(Date shippingDateTime) {
+        this.shippingDateTime = shippingDateTime;
     }
     
     public Date getCheckoutDate() {
@@ -210,6 +235,38 @@ public class CheckoutRequest implements Serializable {
 
     public String getAddress() {
         return address;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCustomerIP(String customerIP) {
+        this.customerIP = customerIP;
+    }
+
+    public String getCustomerIP() {
+        return customerIP;
+    }
+
+    public void setUserStatus(String userStatus) {
+        this.userStatus = userStatus;
+    }
+
+    public String getUserStatus() {
+        return userStatus;
+    }
+
+    public void setShippingTime(String shippingTime) {
+        this.shippingTime = shippingTime;
+    }
+
+    public String getShippingTime() {
+        return shippingTime;
     }
 
     @XmlTransient

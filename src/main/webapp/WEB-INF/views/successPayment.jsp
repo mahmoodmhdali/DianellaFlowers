@@ -33,9 +33,9 @@
         <div class="container padding-bottom-3x mb-2">
             <div class="checkout-steps">
                 <a class="active" href="#">4. Success</a>
-                <a><span class="angle"></span>3. Payment</a>
-                <a><span class="angle"></span>2. Shipping</a>
-                <a><span class="angle"></span>1. Cart</a>
+                <a class="completed"><span class="angle"></span><span class="step-indicator icon-circle-check"></span>3. Payment</a>
+                <a class="completed"><span class="angle"></span><span class="step-indicator icon-circle-check"></span>2. Shipping</a>
+                <a class="completed"><span class="angle"></span><span class="step-indicator icon-circle-check"></span>1. Cart</a>
             </div>
             <div class="card text-center">
                 <div class="card-block padding-top-2x">

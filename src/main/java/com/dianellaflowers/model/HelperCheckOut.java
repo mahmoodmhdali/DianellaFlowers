@@ -8,6 +8,7 @@ package com.dianellaflowers.model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,10 +16,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -68,6 +73,11 @@ public class HelperCheckOut implements Serializable {
     @Size (max = 1000, message = "Address should be maximum 1000 characters")
     @NotBlank(message = "Address is required")
     private String address;
+    @Column(name = "SHIPPING_DATE_TIME")
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "MMM, dd yyyy")
+    @NotNull
+    private Date shippingDateTime;
 
     public HelperCheckOut() {
     }
@@ -138,6 +148,14 @@ public class HelperCheckOut implements Serializable {
 
     public String getAddress() {
         return address;
+    }
+
+    public void setShippingDateTime(Date shippingDateTime) {
+        this.shippingDateTime = shippingDateTime;
+    }
+
+    public Date getShippingDateTime() {
+        return shippingDateTime;
     }
 
     @Override

@@ -46,7 +46,7 @@ public class CheckoutRequestDaoImpl extends AbstractDao<Integer, CheckoutRequest
         crit.createAlias("userCartCollection", "userCartCollectionAlias");
         crit.createAlias("userCartCollectionAlias.bouquetID", "bouquetAlias");
         crit.addOrder(Order.asc("userCartCollectionAlias.createdDate"));
-        crit.add(Restrictions.or(Restrictions.eq("responseCode", "-1"), Restrictions.eq("responseCode", "0")));
+        crit.add(Restrictions.ne("responseCode", "14"));
         if (findWithSession) {
             crit.add(Restrictions.eq("sessionID", Id));
         } else {
@@ -75,7 +75,7 @@ public class CheckoutRequestDaoImpl extends AbstractDao<Integer, CheckoutRequest
         crit.addOrder(Order.asc("userCartCollectionAlias.createdDate"));
         crit.add(Restrictions.eq("sessionID", sessionId));
         crit.add(Restrictions.eq("bouquetAlias.id", bouquetId));
-        crit.add(Restrictions.or(Restrictions.eq("responseCode", "-1"), Restrictions.eq("responseCode", "0")));
+        crit.add(Restrictions.ne("responseCode", "14"));
         CheckoutRequest checkoutRequest = (CheckoutRequest) crit.uniqueResult();
         if (checkoutRequest != null) {
             Hibernate.initialize(checkoutRequest.getUserCartCollectionn());

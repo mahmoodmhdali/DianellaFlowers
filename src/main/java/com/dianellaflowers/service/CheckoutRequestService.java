@@ -30,10 +30,10 @@ public interface CheckoutRequestService {
     
     CheckoutRequest findBySessioIdAndBouquetID(String sessionId, Integer bouquetId);
     
-    GenericResponse updateCheckoutRequets(HelperCheckOut helperCheckOut);
+    GenericResponse updateCheckoutRequets(HelperCheckOut helperCheckOut, String time);
     
     CheckoutRequest findByTrackId(String TrackId);
     
-    GenericResponse afterPayfortResponse(MultiValueMap<String, String> payfortResponse) throws NoSuchAlgorithmException;
+    GenericResponse afterPayfortResponse(MultiValueMap<String, String> payfortResponse, String userStatus) throws NoSuchAlgorithmException;
     
 }

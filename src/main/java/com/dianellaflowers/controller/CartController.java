@@ -7,6 +7,7 @@ package com.dianellaflowers.controller;
 
 import com.dianellaflowers.enumeration.ResponseMessageType;
 import com.dianellaflowers.enumeration.ResponseStatus;
+import com.dianellaflowers.model.CheckoutRequest;
 import com.dianellaflowers.model.HelperCheckOut;
 import com.dianellaflowers.model.UserCart;
 import com.dianellaflowers.response.GenericResponse;
@@ -64,9 +65,11 @@ public class CartController extends AbstractController {
 
     @GetMapping("/shipping")
     public String address(Model model) {
-        if ((checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true)) == null) {
+        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true);
+        if (checkoutRequest == null) {
             return "error404";
         } else {
+            model.addAttribute("checkoutRequest", checkoutRequest);
             model.addAttribute("tax", checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) / 10);
             return "AddressCheckOut";
         }
@@ -102,10 +105,10 @@ public class CartController extends AbstractController {
 
     @PostMapping("/orderDetail")
     @ResponseBody
-    public ResponseEntity<GenericResponse> orderDetail(ModelMap model, @Valid @ModelAttribute HelperCheckOut helperCheckOut, BindingResult result) throws Exception {
+    public ResponseEntity<GenericResponse> orderDetail(ModelMap model, @Valid @ModelAttribute HelperCheckOut helperCheckOut, BindingResult result, @RequestParam("time") String time) throws Exception {
         GenericResponse genericResponse = this.GetBindingResultErrors(result, null);
         if (genericResponse == null) {
-            genericResponse = checkoutRequestService.updateCheckoutRequets(helperCheckOut);
+            genericResponse = checkoutRequestService.updateCheckoutRequets(helperCheckOut,time);
         }
         return new ResponseEntity<GenericResponse>(genericResponse, HttpStatus.OK);
     }

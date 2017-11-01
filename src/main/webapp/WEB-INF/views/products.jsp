@@ -32,7 +32,7 @@
         <div class="container padding-bottom-3x mb-1">
             <div class="row">
                 <!-- Products-->
-                <div class="col-xl-12 col-lg-12 order-lg-2">
+                <div class="col-xl-12 col-lg-12 order-lg-12">
                     <c:if test="${category.getId() == '5'}">
                         <div class="alert alert-info alert-dismissible fade show text-center" style="margin-bottom: 30px;">
                             All flowers selected in a single order are arranged in a <strong>Same</strong> Bouquet.
