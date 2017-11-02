@@ -49,7 +49,7 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
     @Override
     public UserCart addCheckoutRequest(UserCart userCart) throws Exception {
         List<UserCart> userCartList = Arrays.asList(userCart);
-        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true);
+        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true, false);
         if (checkoutRequest == null) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
             userCart.setQuantity("1");
@@ -81,13 +81,13 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
     }
 
     @Override
-    public CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession) {
-        return checkoutRequestDao.findByTrackIdOrSessionId(Id, findWithSession);
+    public CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession, boolean forPayfortRequest) {
+        return checkoutRequestDao.findByTrackIdOrSessionId(Id, findWithSession, forPayfortRequest);
     }
 
     @Override
     public double getCartTotal(String sessionId) {
-        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(sessionId, true);
+        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(sessionId, true, false);
         Double price = 0.0;
         if (checkoutRequest != null) {
             for (UserCart cart : checkoutRequest.getUserCartCollectionn()) {
@@ -110,7 +110,7 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
     @Override
     public GenericResponse updateCheckoutRequets(HelperCheckOut helperCheckOut, String time) {
         GenericResponse genericResponse = null;
-        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true);
+        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true, false);
         String totalAmount = Integer.toString((int) (getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) * 100));
         String merchantIdentifier = Utilities.getSaltString(checkoutRequest.getId());
         if (checkoutRequest != null) {
@@ -160,7 +160,7 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
     @Override
     public GenericResponse afterPayfortResponse(MultiValueMap<String, String> payfortResponse, String userStatus) throws NoSuchAlgorithmException {
         GenericResponse genericResponse = null;
-        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(payfortResponse.get("merchant_reference").get(0), false);
+        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(payfortResponse.get("merchant_reference").get(0), false, true);
         if (checkoutRequest != null) {
             if (Utilities.checkIfValidPayfortResponse(payfortResponse)) {
                 checkoutRequest.setLastStatusUpdateDate(new Date());

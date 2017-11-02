@@ -76,7 +76,7 @@ public class HelperCheckOut implements Serializable {
     @Column(name = "SHIPPING_DATE_TIME")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "MMM, dd yyyy")
-    @NotNull
+    @NotNull(message = "Shipping Date is required")
     private Date shippingDateTime;
 
     public HelperCheckOut() {

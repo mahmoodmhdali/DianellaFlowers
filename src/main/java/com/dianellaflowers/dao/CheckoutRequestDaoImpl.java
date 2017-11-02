@@ -41,12 +41,14 @@ public class CheckoutRequestDaoImpl extends AbstractDao<Integer, CheckoutRequest
     }
 
     @Override
-    public CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession) {
+    public CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession, boolean forPayfortRequest) {
         Criteria crit = createEntityCriteria();
         crit.createAlias("userCartCollection", "userCartCollectionAlias");
         crit.createAlias("userCartCollectionAlias.bouquetID", "bouquetAlias");
         crit.addOrder(Order.asc("userCartCollectionAlias.createdDate"));
-        crit.add(Restrictions.ne("responseCode", "14"));
+        if (!forPayfortRequest) {
+            crit.add(Restrictions.ne("responseCode", "14"));
+        }
         if (findWithSession) {
             crit.add(Restrictions.eq("sessionID", Id));
         } else {
@@ -63,7 +65,7 @@ public class CheckoutRequestDaoImpl extends AbstractDao<Integer, CheckoutRequest
 
     @Override
     public void clearBySessionID(String sessionID) {
-        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(sessionID, true);
+        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(sessionID, true, false);
         delete(checkoutRequest);
     }
 

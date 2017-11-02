@@ -19,21 +19,21 @@ import org.springframework.util.MultiValueMap;
 public interface CheckoutRequestService {
 
     UserCart addCheckoutRequest(UserCart userCart) throws Exception;
-    
+
     CheckoutRequest findById(Integer Id);
-    
-    CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession);
-    
+
+    CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession, boolean forPayfortRequest);
+
     double getCartTotal(String sessionId);
-    
+
     void clearBySessionID(String sessionID);
-    
+
     CheckoutRequest findBySessioIdAndBouquetID(String sessionId, Integer bouquetId);
-    
+
     GenericResponse updateCheckoutRequets(HelperCheckOut helperCheckOut, String time);
-    
+
     CheckoutRequest findByTrackId(String TrackId);
-    
+
     GenericResponse afterPayfortResponse(MultiValueMap<String, String> payfortResponse, String userStatus) throws NoSuchAlgorithmException;
-    
+
 }

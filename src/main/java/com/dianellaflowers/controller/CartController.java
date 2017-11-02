@@ -65,7 +65,7 @@ public class CartController extends AbstractController {
 
     @GetMapping("/shipping")
     public String address(Model model) {
-        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true);
+        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true, false);
         if (checkoutRequest == null) {
             return "error404";
         } else {

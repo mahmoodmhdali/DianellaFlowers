@@ -10,7 +10,7 @@ public interface CheckoutRequestDao {
 
     CheckoutRequest findByTrackId(String TrackId);
 
-    CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession);
+    CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession, boolean forPayfortRequest);
 
     void clearBySessionID(String sessionID);
 
