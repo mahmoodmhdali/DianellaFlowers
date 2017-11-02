@@ -231,7 +231,7 @@
                         <div class="col-md-7 padding-bottom-1x">
                             <!-- Payment Methods-->
                             <div class="margin-bottom-1x" style="max-width: 615px;">
-                                <img src="<c:url value='/assets/img/payment_methods1.png'/>" alt="Payment Methods">
+                                <img src="<c:url value='/assets/img/payment_methods11.png'/>" alt="Payment Methods">
                             </div>
                         </div>
                         <div class="col-md-5 padding-bottom-1x">
