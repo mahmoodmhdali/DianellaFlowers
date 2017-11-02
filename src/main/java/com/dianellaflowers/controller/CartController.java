@@ -56,7 +56,10 @@ public class CartController extends AbstractController {
 
     @GetMapping("/successPayment/{trackId}")
     public String successPayment(Model model, @PathVariable String trackId) {
-        if (checkoutRequestService.findByTrackId(trackId) == null) {
+        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackId(trackId);
+        if (checkoutRequest == null) {
+            return "error404";
+        } else if(checkoutRequest.getResponseCode().equals("14")){
             return "error404";
         }
         model.addAttribute("trackId", trackId);
