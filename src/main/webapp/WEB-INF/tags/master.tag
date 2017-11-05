@@ -10,11 +10,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <!-- SEO Meta Tags-->
-        <meta name="description" content="Unishop - Universal E-Commerce Template">
-        <meta name="keywords" content="shop, e-commerce, modern, flat style, responsive, online store, business, mobile, blog, bootstrap 4, html5, css3, jquery, js, gallery, slider, touch, creative, clean">
-        <meta name="author" content="Rokaux">
+        <meta charset="utf-8">        
+        <meta name="description" content="Flowers are the most magical gift. Flowers can bring someone out of his/her busy life to a piece of joyful cloud, it can recover someone’s soul, it makes someone feels better.">
+        <meta name="keywords" content="delivery flowers,flowers,buy flowers,
+              deliver flowers,dianella  flowers, dianella, exotica, gift, surprise">
+        <meta name="google-site-verification" content="LY5Qqz1M4e_YLHxorxdddS75U0Ql74EavNx4k0H63es" />
+        <meta name="author" content="Mahmoud Mohamed Ali">
         <!-- Mobile Specific Meta Tag-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <!-- Favicon and Apple Icons-->

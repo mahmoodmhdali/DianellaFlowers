@@ -42,12 +42,6 @@ public class PayFortController extends AbstractController {
         }
     }
 
-    @PostMapping(value = "/purchase/online/response/test", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    @ResponseBody
-    public MultiValueMap<String, String> onlineResponseTest(@RequestBody final MultiValueMap<String, String> payfortResponse,Model model) throws NoSuchAlgorithmException {
-        return payfortResponse;
-    }
-
     @PostMapping(value = "/purchase/offline/response", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     @ResponseBody
     public String offlineResponse(@RequestBody final MultiValueMap<String, String> payfortResponse) throws NoSuchAlgorithmException {
