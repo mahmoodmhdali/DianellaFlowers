@@ -69,6 +69,9 @@ public class HelperCheckOut implements Serializable {
     @Size (max = 2500, message = "Card Text should be maximum 2500 characters")
     private String cardText;
     @Basic(optional = false)
+    @Column(name = "ADDITIONAL_DETAILS")
+    private String additionalDetails;
+    @Basic(optional = false)
     @Column(name = "ADDRESS")
     @Size (max = 1000, message = "Address should be maximum 1000 characters")
     @NotBlank(message = "Address is required")
@@ -140,6 +143,14 @@ public class HelperCheckOut implements Serializable {
 
     public String getCardText() {
         return cardText;
+    }
+
+    public void setAdditionalDetails(String additionalDetails) {
+        this.additionalDetails = additionalDetails;
+    }
+
+    public String getAdditionalDetails() {
+        return additionalDetails;
     }
 
     public void setAddress(String address) {

@@ -1,6 +1,7 @@
 package com.dianellaflowers.dao;
 
 import com.dianellaflowers.model.CheckoutRequest;
+import java.util.List;
 
 public interface CheckoutRequestDao {
 
@@ -15,5 +16,7 @@ public interface CheckoutRequestDao {
     void clearBySessionID(String sessionID);
 
     CheckoutRequest findBySessioIdAndBouquetID(String sessionId, Integer bouquetId);
+    
+    List <CheckoutRequest> getAllCheckoutRequests();
 
 }

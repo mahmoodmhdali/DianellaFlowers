@@ -73,6 +73,9 @@ public class CheckoutRequest implements Serializable {
     @Column(name = "CARD_TEXT")
     private String cardText;
     @Basic(optional = false)
+    @Column(name = "ADDITIONAL_DETAILS")
+    private String additionalDetails;
+    @Basic(optional = false)
     @Column(name = "ADDRESS")
     private String address;
     @Basic(optional = false)
@@ -227,6 +230,14 @@ public class CheckoutRequest implements Serializable {
 
     public String getCardText() {
         return cardText;
+    }
+
+    public void setAdditionalDetails(String additionalDetails) {
+        this.additionalDetails = additionalDetails;
+    }
+
+    public String getAdditionalDetails() {
+        return additionalDetails;
     }
 
     public void setAddress(String address) {

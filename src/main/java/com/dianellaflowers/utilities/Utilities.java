@@ -30,6 +30,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.codec.Hex;
 import org.springframework.stereotype.Component;
 import org.springframework.util.MultiValueMap;
@@ -192,6 +194,11 @@ public class Utilities {
         String sha256hex = new String(Hex.encode(hash));
 
         return payfortSignature.equals(sha256hex) && payfortResponse.get("merchant_identifier").get(0).equals("ppEaCGyl") && payfortResponse.get("access_code").get(0).equals("xnE9X7l7TmhOklqA4nyq");
+    }
+    
+    public boolean isCurrentAuthenticationAnonymous() {
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authenticationTrustResolver.isAnonymous(authentication);
     }
 
 }

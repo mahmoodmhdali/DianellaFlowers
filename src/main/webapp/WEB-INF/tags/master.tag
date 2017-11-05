@@ -137,40 +137,46 @@
                 <div class="inner">
                     <div class="tools">
                         <div class="cart cartDataDiv">
-                            <a href="<c:url value='/cart'/>"></a><i class="icon-bag"></i><span class="count countCart">${fn:length(userCartItems)}</span><span class="subtotal totalCart1">$${userCartTotalPrice}</span>
-                                <c:choose>
-                                    <c:when test="${fn:length(userCartItems) > 0}">
-                                    <div class="toolbar-dropdown cartData">
-                                        <c:forEach var="userCartItem" items="${userCartItems}">
-                                            <div class="dropdown-product-item" style="cursor: default" data-cart-id="${userCartItem.getId()}">
-                                                <span class="dropdown-product-remove remove-from-cart-btn" style="cursor: pointer" data-cart-id="${userCartItem.getId()}"><i class="icon-cross"></i></span>
-                                                <a class="dropdown-product-thumb">
-                                                    <img src="<c:url value='${userCartItem.getBouquetID().getCompressedImagePath()}'/>" alt="${userCartItem.getBouquetID().getName()}">
-                                                </a>
-                                                <div class="dropdown-product-info"><a class="dropdown-product-title">${userCartItem.getBouquetID().getName()}</a>
-                                                    <span class="dropdown-product-details productQuantity">${userCartItem.getQuantity()}</span>
-                                                    <span class="dropdown-product-details"> x $${userCartItem.getBouquetID().getPrice()}</span>
+
+                            <sec:authorize access="hasRole('Admin')">
+                                <a href="<c:url value='/logout'/>"></a><i class="fa fa-lock"></i><span class="subtotal">Log Out</span>
+                                </sec:authorize>
+                                <sec:authorize access="!hasRole('Admin')">
+                                <a href="<c:url value='/cart'/>" class="cartToHide"></a><i class="icon-bag"></i><span class="count countCart">${fn:length(userCartItems)}</span><span class="subtotal totalCart1">$${userCartTotalPrice}</span>
+                                    <c:choose>
+                                        <c:when test="${fn:length(userCartItems) > 0}">
+                                        <div class="toolbar-dropdown cartData cartToHide">
+                                            <c:forEach var="userCartItem" items="${userCartItems}">
+                                                <div class="dropdown-product-item" style="cursor: default" data-cart-id="${userCartItem.getId()}">
+                                                    <span class="dropdown-product-remove remove-from-cart-btn" style="cursor: pointer" data-cart-id="${userCartItem.getId()}"><i class="icon-cross"></i></span>
+                                                    <a class="dropdown-product-thumb">
+                                                        <img src="<c:url value='${userCartItem.getBouquetID().getCompressedImagePath()}'/>" alt="${userCartItem.getBouquetID().getName()}">
+                                                    </a>
+                                                    <div class="dropdown-product-info"><a class="dropdown-product-title">${userCartItem.getBouquetID().getName()}</a>
+                                                        <span class="dropdown-product-details productQuantity">${userCartItem.getQuantity()}</span>
+                                                        <span class="dropdown-product-details"> x $${userCartItem.getBouquetID().getPrice()}</span>
+                                                    </div>
                                                 </div>
+                                            </c:forEach>
+                                            <div class="toolbar-dropdown-group">
+                                                <div class="column"><span class="text-lg">Total:</span></div>
+                                                <div class="column text-right"><span class="text-lg text-medium totalCart">$${userCartTotalPrice}</span></div>
                                             </div>
-                                        </c:forEach>
-                                        <div class="toolbar-dropdown-group">
-                                            <div class="column"><span class="text-lg">Total:</span></div>
-                                            <div class="column text-right"><span class="text-lg text-medium totalCart">$${userCartTotalPrice}</span></div>
+                                            <div class="toolbar-dropdown-group">
+                                                <div class="column"><a class="btn btn-sm btn-block btn-outline-primary" href="<c:url value='/cart'/>">View Cart</a></div>
+                                                <div class="column"><a class="btn btn-sm btn-block btn-outline-danger clearCart" href="#">Clear Cart</a></div>
+                                            </div>
                                         </div>
-                                        <div class="toolbar-dropdown-group">
-                                            <div class="column"><a class="btn btn-sm btn-block btn-outline-primary" href="<c:url value='/cart'/>">View Cart</a></div>
-                                            <div class="column"><a class="btn btn-sm btn-block btn-outline-danger clearCart" href="#">Clear Cart</a></div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="toolbar-dropdown noCartFoundDiv cartToHide">
+                                            <div class="toolbar-dropdown-group notFound text-center">
+                                                Cart is Empty
+                                            </div>
                                         </div>
-                                    </div>
-                                </c:when>
-                                <c:otherwise>
-                                    <div class="toolbar-dropdown noCartFoundDiv">
-                                        <div class="toolbar-dropdown-group notFound text-center">
-                                            Cart is Empty
-                                        </div>
-                                    </div>
-                                </c:otherwise>
-                            </c:choose>
+                                    </c:otherwise>
+                                </c:choose>
+                            </sec:authorize>
                         </div>
                     </div>
                 </div>
@@ -207,6 +213,8 @@
                                     <li><a href="<c:url value='/'/>">Home</a></li>
                                     <li><a href="<c:url value='/contactUs'/>">Contact Us</a></li>
                                     <li><a href="<c:url value='/aboutUs'/>">About Us</a></li>
+                                    <li><a href="<c:url value='/TermsAndConditions'/>">Terms & Conditions</a></li>
+                                    <li><a href="<c:url value='/PrivacyPolicy'/>">Privacy Policy</a></li>  
                                 </ul>
                             </section>
                         </div>
@@ -251,8 +259,16 @@
                         </div>
                     </div>
                     <!-- Copyright-->
-                    <p class="footer-copyright">© All rights reserved. Made with&nbsp;<i class="icon-heart" style="color: #a8328c"></i>&nbsp;by<a href="mailto:mahmoudmhdali@gmail.com" target="_blank">&nbsp;Mahmoud Mohamed Ali</a></p>
-                </div>
+                    <div class="footer-copyright">
+                        <p class="pull-left">
+                            © All rights reserved. Made with&nbsp;
+                            <i class="icon-heart" style="color: #a8328c"></i>
+                            &nbsp;by&nbsp;
+                            <a href="mailto:mahmoudmhdali@gmail.com" target="_blank">Mahmoud Mohamed Ali</a>
+                        </p>
+                        <p class="pull-right"><a href="<c:url value='/PrivacyPolicy'/>" style="color: rgba(255, 255, 255, 0.5)">Privacy Policy</a>&nbsp;-&nbsp;<a href="<c:url value='/TermsAndConditions'/>" style="color: rgba(255, 255, 255, 0.5)">Terms & Conditions</a></p>
+                        </p>
+                    </div>
             </footer>
         </div>
         <!-- Back To Top Button-->

@@ -56,7 +56,7 @@ public class CartController extends AbstractController {
 
     @GetMapping("/successPayment/{trackId}")
     public String successPayment(Model model, @PathVariable String trackId) {
-        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackId(trackId);
+        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(trackId, false, false);
         if (checkoutRequest == null) {
             return "error404";
         } else if(checkoutRequest.getResponseCode().equals("14")){
@@ -73,7 +73,7 @@ public class CartController extends AbstractController {
             return "error404";
         } else {
             model.addAttribute("checkoutRequest", checkoutRequest);
-            model.addAttribute("tax", checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) / 10);
+            model.addAttribute("tax", checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId(), true) / 10);
             return "AddressCheckOut";
         }
     }
@@ -82,14 +82,14 @@ public class CartController extends AbstractController {
     @ResponseBody
     public ResponseEntity<GenericResponse> addToCart(@RequestParam("id") Integer bouquetId) throws Exception {
         UserCart userCart = checkoutRequestService.addCheckoutRequest(new UserCart(new Date(), bouquetService.findById(bouquetId)));
-        return new ResponseEntity<>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), userCart.getId() + "~" + checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) + "~" + userCart.getQuantity(), bouquetService.findById(bouquetId).toString()), HttpStatus.OK);
+        return new ResponseEntity<>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), userCart.getId() + "~" + checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId(), true) + "~" + userCart.getQuantity(), bouquetService.findById(bouquetId).toString()), HttpStatus.OK);
     }
 
     @PostMapping("/remove")
     @ResponseBody
     public ResponseEntity<GenericResponse> removeFromCart(@RequestParam("id") Integer userCartId) throws Exception {
         userCartService.removeUserCart(userCartId, RequestContextHolder.currentRequestAttributes().getSessionId());
-        String totalPrice = Double.toString(checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()));
+        String totalPrice = Double.toString(checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId(), true));
         return new ResponseEntity<>(new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Success", totalPrice), HttpStatus.OK);
     }
 

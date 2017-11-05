@@ -76,18 +76,13 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
     }
 
     @Override
-    public CheckoutRequest findByTrackId(String trackId) {
-        return checkoutRequestDao.findByTrackId(trackId);
-    }
-
-    @Override
     public CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession, boolean forPayfortRequest) {
         return checkoutRequestDao.findByTrackIdOrSessionId(Id, findWithSession, forPayfortRequest);
     }
 
     @Override
-    public double getCartTotal(String sessionId) {
-        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(sessionId, true, false);
+    public double getCartTotal(String sessionId, boolean bysessionId) {
+        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(sessionId, bysessionId, !bysessionId);
         Double price = 0.0;
         if (checkoutRequest != null) {
             for (UserCart cart : checkoutRequest.getUserCartCollectionn()) {
@@ -111,13 +106,14 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
     public GenericResponse updateCheckoutRequets(HelperCheckOut helperCheckOut, String time) {
         GenericResponse genericResponse = null;
         CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true, false);
-        String totalAmount = Integer.toString((int) (getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()) * 100));
+        String totalAmount = Integer.toString((int) (getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId(), true) * 100));
         String merchantIdentifier = Utilities.getSaltString(checkoutRequest.getId());
         if (checkoutRequest != null) {
             try {
                 checkoutRequest.setShippingTime(time);
                 checkoutRequest.setTrackId(merchantIdentifier);
                 checkoutRequest.setShippingDateTime(helperCheckOut.getShippingDateTime());
+                checkoutRequest.setAdditionalDetails(helperCheckOut.getAdditionalDetails());
                 checkoutRequest.setFirstName(helperCheckOut.getFirstName());
                 checkoutRequest.setLastName(helperCheckOut.getLastName());
                 checkoutRequest.setEmail(helperCheckOut.getEmail());
@@ -160,28 +156,38 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
     @Override
     public GenericResponse afterPayfortResponse(MultiValueMap<String, String> payfortResponse, String userStatus) throws NoSuchAlgorithmException {
         GenericResponse genericResponse = null;
-        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(payfortResponse.get("merchant_reference").get(0), false, true);
-        if (checkoutRequest != null) {
-            if (Utilities.checkIfValidPayfortResponse(payfortResponse)) {
-                checkoutRequest.setLastStatusUpdateDate(new Date());
-                checkoutRequest.setResponseCode(payfortResponse.get("status").get(0));
-                checkoutRequest.setResponseMessage(payfortResponse.get("response_message").get(0));
-                checkoutRequest.setUserStatus(userStatus);
-                checkoutRequest.setCardNumber(payfortResponse.get("card_number").get(0));
-                checkoutRequest.setCustomerIP(payfortResponse.get("customer_ip").get(0));
-                if (payfortResponse.get("status").get(0).equals("14")) {
-                    checkoutRequest.setCheckoutDate(new Date());
-                    genericResponse = new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.NONE.ordinal(), checkoutRequest.getTrackId(), "");
+        if (payfortResponse == null || payfortResponse.get("merchant_reference").get(0) == null) {
+            CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true, true);
+            genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Error getting data. Please try again!", checkoutRequest);
+        } else {
+            CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(payfortResponse.get("merchant_reference").get(0), false, true);
+            if (checkoutRequest != null) {
+                if (Utilities.checkIfValidPayfortResponse(payfortResponse)) {
+                    checkoutRequest.setLastStatusUpdateDate(new Date());
+                    checkoutRequest.setResponseCode(payfortResponse.get("status").get(0));
+                    checkoutRequest.setResponseMessage(payfortResponse.get("response_message").get(0));
+                    checkoutRequest.setUserStatus(userStatus);
+                    checkoutRequest.setCardNumber(payfortResponse.get("card_number").get(0));
+                    checkoutRequest.setCustomerIP(payfortResponse.get("customer_ip").get(0));
+                    if (payfortResponse.get("status").get(0).equals("14")) {
+                        checkoutRequest.setCheckoutDate(new Date());
+                        genericResponse = new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.NONE.ordinal(), checkoutRequest.getTrackId(), "");
+                    } else {
+                        genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), payfortResponse.get("response_message").get(0), checkoutRequest);
+                    }
                 } else {
-                    genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), payfortResponse.get("response_message").get(0), checkoutRequest);
+                    genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Not a valid signature!", checkoutRequest);
                 }
             } else {
-                genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Not a valid signature!", checkoutRequest);
+                genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), "No such track ID!", checkoutRequest);
             }
-        } else {
-            genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), "No such track ID!", checkoutRequest);
         }
         return genericResponse;
+    }
+
+    @Override
+    public List<CheckoutRequest> getAllCheckoutRequests() {
+        return checkoutRequestDao.getAllCheckoutRequests();
     }
 
 }

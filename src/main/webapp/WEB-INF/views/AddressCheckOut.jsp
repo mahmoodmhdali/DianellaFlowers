@@ -124,6 +124,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">  
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="alert alert-warning alert-dismissible fade show text-center" style="margin-bottom: 30px;">
+                                    For a specific time or more details please feel free to add specified time in <br>
+                                    <strong class="toSlideAttional" style="cursor: pointer">additional detail</strong> section.
+                                </div>
+                            </div>    
+                        </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
@@ -137,6 +145,14 @@
                                 <div class="form-group">
                                     <label for="address">Address</label>
                                     <input class="form-control" name="address" type="text" id="checkout-address1" <c:if test="${checkoutRequest != null}">value="${checkoutRequest.getAddress()}"</c:if>>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="address">Additional Details</label>
+                                    <textarea style="resize: none;" class="form-control additionalInput" rows="5" name="additionalDetails" type="text" id="checkout-additionalDetails"><c:if test="${checkoutRequest != null}">${checkoutRequest.getAdditionalDetails()}</c:if></textarea>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +200,13 @@
         <script src="<c:url value='/assets/datepicker/js/bootstrap-datetimepicker.min.js'/>"></script>
         <script>
             $('document').ready(function () {
-                
+
+
+                $('body').on('click', '.toSlideAttional', function () {
+                    $('.additionalInput').focus();
+                    $('html, body').animate({scrollTop: $('.additionalInput').offset().top - 200}, 'slow');
+                });
+
                 var time = '1';
 
                 var nowTemp = new Date();

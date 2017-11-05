@@ -52,15 +52,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/Admin/**").access("hasRole('Admin')")
                 .antMatchers("/**").permitAll()
                 .and().formLogin().loginPage("/login")
-                .defaultSuccessUrl("/authorizeUser")
+                .defaultSuccessUrl("/Admin/Dashboard")
                 .loginProcessingUrl("/login").usernameParameter("email").passwordParameter("password")
                 .and().rememberMe().rememberMeParameter("remember-me").tokenRepository(tokenRepository)
                 .tokenValiditySeconds(86400 * 2)
                 .and().csrf().ignoringAntMatchers("/test/**")
                 .and().csrf().ignoringAntMatchers("/payfort/**").and()
-                .exceptionHandling().accessDeniedPage("/accessdenied")
+                .exceptionHandling().accessDeniedPage("/error404")
                 .and().sessionManagement().maximumSessions(5).expiredUrl("/login?expired").sessionRegistry(sessionRegistry());
         // To limit login for users
         //.and().sessio1nManagement().maximumSessions(1).expiredUrl("/login?expired");

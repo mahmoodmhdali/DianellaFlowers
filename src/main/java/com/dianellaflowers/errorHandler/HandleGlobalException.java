@@ -58,7 +58,7 @@ public class HandleGlobalException {
             userCart = checkoutRequest.getUserCartCollectionn();
         }
         model.addAttribute("userCartItems", userCart);
-        model.addAttribute("userCartTotalPrice", checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId()));
+        model.addAttribute("userCartTotalPrice", checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId(), true));
         return "error404";
     }
 

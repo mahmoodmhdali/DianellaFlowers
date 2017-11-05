@@ -5,57 +5,63 @@
  */
 package com.dianellaflowers.controller;
 
-import com.dianellaflowers.enumeration.ResponseMessageType;
-import com.dianellaflowers.enumeration.ResponseStatus;
-import com.dianellaflowers.model.ContactUs;
-import com.dianellaflowers.model.Subscription;
-import com.dianellaflowers.response.GenericResponse;
-import com.dianellaflowers.service.ContactUsService;
-import com.dianellaflowers.service.SubscriptionService;
-import javax.validation.Valid;
+import com.dianellaflowers.model.Category;
+import com.dianellaflowers.service.CategoryService;
+import com.dianellaflowers.service.CheckoutRequestService;
+import com.dianellaflowers.utilities.Utilities;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
  * @author Development PC
  */
 @Controller
-public class AuthenticationController extends AbstractController {
+public class AuthenticationController {
 
     @Autowired
-    SubscriptionService subscriptionService;
+    PersistentTokenBasedRememberMeServices persistentTokenBasedRememberMeServices;
 
     @Autowired
-    ContactUsService contactUsService;
+    Utilities utilities;
 
-    @PostMapping("/addNewSubscription")
-    @ResponseBody
-    public ResponseEntity<GenericResponse> addSubscriberEmail(@Valid @ModelAttribute Subscription subscription, BindingResult result, ModelMap model) throws Exception {
-        GenericResponse genericResponse = this.GetBindingResultErrors(result, null);
-        if (genericResponse == null) {
-            subscriptionService.addSubscription(subscription);
-            genericResponse = new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Success", null);
+    @Autowired
+    CheckoutRequestService checkoutRequestService;
+
+    @Autowired
+    CategoryService categoryService;
+
+    @GetMapping("/logout")
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (!utilities.isCurrentAuthenticationAnonymous()) {
+            persistentTokenBasedRememberMeServices.logout(request, response, auth);
+            SecurityContextHolder.getContext().setAuthentication(null);
         }
-        return new ResponseEntity<GenericResponse>(genericResponse, HttpStatus.OK);
+        return "redirect:/";
     }
 
-    @PostMapping("/addNewContactUs")
-    @ResponseBody
-    public ResponseEntity<GenericResponse> addContactUs(@Valid @ModelAttribute ContactUs contactUs, BindingResult result, ModelMap model) throws Exception {
-        GenericResponse genericResponse = this.GetBindingResultErrors(result, null);
-        if (genericResponse == null) {
-            contactUsService.addSubscription(contactUs);
-            genericResponse = new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), "Success", null);
+    @GetMapping("/login")
+    public String logIn(Model model) {
+        if (utilities.isCurrentAuthenticationAnonymous()) {
+            return "login";
         }
-        return new ResponseEntity<GenericResponse>(genericResponse, HttpStatus.OK);
+        model.addAttribute("orders", checkoutRequestService.getAllCheckoutRequests());
+        return "Admin/Dashboard";
+    }
+    
+    @ModelAttribute("categories")
+    public List<Category> cateries() {
+        return categoryService.findAll();
     }
 
 }

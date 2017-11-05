@@ -56,7 +56,7 @@ public abstract class AbstractController {
 
     @ModelAttribute("userCartTotalPrice")
     public Double userCartTotalPrice() {
-        return checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId());
+        return checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId(), true);
     }
 
     public GenericResponse GetBindingResultErrors(BindingResult bindingResult, HashSet<String> bypassFields) {

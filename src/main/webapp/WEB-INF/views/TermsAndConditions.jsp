@@ -9,21 +9,21 @@
 
 <t:master>
     <jsp:attribute name="css">
-        <title>Dianella Flowers | About Us</title>
+        <title>Dianella Flowers | Terms & Conditions</title>
         <sec:csrfMetaTags />
     </jsp:attribute>
     <jsp:attribute name="body">
         <div class="page-title">
             <div class="container">
                 <div class="column">
-                    <h1>About Us</h1>
+                    <h1>Terms & Conditions</h1>
                 </div>
                 <div class="column">
                     <ul class="breadcrumbs">
                         <li><a href="<c:url value='/'/>">Home</a>
                         </li>
                         <li class="separator">&nbsp;</li>
-                        <li>About Us</li>
+                        <li>Terms & Conditions</li>
                     </ul>
                 </div>
             </div>
@@ -129,6 +129,8 @@
                 link to our Web site. You agree to immediately remove all links to our Web site upon such request. We also
                 reserve the right to amend these terms and conditions and its linking policy at any time. By continuing
                 to link to our Web site, you agree to be bound to and abide by these linking terms and conditions.</p>
+            <p>We are constantly updating our products and services on the Service. The products or services available on our Service may be mispriced, described inaccurately, or unavailable, and we may experience delays in updating information on the Service and in our advertising on other websites.
+                We cannot and do not guarantee the accuracy or completeness of any information, including prices, product images, specifications, availability, and services. We reserve the right to change or update information and to correct errors, inaccuracies, or omissions at any time without prior notice.</p>
             <h2>Removal of links from our website</h2>
             <p>If you find any link on our Web site or any linked web site objectionable for any reason, you may contact
                 us about this. We will consider requests to remove links but will have no obligation to do so or to respond
@@ -156,12 +158,6 @@
                 (including negligence) and for breach of statutory duty.</p>
             <p>To the extent that the website and the information and services on the website are provided free of charge,
                 we will not be liable for any loss or damage of any nature.</p>
-            <h2></h2>
-            <p></p>
-            <h2>Credit & Contact Information</h2>
-            <p>This Terms and conditions page was created at <a style="color:inherit;text-decoration:none;cursor:text;"
-                                                                href="https://termsandconditionstemplate.com">termsandconditionstemplate.com</a> generator. If you have
-                any queries regarding any of our terms, please contact us.</p>		
         </div>
     </jsp:attribute>
 

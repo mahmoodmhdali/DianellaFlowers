@@ -10,6 +10,7 @@ import com.dianellaflowers.model.HelperCheckOut;
 import com.dianellaflowers.model.UserCart;
 import com.dianellaflowers.response.GenericResponse;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import org.springframework.util.MultiValueMap;
 
 /**
@@ -24,7 +25,7 @@ public interface CheckoutRequestService {
 
     CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession, boolean forPayfortRequest);
 
-    double getCartTotal(String sessionId);
+    double getCartTotal(String sessionId, boolean bysessionId);
 
     void clearBySessionID(String sessionID);
 
@@ -32,8 +33,8 @@ public interface CheckoutRequestService {
 
     GenericResponse updateCheckoutRequets(HelperCheckOut helperCheckOut, String time);
 
-    CheckoutRequest findByTrackId(String TrackId);
-
     GenericResponse afterPayfortResponse(MultiValueMap<String, String> payfortResponse, String userStatus) throws NoSuchAlgorithmException;
+    
+    List <CheckoutRequest> getAllCheckoutRequests();
 
 }

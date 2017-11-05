@@ -77,7 +77,7 @@ public class UserCartServiceImpl implements UserCartService {
             }
         }
         if (genericResponse == null) {
-            genericResponse = new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), Double.toString(checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId())), checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true, false));
+            genericResponse = new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.ININPUT.ordinal(), Double.toString(checkoutRequestService.getCartTotal(RequestContextHolder.currentRequestAttributes().getSessionId(), true)), checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true, false));
         }
         return genericResponse;
     }

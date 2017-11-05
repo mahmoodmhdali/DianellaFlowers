@@ -6,6 +6,7 @@
 package com.dianellaflowers.dao;
 
 import com.dianellaflowers.model.CheckoutRequest;
+import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
 import org.hibernate.Hibernate;
@@ -83,6 +84,15 @@ public class CheckoutRequestDaoImpl extends AbstractDao<Integer, CheckoutRequest
             Hibernate.initialize(checkoutRequest.getUserCartCollectionn());
         }
         return checkoutRequest;
+    }
+
+    @Override
+    public List<CheckoutRequest> getAllCheckoutRequests() {
+        Criteria crit = createEntityCriteria();
+        crit.add(Restrictions.eq("responseCode", "14"));
+        crit.addOrder(Order.desc("shippingDateTime"));
+        List<CheckoutRequest> checkoutRequests = (List<CheckoutRequest>) crit.list();
+        return checkoutRequests;
     }
 
 }
