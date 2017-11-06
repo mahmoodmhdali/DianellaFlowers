@@ -127,7 +127,6 @@
                             }
                         },
                         error: function (error) {
-                            console.log(error);
                             $.notify('danger', 'Error', 'Internal server error!.', 'topRight');
                         },
                         complete: function () {

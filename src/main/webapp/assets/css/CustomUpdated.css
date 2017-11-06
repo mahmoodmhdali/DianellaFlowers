@@ -201,3 +201,7 @@ body::-webkit-scrollbar-thumb {
 .sub-menu, .toolbar-dropdown{
     z-index: 2;
 }
+
+.shopping-cart .product-item .product-thumb, .wishlist-table .product-item .product-thumb, .order-table .product-item .product-thumb {
+    display: table-cell !important;
+}

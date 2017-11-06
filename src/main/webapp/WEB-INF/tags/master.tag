@@ -366,7 +366,6 @@
                         data: ajaxData,
                         type: 'post',
                         success: function (data) {
-                            $.notify('success', 'Success', 'Product added successfully to your cart', 'topLeft');
                             var bouquetData = $.parseJSON(data.responseObject);
                             $('.totalCart1').html('$' + (data.statusMessage).split("~")[1]);
                             if ($('.cartData').length == 0) {
@@ -375,7 +374,7 @@
                                 $('.cartDataDiv').append('<div class="toolbar-dropdown cartData"><div class="dropdown-product-item" style="cursor: default" data-cart-id="' + (data.statusMessage).split("~")[0] + '">\n\
                                                         <span class="dropdown-product-remove remove-from-cart-btn" style="cursor: pointer" data-cart-id="' + (data.statusMessage).split("~")[0] + '">\n\
                                                         <i class="icon-cross"></i></span>\n\
-                                                        <a class="dropdown-product-thumb" href="#"><img src="<c:url value='/'/>' + bouquetData.compressedImagePath + '" alt="' + bouquetData.name + '">\n\
+                                                        <a class="dropdown-product-thumb" href="#"><img src="' + bouquetData.compressedImagePath + '" alt="' + bouquetData.name + '">\n\
                                                         </a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a>\n\
 \n\                                                     <span class="dropdown-product-details productQuantity">' + (data.statusMessage).split("~")[2] + '</span>\n\
                                                         <span class="dropdown-product-details"> x $' + bouquetData.price + '</span></div></div>\n\
@@ -389,17 +388,17 @@
                                                         </div>\n\
                                                         </div>');
                             } else {
-                                console.log(data.statusMessage);
                                 var userCartDiv = $('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]');
                                 if (userCartDiv.length > 0) {
                                     var newQuantity = parseInt($('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]').find($('.productQuantity')).html());
                                     $('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]').find($('.productQuantity')).html(++newQuantity);
                                 } else {
                                     $('.countCart').html(Number($('.countCart').html()) + 1);
-                                    $('.cartData').prepend('<div class="dropdown-product-item" style="cursor: default" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><span class="dropdown-product-remove remove-from-cart-btn" style="cursor: pointer" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="<c:url value='/'/>' + bouquetData.compressedImagePath + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details productQuantity">' + (data.statusMessage).split("~")[2] + '</span><span class="dropdown-product-details"> x $' + bouquetData.price + '</span></div></div>');
+                                    $('.cartData').prepend('<div class="dropdown-product-item" style="cursor: default" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><span class="dropdown-product-remove remove-from-cart-btn" style="cursor: pointer" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="' + bouquetData.compressedImagePath + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details productQuantity">' + (data.statusMessage).split("~")[2] + '</span><span class="dropdown-product-details"> x $' + bouquetData.price + '</span></div></div>');
                                 }
                                 $('.totalCart').html('$' + (data.statusMessage).split("~")[1]);
                             }
+                            $.notify('success', 'Success', 'Product added successfully to your cart', 'topLeft');
                         },
                         error: function (error) {
                         },
@@ -426,8 +425,6 @@
                         data: ajaxData,
                         type: 'post',
                         success: function (data) {
-                            console.log(data);
-                            $.notify('success', 'Success', 'Product removed successfully from your cart', 'topLeft');
                             $('.countCart').html(Number($('.countCart').html()) - 1);
                             userCartDiv.remove();
                             if ($('.dropdown-product-item').length == 0) {
@@ -454,6 +451,7 @@
                                                             </th>');
                                 }
                             }
+                            $.notify('success', 'Success', 'Product removed successfully from your cart', 'topLeft');
                         },
                         error: function (error) {
                         },
@@ -476,7 +474,6 @@
                         data: ajaxData,
                         type: 'post',
                         success: function () {
-                            $.notify('success', 'Success', 'Products removed successfully from your cart', 'topLeft');
                             $('.countCart').html('0');
                             $('.totalCart1').html('$0.0');
                             $('.cartData').replaceWith('<div class="toolbar-dropdown noCartFoundDiv">\n\
@@ -491,6 +488,7 @@
                                                             <br>\n\
                                                             Cart is Empty\n\
                                                             </th>');
+                            $.notify('success', 'Success', 'Products removed successfully from your cart', 'topLeft');
                         },
                         error: function (error) {
                         },
