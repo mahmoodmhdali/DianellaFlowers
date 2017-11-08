@@ -52,7 +52,7 @@ public class HandleGlobalException {
     @ExceptionHandler(NoHandlerFoundException.class)
     public String handleError404(HttpServletRequest request, Exception e, Model model) {
         model.addAttribute("categories", categoryService.findAll());
-        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true, false);
+        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true, false, true);
         List<UserCart> userCart = null;
         if (checkoutRequest != null) {
             userCart = checkoutRequest.getUserCartCollectionn();

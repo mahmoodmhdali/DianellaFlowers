@@ -23,7 +23,7 @@ public interface CheckoutRequestService {
 
     CheckoutRequest findById(Integer Id);
 
-    CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession, boolean forPayfortRequest);
+    CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession, boolean forPayfortRequest, boolean withUserCart);
 
     double getCartTotal(String sessionId, boolean bysessionId);
 

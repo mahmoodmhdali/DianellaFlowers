@@ -11,7 +11,7 @@ public interface CheckoutRequestDao {
 
     CheckoutRequest findByTrackId(String TrackId);
 
-    CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession, boolean forPayfortRequest);
+    CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession, boolean forPayfortRequest, boolean withUserCart);
 
     void clearBySessionID(String sessionID);
 

@@ -41,7 +41,7 @@ public abstract class AbstractController {
 
     @ModelAttribute("userCartItems")
     public List<UserCart> userCartItems() {
-        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true, false);
+        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true, false, true);
         List<UserCart> userCart = null;
         if (checkoutRequest != null) {
             userCart = checkoutRequest.getUserCartCollectionn();

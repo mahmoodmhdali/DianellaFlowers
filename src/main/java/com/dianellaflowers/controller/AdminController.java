@@ -33,7 +33,7 @@ public class AdminController extends AbstractController {
 
     @GetMapping("/orderDetail/{trackId}")
     public String dashboard(Model model, @PathVariable String trackId) {
-        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(trackId, false, true);
+        CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(trackId, false, true, true);
         model.addAttribute("userCartTotalPriceByTrackId", checkoutRequestService.getCartTotal(trackId, false));
         model.addAttribute("checkoutRequest", checkoutRequest);
         model.addAttribute("userCartItems", checkoutRequest.getUserCartCollectionn());

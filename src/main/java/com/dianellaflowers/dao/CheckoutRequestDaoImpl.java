@@ -42,11 +42,14 @@ public class CheckoutRequestDaoImpl extends AbstractDao<Integer, CheckoutRequest
     }
 
     @Override
-    public CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession, boolean forPayfortRequest) {
+    public CheckoutRequest findByTrackIdOrSessionId(String Id, boolean findWithSession, boolean forPayfortRequest, boolean withUserCart) {
         Criteria crit = createEntityCriteria();
-        crit.createAlias("userCartCollection", "userCartCollectionAlias");
-        crit.createAlias("userCartCollectionAlias.bouquetID", "bouquetAlias");
-        crit.addOrder(Order.asc("userCartCollectionAlias.createdDate"));
+        if (withUserCart) {
+            crit.setFetchMode("bouquetAlias.bouquetID", FetchMode.JOIN);
+            crit.createAlias("userCartCollection", "userCartCollectionAlias");
+            crit.createAlias("userCartCollectionAlias.bouquetID", "bouquetAlias");
+            crit.addOrder(Order.asc("userCartCollectionAlias.createdDate"));
+        }
         if (!forPayfortRequest) {
             crit.add(Restrictions.ne("responseCode", "14"));
         }
@@ -55,7 +58,6 @@ public class CheckoutRequestDaoImpl extends AbstractDao<Integer, CheckoutRequest
         } else {
             crit.add(Restrictions.eq("trackId", Id));
         }
-        crit.setFetchMode("bouquetAlias.bouquetID", FetchMode.JOIN);
         crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         CheckoutRequest checkoutRequest = (CheckoutRequest) crit.uniqueResult();
         if (checkoutRequest != null) {
@@ -66,7 +68,7 @@ public class CheckoutRequestDaoImpl extends AbstractDao<Integer, CheckoutRequest
 
     @Override
     public void clearBySessionID(String sessionID) {
-        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(sessionID, true, false);
+        CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(sessionID, true, false, false);
         delete(checkoutRequest);
     }
 
