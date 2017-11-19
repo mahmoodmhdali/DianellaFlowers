@@ -47,7 +47,7 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
     UserCartDao userCartDao;
 
     @Override
-    public UserCart addCheckoutRequest(UserCart userCart) throws Exception {
+    public synchronized UserCart addCheckoutRequest(UserCart userCart) throws Exception {
         List<UserCart> userCartList = Arrays.asList(userCart);
         CheckoutRequest checkoutRequest = findByTrackIdOrSessionId(RequestContextHolder.currentRequestAttributes().getSessionId(), true, false, true);
         if (checkoutRequest == null) {

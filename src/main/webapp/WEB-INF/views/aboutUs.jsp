@@ -42,7 +42,7 @@
                         Dianella flowers, free delivery service with the finest quality.</p>
                 </div>
             </div>
-            <hr>
+<!--            <hr>
             <div class="row align-items-center padding-top-2x padding-bottom-2x">
                 <div class="col-md-5 order-md-2"><img class="d-block w-270 m-auto" src="<c:url value='/assets/img/features/02.jpg'/>" alt="Delivery"></div>
                 <div class="col-md-7 order-md-1 text-md-left text-center">
@@ -50,7 +50,7 @@
                     <h2>Fast Delivery.</h2>
                     <p>Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something .</p><a class="text-medium text-decoration-none" href="#">Shipping Details&nbsp;<i class="icon-arrow-right"></i></a>
                 </div>
-            </div>
+            </div>-->
             <hr>
         </div>
     </jsp:attribute>

@@ -88,6 +88,7 @@ public class SpringConfiguration extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
         registry.addResourceHandler("/images/LowProductImages/**").addResourceLocations("/images/LowProductImages/");
         registry.addResourceHandler("/images/HighProductImages/**").addResourceLocations("/images/HighProductImages/");
+        registry.addResourceHandler("/images/HomeSliders/**").addResourceLocations("/images/HomeSliders/");
     }
 
     /**

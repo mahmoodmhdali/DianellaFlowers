@@ -90,7 +90,11 @@
         <!-- Topbar-->
         <div class="topbar">
             <div class="topbar-column">
-                <a class="hidden-md-down" style="color: white" href="mailto:dianellaflowers@gmail.com"><i class="icon-mail"></i>&nbsp; dianellaflowers@gmail.com</a><a class="hidden-md-down" style="color: white" href="tel:0096170863636"><i class="fa fa-phone"></i>&nbsp; +961 70 863 636</a><a class="social-button sb-facebook shape-none" style="color: white" href="#" target="_blank"><i class="socicon-facebook"></i></a><a class="social-button sb-twitter shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-twitter"></i></a><a class="social-button sb-instagram shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-instagram"></i></a><a class="social-button sb-pinterest shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-pinterest"></i></a>
+                <a class="hidden-md-down" style="color: white" href="mailto:dianellaflowers@gmail.com"><i class="icon-mail"></i>&nbsp; dianellaflowers@gmail.com</a>
+                <a class="hidden-md-down" style="color: white" href="tel:0096170863636"><i class="fa fa-phone"></i>&nbsp; +961 70 863 636</a>
+                <a class="social-button sb-facebook shape-none" style="color: white" href="https://www.facebook.com/DianellaFlowers/" target="_blank"><i class="socicon-facebook"></i></a>
+                <a class="social-button sb-instagram shape-none sb-dark" style="color: white" href="https://www.instagram.com/DianellaFlowers" target="_blank"><i class="socicon-instagram"></i></a>
+<!--                <a class="social-button sb-pinterest shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-pinterest"></i></a>-->
             </div>
         </div>
         <!-- Navbar-->

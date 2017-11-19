@@ -21,23 +21,23 @@
                     <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
                     <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
                     <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
+                    <li data-target="#bootstrap-touch-slider" data-slide-to="3"></li>
+                    <li data-target="#bootstrap-touch-slider" data-slide-to="4"></li>
+                    <li data-target="#bootstrap-touch-slider" data-slide-to="5"></li>
+                    <li data-target="#bootstrap-touch-slider" data-slide-to="6"></li>
                 </ol>
-                <!-- Wrapper For Slides -->
                 <div class="carousel-inner" role="listbox">
-                    <!-- Third Slide -->
                     <div class="item active">
-                        <!-- Slide Background -->
-
-                        <img src="<c:url value='/assets/img/flowers/1.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
+                        <img src="<c:url value='/images/HomeSliders/1.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
                         <div class="bs-slider-overlay"></div>
 
                         <div class="container">
                             <div class="row">
                                 <!-- Slide Text Layer -->
-                                <div class="slide-text slide_style_left">
-                                    <h1 data-animation="animated zoomInRight" class="">Something</h1>
-                                    <p data-animation="animated fadeInLeft" class="">Something.</p>
-                                    <a href="#" class="btn btn-primary" data-animation="animated fadeInLeft">select two</a>
+                                <div class="slide-text slide_style_center" style="top:40%">
+                                    <h1 data-animation="animated zoomInRight" class="">Welcome</h1>
+<!--                                    <p data-animation="animated fadeInLeft" class=""></p>
+                                    <a href="#" class="btn btn-primary" data-animation="animated fadeInLeft">select two</a>-->
                                 </div>
                             </div>
                         </div>
@@ -46,26 +46,88 @@
                     <!-- Second Slide -->
                     <div class="item">
                         <!-- Slide Background -->
-                        <img src="<c:url value='/assets/img/flowers/2.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
+                        <img src="<c:url value='/images/HomeSliders/2.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
                         <div class="bs-slider-overlay"></div>
                         <!-- Slide Text Layer -->
-                        <div class="slide-text slide_style_center">
-                            <h1 data-animation="animated flipInX">Something</h1>
-                            <p data-animation="animated lightSpeedIn">Something.</p>
-                            <a href="#" class="btn btn-primary" data-animation="animated fadeInDown">Something</a>
+                        <div class="slide-text slide_style_center" style="top:40%">
+                            <h1 data-animation="animated flipInX">Can we speak in flowers.</h1>
+                            <br>
+                            <h1 data-animation="animated flipInX">It will be easier for me to understand...</h1>
+<!--                            <p data-animation="animated lightSpeedIn"></p>-->
+<!--                            <a href="#" class="btn btn-primary" data-animation="animated fadeInDown">Something</a>-->
                         </div>
                     </div>
                     <!-- End of Slide -->
                     <!-- Third Slide -->
                     <div class="item">
                         <!-- Slide Background -->
-                        <img src="<c:url value='/assets/img/flowers/3.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
+                        <img src="<c:url value='/images/HomeSliders/3.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
+                        <div class="bs-slider-overlay"></div>
+                        <!-- Slide Text Layer -->
+                        <div class="slide-text slide_style_left" style="top:40%">
+                            <h1 data-animation="animated zoomInLeft" style="color: #a8328c">You will be mine and i will be yours.</h1>
+<!--                            <p data-animation="animated fadeInRight">Something .</p>
+                            <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
+                        </div>
+                    </div>
+                    <!-- End of Slide -->
+                    <!-- Third Slide -->
+                    <div class="item">
+                        <!-- Slide Background -->
+                        <img src="<c:url value='/images/HomeSliders/4.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
+                        <div class="bs-slider-overlay"></div>
+                        <!-- Slide Text Layer -->
+                        <div class="slide-text slide_style_right" style="top:40%">
+                            <h1 data-animation="animated zoomInLeft" style="color: #a8328c">Happiness is on the way!</h1>
+<!--                            <p data-animation="animated fadeInRight">Something .</p>
+                            <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
+                        </div>
+                    </div>
+                    <!-- End of Slide -->
+                    <!-- Third Slide -->
+                    <div class="item">
+                        <!-- Slide Background -->
+                        <img src="<c:url value='/images/HomeSliders/5.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
                         <div class="bs-slider-overlay"></div>
                         <!-- Slide Text Layer -->
                         <div class="slide-text slide_style_right">
-                            <h1 data-animation="animated zoomInLeft">Something</h1>
-                            <p data-animation="animated fadeInRight">Something .</p>
-                            <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>
+                            <h1 data-animation="animated zoomInLeft">Family:</h1>
+                            <br>
+                            <h1 data-animation="animated zoomInLeft">Our flowers grow in many directions,</h1>
+                            <br>
+                            <h1 data-animation="animated zoomInLeft">our roots are one...</h1>
+<!--                            <p data-animation="animated fadeInRight">Something .</p>
+                            <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
+                        </div>
+                    </div>
+                    <!-- End of Slide -->
+                    <!-- Third Slide -->
+                    <div class="item">
+                        <!-- Slide Background -->
+                        <img src="<c:url value='/images/HomeSliders/6.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
+                        <div class="bs-slider-overlay"></div>
+                        <!-- Slide Text Layer -->
+                        <div class="slide-text slide_style_right" style="top:40%">
+                            <h1 data-animation="animated zoomInLeft">Keep shining beautiful one,</h1>
+                            <br>
+                            <h1 data-animation="animated zoomInLeft">the world needs your light</h1>
+<!--                            <p data-animation="animated fadeInRight">Something .</p>
+                            <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
+                        </div>
+                    </div>
+                    <!-- End of Slide -->
+                    <!-- Third Slide -->
+                    <div class="item">
+                        <!-- Slide Background -->
+                        <img src="<c:url value='/images/HomeSliders/7.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
+                        <div class="bs-slider-overlay"></div>
+                        <!-- Slide Text Layer -->
+                        <div class="slide-text slide_style_right" style="top:40%">
+                            <h1 data-animation="animated zoomInLeft">With love (already exists)</h1>
+                            <br>
+                            <h1 data-animation="animated zoomInLeft">add from Dianella.</h1>
+<!--                            <p data-animation="animated fadeInRight">Something .</p>
+                            <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
                         </div>
                     </div>
                     <!-- End of Slide -->
