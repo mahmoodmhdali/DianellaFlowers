@@ -149,17 +149,55 @@
         <section class="container padding-top-2x">
             <h3 class="text-center mb-30">Coming Soon Categories</h3>
             <div class="row">
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-3 col-sm-6">
                     <div class="card mb-30">
                         <a class="card-img-tiles" href="#">
                             <div class="inner">
                                 <div class="main-img">
-                                    <img class="img-category-1" src="<c:url value='/assets/img/shop/categories/011.jpg'/>" alt="Category">
+                                    <img class="img-category-1" src="<c:url value='/images/CommingSoonCateg/Christmas.jpg'/>" alt="Category">
                                 </div>
-                                <div class="thumblist">
+<!--                                <div class="thumblist">
                                     <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/022.jpg'/>" alt="Category">
                                     <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/033.jpg'/>" alt="Category">
+                                </div>-->
+                            </div>
+                        </a>
+                        <div class="card-body text-center">
+                            <h4 class="card-title">It's Christmas</h4>
+                            <p class="text-muted">Coming Soon</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card mb-30">
+                        <a class="card-img-tiles" href="#">
+                            <div class="inner">
+                                <div class="main-img">
+                                    <img class="img-category-1" src="<c:url value='/images/CommingSoonCateg/Valentine.jpg'/>" alt="Category">
                                 </div>
+<!--                                <div class="thumblist">
+                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/55.jpg'/>" alt="Category">
+                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/66.jpg'/>" alt="Category">
+                                </div>-->
+                            </div>
+                        </a>
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Valentine</h4>
+                            <p class="text-muted">Coming Soon</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card mb-30">
+                        <a class="card-img-tiles" href="#">
+                            <div class="inner">
+                                <div class="main-img">
+                                    <img class="img-category-1" src="<c:url value='/images/CommingSoonCateg/Mother\'s Day.jpg'/>" alt="Category">
+                                </div>
+<!--                                <div class="thumblist">
+                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/55.jpg'/>" alt="Category">
+                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/66.jpg'/>" alt="Category">
+                                </div>-->
                             </div>
                         </a>
                         <div class="card-body text-center">
@@ -168,40 +206,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-3 col-sm-6">
                     <div class="card mb-30">
                         <a class="card-img-tiles" href="#">
                             <div class="inner">
                                 <div class="main-img">
-                                    <img class="img-category-1" src="<c:url value='/assets/img/shop/categories/44.jpg'/>" alt="Category">
+                                    <img class="img-category-1" src="<c:url value='/images/CommingSoonCateg/Teacher\'s Day.jpg'/>" alt="Category">
                                 </div>
-                                <div class="thumblist">
+<!--                                <div class="thumblist">
                                     <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/55.jpg'/>" alt="Category">
                                     <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/66.jpg'/>" alt="Category">
-                                </div>
+                                </div>-->
                             </div>
                         </a>
                         <div class="card-body text-center">
                             <h4 class="card-title">Teacher's Day</h4>
-                            <p class="text-muted">Coming Soon</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="card mb-30">
-                        <a class="card-img-tiles" href="#">
-                            <div class="inner">
-                                <div class="main-img">
-                                    <img class="img-category-1" src="<c:url value='/assets/img/shop/categories/77.jpg'/>" alt="Category">
-                                </div>
-                                <div class="thumblist">
-                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/88.jpg'/>" alt="Category">
-                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/99.jpg'/>" alt="Category">
-                                </div>
-                            </div>
-                        </a>
-                        <div class="card-body text-center">
-                            <h4 class="card-title">It's Christmas</h4>
                             <p class="text-muted">Coming Soon</p>
                         </div>
                     </div>
