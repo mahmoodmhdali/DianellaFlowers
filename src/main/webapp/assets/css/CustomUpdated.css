@@ -1,9 +1,9 @@
 ﻿.site-menu ul > li:hover {
-    background-color: #a8328c;
+    background-color: #9966CC;
 }
 
 .site-menu ul > li.active {
-    background-color: #a8328c;
+    background-color: #9966CC;
 }
 
 .site-menu ul > li:hover > a {
@@ -19,8 +19,8 @@
 }
 
 .topbar {
-    border-bottom: 1px solid #a8328c;
-    background-color: #a8328c;
+    border-bottom: 1px solid #9966CC;
+    background-color: #9966CC;
 }
 
 .zIndexZero{
@@ -142,7 +142,7 @@
 }
 
 .scroll-to-top-btn {
-    background-color: #a8328c;
+    background-color: #9966CC;
 }
 
 .indicators-line > .carousel-indicators{
@@ -172,8 +172,8 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #a8328c;
-    outline: 1px solid #a8328c;
+    background-color: #9966CC;
+    outline: 1px solid #9966CC;
 }
 
 .cartData::-webkit-scrollbar {
@@ -185,8 +185,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .cartData::-webkit-scrollbar-thumb {
-    background-color: #a8328c;
-    outline: 1px solid #a8328c;
+    background-color: #9966CC;
+    outline: 1px solid #9966CC;
 }
 
 .parsley-error{
@@ -207,9 +207,19 @@ body::-webkit-scrollbar-thumb {
 }
 
 .rainbow {
-  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #a8328c), color-stop(0.15, #a8328c), color-stop(0.3, #a8328c), color-stop(0.45, #a8328c), color-stop(0.6, #a8328c),color-stop(0.75, #a8328c), color-stop(0.9, #a8328c), color-stop(1, #a8328c) );
-  background-image: gradient( linear, left top, right top, color-stop(0, #a8328c), color-stop(0.15, #a8328c), color-stop(0.3, #a8328c), color-stop(0.45, #a8328c), color-stop(0.6, #a8328c),color-stop(0.75, #a8328c), color-stop(0.9, #a8328c), color-stop(1, #a8328c) );
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #9966CC), color-stop(0.15, #9966CC), color-stop(0.3, #9966CC), color-stop(0.45, #9966CC), color-stop(0.6, #9966CC),color-stop(0.75, #9966CC), color-stop(0.9, #9966CC), color-stop(1, #9966CC) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #9966CC), color-stop(0.15, #9966CC), color-stop(0.3, #9966CC), color-stop(0.45, #9966CC), color-stop(0.6, #9966CC),color-stop(0.75, #9966CC), color-stop(0.9, #9966CC), color-stop(1, #9966CC) );
   color:transparent;
   -webkit-background-clip: text;
   background-clip: text;
+}
+
+.site-logo {
+    width: 200px;
+}
+
+@media (max-width: 576px) {
+    .site-logo {
+        width: 186px;
+    }
 }

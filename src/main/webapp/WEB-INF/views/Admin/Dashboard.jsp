@@ -47,7 +47,7 @@
                             <c:when test="${fn:length(orders) > 0}">
                                 <c:forEach var="order" items="${orders}">
                                     <tr>
-                                        <td><a style="color: #a8328c" class="text-medium navi-link" href="<c:url value='/Admin/orderDetail/${order.getTrackId()}'/>">${order.getTrackId()}</a></td>
+                                        <td><a style="color: #9966CC" class="text-medium navi-link" href="<c:url value='/Admin/orderDetail/${order.getTrackId()}'/>">${order.getTrackId()}</a></td>
                                         <td>${order.getFirstName()}&nbsp;${order.getLastName()}</td>
                                         <td>${order.getEmail()}</td>
                                         <td>${order.getPhoneNumber()}</td>

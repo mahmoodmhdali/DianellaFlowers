@@ -65,7 +65,7 @@
                         <div class="bs-slider-overlay"></div>
                         <!-- Slide Text Layer -->
                         <div class="slide-text slide_style_left" style="top:40%">
-                            <h1 data-animation="animated zoomInLeft" style="color: #a8328c">You will be mine and i will be yours.</h1>
+                            <h1 data-animation="animated zoomInLeft" style="color: #9966CC">You will be mine and i will be yours.</h1>
 <!--                            <p data-animation="animated fadeInRight">Something .</p>
                             <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
                         </div>
@@ -78,7 +78,7 @@
                         <div class="bs-slider-overlay"></div>
                         <!-- Slide Text Layer -->
                         <div class="slide-text slide_style_right" style="top:40%">
-                            <h1 data-animation="animated zoomInLeft" style="color: #a8328c">Happiness is on the way!</h1>
+                            <h1 data-animation="animated zoomInLeft" style="color: #9966CC">Happiness is on the way!</h1>
 <!--                            <p data-animation="animated fadeInRight">Something .</p>
                             <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
                         </div>

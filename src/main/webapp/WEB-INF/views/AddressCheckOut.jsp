@@ -189,7 +189,7 @@
                         </section>
                     </aside>
                 </div>
-                <form method="post" action="https://sbcheckout.payfort.com/FortAPI/paymentPage" id="payfortForm" name="form1" style="display: none">
+                <form method="post" action="https://checkout.payfort.com/FortAPI/paymentPage" id="payfortForm" name="form1" style="display: none">
                     <button type="submit" class="btn btn-primary"> Submit Form</button>
                 </form>
             </div>

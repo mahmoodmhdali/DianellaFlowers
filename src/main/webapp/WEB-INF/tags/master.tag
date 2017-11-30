@@ -19,7 +19,7 @@
         <!-- Mobile Specific Meta Tag-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <!-- Favicon and Apple Icons-->
-        <link rel="icon" href="<c:url value='/assets/img/logo/logo2.png'/>">
+        <link rel="icon" href="<c:url value='/assets/img/logo/log2.png'/>">
         <!-- Bootstrap-->
         <link href="<c:url value='/assets/css/bootstrap.css'/>" rel="stylesheet" />
         <!-- Font Awesome-->
@@ -267,7 +267,7 @@
                     <div class="footer-copyright">
                         <p class="pull-left">
                             © All rights reserved. Made with&nbsp;
-                            <i class="icon-heart" style="color: #a8328c"></i>
+                            <i class="icon-heart" style="color: #9966CC"></i>
                             &nbsp;by&nbsp;
                             <a href="mailto:mahmoudmhdali@gmail.com" target="_blank">Mahmoud Mohamed Ali</a>
                         </p>
