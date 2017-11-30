@@ -190,10 +190,10 @@ public class Utilities {
         fullResponse = fullResponse.replace("[", "").replace("]", "");
 
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        byte[] hash = digest.digest(("TESTSHAOUT" + fullResponse + "TESTSHAOUT").getBytes(StandardCharsets.UTF_8));
+        byte[] hash = digest.digest(("DIANOUSECURITY" + fullResponse + "DIANOUSECURITY").getBytes(StandardCharsets.UTF_8));
         String sha256hex = new String(Hex.encode(hash));
 
-        return payfortSignature.equals(sha256hex) && payfortResponse.get("merchant_identifier").get(0).equals("ppEaCGyl") && payfortResponse.get("access_code").get(0).equals("xnE9X7l7TmhOklqA4nyq");
+        return payfortSignature.equals(sha256hex) && payfortResponse.get("merchant_identifier").get(0).equals("wwIyqgyB") && payfortResponse.get("access_code").get(0).equals("7bbLJOM8b4LVIZGT5Kdz");
     }
     
     public boolean isCurrentAuthenticationAnonymous() {

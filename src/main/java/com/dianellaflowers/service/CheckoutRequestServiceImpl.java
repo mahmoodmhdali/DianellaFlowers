@@ -126,20 +126,20 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
                 checkoutRequest.setLastStatusUpdateDate(new Date());
 
                 MessageDigest digest = MessageDigest.getInstance("SHA-256");
-                String toHash = "access_code=xnE9X7l7TmhOklqA4nyqamount=" + totalAmount + "command=PURCHASEcurrency=USD"
-                        + "customer_email=" + checkoutRequest.getEmail() + "language=enmerchant_identifier=ppEaCGylmerch"
+                String toHash = "access_code=7bbLJOM8b4LVIZGT5Kdzamount=" + totalAmount + "command=PURCHASEcurrency=USD"
+                        + "customer_email=" + checkoutRequest.getEmail() + "language=enmerchant_identifier=wwIyqgyBmerch"
                         + "ant_reference=" + merchantIdentifier;
-                byte[] hash = digest.digest(("TESTSHAIN" + toHash + "TESTSHAIN").getBytes(StandardCharsets.UTF_8));
+                byte[] hash = digest.digest(("DIANCHSECURITY" + toHash + "DIANCHSECURITY").getBytes(StandardCharsets.UTF_8));
                 String sha256hex = new String(Hex.encode(hash));
 
                 HashMap<String, String> payfortForm = new HashMap<>();
-                payfortForm.put("access_code", "xnE9X7l7TmhOklqA4nyq");
+                payfortForm.put("access_code", "7bbLJOM8b4LVIZGT5Kdz");
                 payfortForm.put("amount", totalAmount);
                 payfortForm.put("command", "PURCHASE");
                 payfortForm.put("currency", "USD");
                 payfortForm.put("customer_email", checkoutRequest.getEmail());
                 payfortForm.put("language", "en");
-                payfortForm.put("merchant_identifier", "ppEaCGyl");
+                payfortForm.put("merchant_identifier", "wwIyqgyB");
                 payfortForm.put("merchant_reference", merchantIdentifier);
                 payfortForm.put("signature", sha256hex);
 
