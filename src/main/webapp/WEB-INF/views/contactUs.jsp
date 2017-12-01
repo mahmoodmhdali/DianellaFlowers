@@ -37,7 +37,7 @@
                 <div class="col-md-5">
                     <ul class="list-icon">
                         <li> <i class="icon-mail"></i><a class="navi-link" href="mailto:dianellaflowers@gmail.com">dianellaflowers@gmail.com</a></li>
-                        <li> <i class="fa fa-phone"></i>+961 70 863 636</li>
+                        <li> <i class="fa fa-phone"></i>+961 70 068 057</li>
                     </ul>
                 </div>
             </div>

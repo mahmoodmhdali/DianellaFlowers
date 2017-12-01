@@ -91,7 +91,7 @@
         <div class="topbar">
             <div class="topbar-column">
                 <a class="hidden-md-down" style="color: white" href="mailto:dianellaflowers@gmail.com"><i class="icon-mail"></i>&nbsp; dianellaflowers@gmail.com</a>
-                <a class="hidden-md-down" style="color: white" href="tel:0096170863636"><i class="fa fa-phone"></i>&nbsp; +961 70 863 636</a>
+                <a class="hidden-md-down" style="color: white" href="tel:00961068057"><i class="fa fa-phone"></i>&nbsp; +961 70 068 057</a>
                 <a class="social-button sb-facebook shape-none" style="color: white" href="https://www.facebook.com/DianellaFlowers/" target="_blank"><i class="socicon-facebook"></i></a>
                 <a class="social-button sb-instagram shape-none sb-dark" style="color: white" href="https://www.instagram.com/DianellaFlowers" target="_blank"><i class="socicon-instagram"></i></a>
 <!--                <a class="social-button sb-pinterest shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-pinterest"></i></a>-->
@@ -201,7 +201,7 @@
                             <!-- Contact Info-->
                             <section class="widget widget-light-skin">
                                 <h3 class="widget-title">Get In Touch With Us</h3>
-                                <p class="text-white">Phone: (961) 70 863 636</p>
+                                <p class="text-white">Phone: (961) 70 068 057</p>
                                 <ul class="list-unstyled text-sm text-white">
                                     <li><span class="opacity-50">Monday-Friday:</span>9.00 am - 8.00 pm</li>
                                     <li><span class="opacity-50">Saturday:</span>10.00 am - 6.00 pm</li>
@@ -265,13 +265,11 @@
                     </div>
                     <!-- Copyright-->
                     <div class="footer-copyright">
-                        <p class="pull-left">
+                        <p>
                             © All rights reserved. Made with&nbsp;
                             <i class="icon-heart" style="color: #9966CC"></i>
                             &nbsp;by&nbsp;
                             <a href="mailto:mahmoudmhdali@gmail.com" target="_blank">Mahmoud Mohamed Ali</a>
-                        </p>
-                        <p class="pull-right"><a href="<c:url value='/PrivacyPolicy'/>" style="color: rgba(255, 255, 255, 0.5)">Privacy Policy</a>&nbsp;-&nbsp;<a href="<c:url value='/TermsAndConditions'/>" style="color: rgba(255, 255, 255, 0.5)">Terms & Conditions</a></p>
                         </p>
                     </div>
             </footer>
