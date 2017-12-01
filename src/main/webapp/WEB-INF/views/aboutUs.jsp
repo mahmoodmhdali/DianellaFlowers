@@ -31,7 +31,7 @@
         <!-- Page Content-->
         <div class="container padding-bottom-2x mb-2">
             <div class="row align-items-center padding-bottom-2x">
-                <div class="col-md-5"><img class="d-block w-270 m-auto" src="<c:url value='/assets/img/features/01.jpg'/>" alt="Online Shopping"></div>
+                <div class="col-md-5"><img class="d-block w-270 m-auto" src="<c:url value='/assets/img/features/aboutUs.jpg'/>" alt="Online Shopping"></div>
                 <div class="col-md-7 text-md-left text-center">
                     <div class="mt-30 hidden-md-up"></div>
                     <h2>Select and Buy Online.</h2>
