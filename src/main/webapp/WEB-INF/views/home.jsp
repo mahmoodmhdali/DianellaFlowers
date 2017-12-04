@@ -31,16 +31,6 @@
                         <img src="<c:url value='/images/HomeSliders/1.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
                         <div class="bs-slider-overlay"></div>
 
-                        <div class="container">
-                            <div class="row">
-                                <!-- Slide Text Layer -->
-                                <div class="slide-text slide_style_center" style="top:40%">
-                                    <h1 data-animation="animated zoomInRight" class="">Welcome</h1>
-<!--                                    <p data-animation="animated fadeInLeft" class=""></p>
-                                    <a href="#" class="btn btn-primary" data-animation="animated fadeInLeft">select two</a>-->
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <!-- End of Slide -->
                     <!-- Second Slide -->
