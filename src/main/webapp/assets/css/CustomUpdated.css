@@ -46,6 +46,14 @@
     height: 500px !important;
 }
 
+.slide-text > h1{
+    font-size: 32px !important;
+}
+
+.newPadding{
+    right: 25%;
+}
+
 @media (max-width: 768px) {
     .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
         height: 240px !important;
@@ -90,11 +98,43 @@
     .hero-slider {
         height: 170px !important;
     }
+
+    .newPadding{
+        right: 6%;
+    }
+
+    .slide-text > h1{
+        font-size: 15px !important;
+    }
+
+    .lowFont.slide-text > h1{
+        font-size: 11px !important;
+    }
+
+    .newFontLow.slide-text > h1{
+        font-size: 13px !important;
+    }
 }
 /*IPHONE 6 PLUS*/
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 3) {
     .indicators-line > .carousel-indicators {
         right: 42%;
+    }
+
+    .newPadding{
+        right: 6%;
+    }
+
+    .slide-text > h1{
+        font-size: 15px !important;
+    }
+
+    .lowFont.slide-text > h1{
+        font-size: 11px !important;
+    }
+
+    .newFontLow.slide-text > h1{
+        font-size: 13px !important;
     }
 }
 /*IPHONE 5*/
@@ -112,6 +152,22 @@
 
     .hero-slider {
         height: 170px !important;
+    }
+
+    .newPadding{
+        right: 6%;
+    }
+
+    .slide-text > h1{
+        font-size: 15px !important;
+    }
+
+    .lowFont.slide-text > h1{
+        font-size: 11px !important;
+    }
+
+    .newFontLow.slide-text > h1{
+        font-size: 13px !important;
     }
 }
 
@@ -207,11 +263,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 .rainbow {
-  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #9966CC), color-stop(0.15, #9966CC), color-stop(0.3, #9966CC), color-stop(0.45, #9966CC), color-stop(0.6, #9966CC),color-stop(0.75, #9966CC), color-stop(0.9, #9966CC), color-stop(1, #9966CC) );
-  background-image: gradient( linear, left top, right top, color-stop(0, #9966CC), color-stop(0.15, #9966CC), color-stop(0.3, #9966CC), color-stop(0.45, #9966CC), color-stop(0.6, #9966CC),color-stop(0.75, #9966CC), color-stop(0.9, #9966CC), color-stop(1, #9966CC) );
-  color:transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
+    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #9966CC), color-stop(0.15, #9966CC), color-stop(0.3, #9966CC), color-stop(0.45, #9966CC), color-stop(0.6, #9966CC),color-stop(0.75, #9966CC), color-stop(0.9, #9966CC), color-stop(1, #9966CC) );
+    background-image: gradient( linear, left top, right top, color-stop(0, #9966CC), color-stop(0.15, #9966CC), color-stop(0.3, #9966CC), color-stop(0.45, #9966CC), color-stop(0.6, #9966CC),color-stop(0.75, #9966CC), color-stop(0.9, #9966CC), color-stop(1, #9966CC) );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 .site-logo {
@@ -227,4 +283,9 @@ body::-webkit-scrollbar-thumb {
 .indicators-line > .carousel-indicators li {
     width: 10px;
     height: 10px;
+}
+
+.slide-text{
+    top: 1%;
+    padding: 0 30px;
 }

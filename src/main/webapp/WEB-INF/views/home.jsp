@@ -39,12 +39,8 @@
                         <img src="<c:url value='/images/HomeSliders/2.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
                         <div class="bs-slider-overlay"></div>
                         <!-- Slide Text Layer -->
-                        <div class="slide-text slide_style_center" style="top:40%">
-                            <h1 data-animation="animated flipInX">Can we speak in flowers.</h1>
-                            <br>
-                            <h1 data-animation="animated flipInX">It will be easier for me to understand...</h1>
-<!--                            <p data-animation="animated lightSpeedIn"></p>-->
-<!--                            <a href="#" class="btn btn-primary" data-animation="animated fadeInDown">Something</a>-->
+                        <div class="slide-text slide_style_left lowFont" style="top:65%">
+                            <h1 data-animation="animated flipInX" class="">Can we speak in flowers. It will be easier for me to understand...</h1>
                         </div>
                     </div>
                     <!-- End of Slide -->
@@ -54,10 +50,10 @@
                         <img src="<c:url value='/images/HomeSliders/3.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
                         <div class="bs-slider-overlay"></div>
                         <!-- Slide Text Layer -->
-                        <div class="slide-text slide_style_left" style="top:40%">
+                        <div class="slide-text slide_style_right" style="top:65%">
                             <h1 data-animation="animated zoomInLeft" style="color: #9966CC">You will be mine and i will be yours.</h1>
-<!--                            <p data-animation="animated fadeInRight">Something .</p>
-                            <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
+                            <!--                            <p data-animation="animated fadeInRight">Something .</p>
+                                                        <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
                         </div>
                     </div>
                     <!-- End of Slide -->
@@ -67,10 +63,10 @@
                         <img src="<c:url value='/images/HomeSliders/4.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
                         <div class="bs-slider-overlay"></div>
                         <!-- Slide Text Layer -->
-                        <div class="slide-text slide_style_right" style="top:40%">
+                        <div class="slide-text slide_style_right" style="top:1%">
                             <h1 data-animation="animated zoomInLeft" style="color: #9966CC">Happiness is on the way!</h1>
-<!--                            <p data-animation="animated fadeInRight">Something .</p>
-                            <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
+                            <!--                            <p data-animation="animated fadeInRight">Something .</p>
+                                                        <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
                         </div>
                     </div>
                     <!-- End of Slide -->
@@ -81,13 +77,8 @@
                         <div class="bs-slider-overlay"></div>
                         <!-- Slide Text Layer -->
                         <div class="slide-text slide_style_right">
-                            <h1 data-animation="animated zoomInLeft">Family:</h1>
-                            <br>
-                            <h1 data-animation="animated zoomInLeft">Our flowers grow in many directions,</h1>
-                            <br>
-                            <h1 data-animation="animated zoomInLeft">our roots are one...</h1>
-<!--                            <p data-animation="animated fadeInRight">Something .</p>
-                            <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
+                            <h1 data-animation="animated zoomInLeft sliderText" class="" style="color: #9966CC">
+                                Our flowers grow in many directions, our roots are one...</h1>
                         </div>
                     </div>
                     <!-- End of Slide -->
@@ -97,12 +88,12 @@
                         <img src="<c:url value='/images/HomeSliders/6.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
                         <div class="bs-slider-overlay"></div>
                         <!-- Slide Text Layer -->
-                        <div class="slide-text slide_style_right" style="top:40%">
-                            <h1 data-animation="animated zoomInLeft">Keep shining beautiful one,</h1>
-                            <br>
-                            <h1 data-animation="animated zoomInLeft">the world needs your light</h1>
-<!--                            <p data-animation="animated fadeInRight">Something .</p>
-                            <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
+                        <div class="slide-text slide_style_right newFontLow" style="top:65%">
+                            <h1 data-animation="animated zoomInLeft" class="">Keep shining beautiful one, the world needs your light</h1>
+
+
+                            <!--                            <p data-animation="animated fadeInRight">Something .</p>
+                                                        <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
                         </div>
                     </div>
                     <!-- End of Slide -->
@@ -112,10 +103,10 @@
                         <img src="<c:url value='/images/HomeSliders/7.jpg'/>" alt="Bootstrap Touch Slider" class="slide-image">
                         <div class="bs-slider-overlay"></div>
                         <!-- Slide Text Layer -->
-                        <div class="slide-text slide_style_right" style="top:40%">
-                            <h1 data-animation="animated zoomInLeft">From Dianella.</h1>
-<!--                            <p data-animation="animated fadeInRight">Something .</p>
-                            <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
+                        <div class="slide-text slide_style_right newPadding" style="top:45%">
+                            <h1 data-animation="animated zoomInLeft" style="color: #9966CC">From Dianella.</h1>
+                            <!--                            <p data-animation="animated fadeInRight">Something .</p>
+                                                        <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
                         </div>
                     </div>
                     <!-- End of Slide -->
@@ -133,6 +124,63 @@
                 </a>
             </div>
         </section>
+        <!--        <section class="container-fluid padding-top-1x">
+                    <h3 class="text-center mb-30">Happy Holidays</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-5 col-lg-6 mb-30">
+                            <div class="rounded bg-faded position-relative padding-top-3x padding-bottom-3x">
+                                <span class="product-badge text-danger" style="top: 24px; left: 24px;">Limited Offer</span>
+                                <div class="text-center">
+                                    <h3 class="h2 text-normal mb-1">New</h3>
+                                    <h2 class="display-2 text-bold mb-2">Poinsettia</h2>
+                                    <h4 class="h3 text-normal mb-4">collection</h4>
+                                    <div class="countdown mb-3" data-date-time="12/31/2017 06:00:00">
+                                        <div class="item">
+                                            <div class="days">00</div>
+                                            <span class="days_ref">Days</span>
+                                        </div>
+                                        <div class="item">
+                                            <div class="hours">00</div>
+                                            <span class="hours_ref">Hours</span>
+                                        </div>
+                                        <div class="item">
+                                            <div class="minutes">00</div>
+                                            <span class="minutes_ref">Mins</span>
+                                        </div>
+                                        <div class="item">
+                                            <div class="seconds">00</div>
+                                            <span class="seconds_ref">Secs</span>
+                                        </div>
+                                    </div>
+                                    <br>
+        
+                                    <a class="btn btn-primary margin-bottom-none add-to-cart-btn" href="#" data-bouquet-id="55">Small $9.99</a>
+                                    <a class="btn btn-primary margin-bottom-none add-to-cart-btn" href="#" data-bouquet-id="56">Medium $16.99</a>
+                                    <a class="btn btn-primary margin-bottom-none add-to-cart-btn" href="#" data-bouquet-id="57">Large $33.99</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-6 mb-30" style="min-height: 270px;">
+                            <div class="img-cover rounded" style="background-image: url(<c:url value='/assets/img/banners/home03.jpg'/>);"></div>
+                        </div>
+                    </div>
+                </section>-->
+        <section class="container padding-top-2x">
+            <div class="row justify-content-center">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="fw-section rounded padding-top-4x padding-bottom-4x" style="background-image: url(<c:url value='/assets/img/banners/xmas.jpg'/>);">
+                        <span class="overlay rounded" style="opacity: .35;"></span>
+                        <div class="text-center">
+                            <h3 class="display-4 text-normal text-white text-shadow mb-1">New Category</h3>
+                            <h2 class="display-2 text-bold text-white text-shadow">CHRISTMAS 2018!</h2>
+                            <h4 class="d-inline-block h2 text-normal text-white text-shadow border-default border-left-0 border-right-0 mb-4">at our stores</h4>
+                            <br>
+                            <a class="btn btn-primary margin-bottom-none" href="<c:url value='/products/Occasional'/>">View More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Top Categories-->
         <section class="container padding-top-2x">
             <h3 class="text-center mb-30">Coming Soon Categories</h3>
@@ -144,15 +192,15 @@
                                 <div class="main-img">
                                     <img class="img-category-1" src="<c:url value='/images/CommingSoonCateg/Valentine.jpg'/>" alt="Category">
                                 </div>
-<!--                                <div class="thumblist">
-                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/55.jpg'/>" alt="Category">
-                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/66.jpg'/>" alt="Category">
-                                </div>-->
+                                <!--                                <div class="thumblist">
+                                                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/55.jpg'/>" alt="Category">
+                                                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/66.jpg'/>" alt="Category">
+                                                                </div>-->
                             </div>
                         </a>
                         <div class="card-body text-center">
                             <h4 class="card-title">Valentine</h4>
-                            <p class="text-muted">Coming Soon</p>
+                            <p class="text-muted">2018</p>
                         </div>
                     </div>
                 </div>
@@ -163,15 +211,15 @@
                                 <div class="main-img">
                                     <img class="img-category-1" src="<c:url value='/images/CommingSoonCateg/Mother\'s Day.jpg'/>" alt="Category">
                                 </div>
-<!--                                <div class="thumblist">
-                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/55.jpg'/>" alt="Category">
-                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/66.jpg'/>" alt="Category">
-                                </div>-->
+                                <!--                                <div class="thumblist">
+                                                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/55.jpg'/>" alt="Category">
+                                                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/66.jpg'/>" alt="Category">
+                                                                </div>-->
                             </div>
                         </a>
                         <div class="card-body text-center">
                             <h4 class="card-title">Mother's Day</h4>
-                            <p class="text-muted">Coming Soon</p>
+                            <p class="text-muted">2018</p>
                         </div>
                     </div>
                 </div>
@@ -182,115 +230,20 @@
                                 <div class="main-img">
                                     <img class="img-category-1" src="<c:url value='/images/CommingSoonCateg/Teacher\'s Day.jpg'/>" alt="Category">
                                 </div>
-<!--                                <div class="thumblist">
-                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/55.jpg'/>" alt="Category">
-                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/66.jpg'/>" alt="Category">
-                                </div>-->
+                                <!--                                <div class="thumblist">
+                                                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/55.jpg'/>" alt="Category">
+                                                                    <img class="img-category-2" src="<c:url value='/assets/img/shop/categories/66.jpg'/>" alt="Category">
+                                                                </div>-->
                             </div>
                         </a>
                         <div class="card-body text-center">
                             <h4 class="card-title">Teacher's Day</h4>
-                            <p class="text-muted">Coming Soon</p>
+                            <p class="text-muted">2018</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Promo #1-->
-<!--        <section class="container-fluid padding-top-1x">
-            <div class="row justify-content-center">
-                <div class="col-xl-5 col-lg-6 mb-30">
-                    <div class="rounded bg-faded position-relative padding-top-3x padding-bottom-3x">
-                        <span class="product-badge text-danger" style="top: 24px; left: 24px;">Limited Offer</span>
-                        <div class="text-center">
-                            <h3 class="h2 text-normal mb-1">New</h3>
-                            <h2 class="display-2 text-bold mb-2">Something</h2>
-                            <h4 class="h3 text-normal mb-4">collection at discounted price!</h4>
-                            <div class="countdown mb-3" data-date-time="12/18/2017 06:00:00">
-                                <div class="item">
-                                    <div class="days">00</div>
-                                    <span class="days_ref">Days</span>
-                                </div>
-                                <div class="item">
-                                    <div class="hours">00</div>
-                                    <span class="hours_ref">Hours</span>
-                                </div>
-                                <div class="item">
-                                    <div class="minutes">00</div>
-                                    <span class="minutes_ref">Mins</span>
-                                </div>
-                                <div class="item">
-                                    <div class="seconds">00</div>
-                                    <span class="seconds_ref">Secs</span>
-                                </div>
-                            </div>
-                            <br>
-                            <a class="btn btn-primary margin-bottom-none" href="#">View Offers</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-5 col-lg-6 mb-30" style="min-height: 270px;">
-                    <div class="img-cover rounded" style="background-image: url(<c:url value='/assets/img/banners/home01.jpg'/>);"></div>
-                </div>
-            </div>
-        </section>-->
-        <section class="container-fluid padding-top-1x">
-            <div class="row justify-content-center">
-                <div class="col-xl-5 col-lg-6 mb-30">
-                    <div class="rounded bg-faded position-relative padding-top-3x padding-bottom-3x">
-                        <span class="product-badge text-danger" style="top: 24px; left: 24px;">Limited Offer</span>
-                        <div class="text-center">
-                            <h3 class="h2 text-normal mb-1">New</h3>
-                            <h2 class="display-2 text-bold mb-2">Poinsettia</h2>
-                            <h4 class="h3 text-normal mb-4">collection</h4>
-                            <div class="countdown mb-3" data-date-time="12/31/2017 06:00:00">
-                                <div class="item">
-                                    <div class="days">00</div>
-                                    <span class="days_ref">Days</span>
-                                </div>
-                                <div class="item">
-                                    <div class="hours">00</div>
-                                    <span class="hours_ref">Hours</span>
-                                </div>
-                                <div class="item">
-                                    <div class="minutes">00</div>
-                                    <span class="minutes_ref">Mins</span>
-                                </div>
-                                <div class="item">
-                                    <div class="seconds">00</div>
-                                    <span class="seconds_ref">Secs</span>
-                                </div>
-                            </div>
-                            <br>
-                            
-                        <a class="btn btn-primary margin-bottom-none add-to-cart-btn" href="#" data-bouquet-id="55">Small $9.99</a>
-                        <a class="btn btn-primary margin-bottom-none add-to-cart-btn" href="#" data-bouquet-id="56">Medium $16.99</a>
-                        <a class="btn btn-primary margin-bottom-none add-to-cart-btn" href="#" data-bouquet-id="57">Large $33.99</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-5 col-lg-6 mb-30" style="min-height: 270px;">
-                    <div class="img-cover rounded" style="background-image: url(/assets/img/banners/home03.jpg);"></div>
-                </div>
-            </div>
-        </section>
-        <!-- Promo #2-->
-        <!--        <section class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-xl-10 col-lg-12">
-                    <div class="fw-section rounded padding-top-4x padding-bottom-4x" style="background-image: url(img/banners/home02.jpg);">
-                        <span class="overlay rounded" style="opacity: .35;"></span>
-                        <div class="text-center">
-                            <h3 class="display-4 text-normal text-white text-shadow mb-1">Old Collection</h3>
-                            <h2 class="display-2 text-bold text-white text-shadow">HUGE SALE!</h2>
-                            <h4 class="d-inline-block h2 text-normal text-white text-shadow border-default border-left-0 border-right-0 mb-4">at our outlet stores</h4>
-                            <br>
-                            <a class="btn btn-primary margin-bottom-none" href="#">Locate Stores</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>-->
         <!-- Featured Products Carousel-->
         <section class="container padding-top-1x padding-bottom-1x">
             <h3 class="text-center mb-30">Featured Products</h3>
@@ -338,7 +291,7 @@
             <ol class="indicator"></ol>
         </div>
         <!-- Popular Brands-->
-        <section class="bg-faded padding-top-2x padding-bottom-2x">
+        <section class="bg-faded padding-top-1x padding-bottom-1x">
             <div class="container">
                 <!--<h3 class="text-center mb-30 pb-2">Popular Flowers</h3>-->
                 <div class="owl-carousel" data-owl-carousel="{ &quot;nav&quot;: false, &quot;dots&quot;: false, &quot;loop&quot;: true, &quot;autoplay&quot;: true, &quot;autoplayTimeout&quot;: 2000, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:2}, &quot;470&quot;:{&quot;items&quot;:3},&quot;630&quot;:{&quot;items&quot;:4},&quot;991&quot;:{&quot;items&quot;:5},&quot;1200&quot;:{&quot;items&quot;:6}} }">
@@ -366,8 +319,8 @@
                 </div>
                 <div class="col-md-4 col-sm-12 text-center mb-30">
                     <img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="<c:url value='/assets/img/services/03.png'/>" alt="Support">
-                    <h6>24/7 Customer Support</h6>
-                    <p class="text-muted margin-bottom-none">Friendly 24/7 customer support</p>
+                    <h6>Customer Support</h6>
+                    <p class="text-muted margin-bottom-none">Friendly customer support</p>
                 </div>
                 <div class="col-md-4 col-sm-12 text-center mb-30">
                     <img class="d-block w-90 img-thumbnail rounded-circle mx-auto mb-3" src="<c:url value='/assets/img/services/04.png'/>" alt="Payment">

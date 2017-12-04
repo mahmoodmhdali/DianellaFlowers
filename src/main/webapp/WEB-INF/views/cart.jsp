@@ -82,7 +82,7 @@
                         <div class="column"><a class="btn btn-outline-secondary" href="<c:url value='/'/>"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
                         <div class="column">
                             <a class="btn btn-primary updateCart" href="#">Update Cart</a>
-                            <a class="btn btn-success" href="<c:url value='/cart/shipping'/>">Shipping</a>
+                            <a class="btn btn-success" href="<c:url value='/cart/shipping'/>">Continue</a>
                         </div>
                     </div>
                 </c:when>

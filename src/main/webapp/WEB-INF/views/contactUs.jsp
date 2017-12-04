@@ -42,19 +42,6 @@
                 </div>
             </div>
             <hr class="margin-top-2x">
-            <div class="row margin-top-2x">
-                <div class="col-md-7">
-                    <div class="display-3 text-muted opacity-75 mb-30">Tech Support</div>
-                </div>
-                <div class="col-md-5">
-                    <ul class="list-icon">
-                        <li> <i class="icon-mail"></i><a class="navi-link" href="mahmoudmhdali@gmail.com">mahmoudmhdali@gmail.com</a></li>
-                        <li> <i class="fa fa-phone"></i>+961 70 880 252</li>
-                        <li> <i class="icon-clock"></i>1 - 2 business days</li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="margin-top-2x">
             <div class="col-md-12">
                 <h3 class="padding-top-2x">Have troubles? Ask us.</h3>
                 <p class="text-muted mb-30">We normally respond within 1 business days.</p>

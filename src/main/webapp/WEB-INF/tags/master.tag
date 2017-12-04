@@ -91,10 +91,10 @@
         <div class="topbar">
             <div class="topbar-column">
                 <a class="hidden-md-down" style="color: white" href="mailto:dianellaflowers@gmail.com"><i class="icon-mail"></i>&nbsp; dianellaflowers@gmail.com</a>
-                <a class="hidden-md-down" style="color: white" href="tel:00961068057"><i class="fa fa-phone"></i>&nbsp; +961 70 068 057</a>
-                <a class="social-button sb-facebook shape-none" style="color: white" href="https://www.facebook.com/DianellaFlowers/" target="_blank"><i class="socicon-facebook"></i></a>
-                <a class="social-button sb-instagram shape-none sb-dark" style="color: white" href="https://www.instagram.com/DianellaFlowers" target="_blank"><i class="socicon-instagram"></i></a>
-<!--                <a class="social-button sb-pinterest shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-pinterest"></i></a>-->
+                <a class="" style="color: white" href="tel:0096170068057"><i class="fa fa-phone"></i>&nbsp; +961 70 068 057</a>
+                <a class="social-button sb-facebook shape-none pull-right" style="color: white" href="https://www.facebook.com/DianellaFlowers/" target="_blank"><i class="socicon-facebook"></i></a>
+                <a class="social-button sb-instagram shape-none sb-dark pull-right" style="color: white" href="https://www.instagram.com/DianellaFlowers" target="_blank"><i class="socicon-instagram"></i></a>
+                <!--                <a class="social-button sb-pinterest shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-pinterest"></i></a>-->
             </div>
         </div>
         <!-- Navbar-->
@@ -147,7 +147,7 @@
                                 <a href="<c:url value='/logout'/>"></a><i class="fa fa-lock"></i><span class="subtotal">Log Out</span>
                                 </sec:authorize>
                                 <sec:authorize access="!hasRole('Admin')">
-                                <a href="<c:url value='/cart'/>" class="cartToHide"></a><i class="icon-bag"></i><span class="count countCart">${fn:length(userCartItems)}</span><span class="subtotal totalCart1">$${userCartTotalPrice}</span>
+                                <a href="<c:url value='/cart'/>" class="cartToHide"></a><i class="icon-bag"></i><span class="count countCart">${fn:length(userCartItems)}</span><span class="subtotal totalCart1"><c:if test="${userCartTotalPrice != '0.0'}">$${userCartTotalPrice}</c:if></span>
                                     <c:choose>
                                         <c:when test="${fn:length(userCartItems) > 0}">
                                         <div class="toolbar-dropdown cartData cartToHide">
@@ -204,7 +204,7 @@
                                 <p class="text-white">Phone: (961) 70 068 057</p>
                                 <ul class="list-unstyled text-sm text-white">
                                     <li><span class="opacity-50">Monday-Friday:</span>9.00 am - 8.00 pm</li>
-                                    <li><span class="opacity-50">Saturday:</span>10.00 am - 6.00 pm</li>
+                                    <li><span class="opacity-50">Saturday:</span>10.00 am - 2.00 pm</li>
                                 </ul>
                                 <p><a class="navi-link-light" href="mailto:dianellaflowers@gmail.com">dianellaflowers@gmail.com</a></p>
                                 <a class="social-button shape-circle sb-facebook sb-light-skin" href="#"><i class="socicon-facebook"></i></a><a class="social-button shape-circle sb-twitter sb-light-skin" href="#"><i class="socicon-twitter"></i></a><a class="social-button shape-circle sb-instagram sb-light-skin" href="#"><i class="socicon-instagram"></i></a><a class="social-button shape-circle sb-google-plus sb-light-skin" href="#"><i class="socicon-googleplus"></i></a>

@@ -35,22 +35,20 @@
                 <div class="col-md-7 text-md-left text-center">
                     <div class="mt-30 hidden-md-up"></div>
                     <h2>Select and Buy Online.</h2>
-                    <p style="text-align: justify;">Flowers are the most magical gift. Flowers can bring someone out of his/her busy life to a piece of joyful cloud, it can recover someone’s soul, it makes someone feels better.
-                        This is my belief of my online shop. I am passionate about it.
-                        I like to see people’s happy faces when they receive flowers from their loved ones...
-                        I don’t just send flowers, but I wish to deliver the happiness to make someone’s day. A happy day for your family, lover, friends, colleagues... with just a single click, call, or a text. 
-                        Dianella flowers, free delivery service with the finest quality.</p>
+                    <p style="text-align: justify;">Flowers are a magical gift and they have the power to transfer any mood to a joyful one , full of colors and happiness. Their power lies in their ability to make one feel loved, welcome, happy and even physically better... This was why I created this online shop . I wanted to be part of your special moments and draw a smile on my clients face , even if just for a short moment. Whether it is to express emotions to a loved one , or welcome a newborn , or be part of your wedding, Dianella is just a click away...</p>
+                    <p style="text-align: justify;">For your inquiries , call us on 70/068057 or order online.</p>
+                    <p style="text-align: justify;">Thank you for allowing us to be part of your memories!</p>
                 </div>
             </div>
-<!--            <hr>
-            <div class="row align-items-center padding-top-2x padding-bottom-2x">
-                <div class="col-md-5 order-md-2"><img class="d-block w-270 m-auto" src="<c:url value='/assets/img/features/02.jpg'/>" alt="Delivery"></div>
-                <div class="col-md-7 order-md-1 text-md-left text-center">
-                    <div class="mt-30 hidden-md-up"></div>
-                    <h2>Fast Delivery.</h2>
-                    <p>Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something .</p><a class="text-medium text-decoration-none" href="#">Shipping Details&nbsp;<i class="icon-arrow-right"></i></a>
-                </div>
-            </div>-->
+            <!--            <hr>
+                        <div class="row align-items-center padding-top-2x padding-bottom-2x">
+                            <div class="col-md-5 order-md-2"><img class="d-block w-270 m-auto" src="<c:url value='/assets/img/features/02.jpg'/>" alt="Delivery"></div>
+                            <div class="col-md-7 order-md-1 text-md-left text-center">
+                                <div class="mt-30 hidden-md-up"></div>
+                                <h2>Fast Delivery.</h2>
+                                <p>Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something Something .</p><a class="text-medium text-decoration-none" href="#">Shipping Details&nbsp;<i class="icon-arrow-right"></i></a>
+                            </div>
+                        </div>-->
             <hr>
         </div>
     </jsp:attribute>
