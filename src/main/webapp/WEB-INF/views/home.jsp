@@ -17,7 +17,7 @@
         <section class="hero-slider">
             <div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="6000">
                 <!-- Indicators -->
-                <ol class="carousel-indicators">
+                <ol class="carousel-indicators" style="margin-bottom:0 !important;">
                     <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
                     <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
                     <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
@@ -113,9 +113,7 @@
                         <div class="bs-slider-overlay"></div>
                         <!-- Slide Text Layer -->
                         <div class="slide-text slide_style_right" style="top:40%">
-                            <h1 data-animation="animated zoomInLeft">With love (already exists)</h1>
-                            <br>
-                            <h1 data-animation="animated zoomInLeft">add from Dianella.</h1>
+                            <h1 data-animation="animated zoomInLeft">from Dianella.</h1>
 <!--                            <p data-animation="animated fadeInRight">Something .</p>
                             <a href="#" class="btn btn-primary" data-animation="animated fadeInRight">Something</a>-->
                         </div>

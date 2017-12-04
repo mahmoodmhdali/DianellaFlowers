@@ -35,42 +35,42 @@
 }
 
 .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
-    height: 700px;
+    height: 500px;
 }
 
 .bs-slider {
-    height: 700px !important;
+    height: 500px !important;
 }
 
 .hero-slider {
-    height: 700px !important;
+    height: 500px !important;
 }
 
 @media (max-width: 768px) {
     .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
-        height: 350px !important;
+        height: 240px !important;
     }
 
     .bs-slider {
-        height: 350px !important;
+        height: 240px !important;
     }
 
     .hero-slider {
-        height: 350px !important;
+        height: 240px !important;
     }
 }
 
 @media (max-width: 1100px) {
     .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
-        height: 350px !important;
+        height: 240px !important;
     }
 
     .bs-slider {
-        height: 350px !important;
+        height: 240px !important;
     }
 
     .hero-slider {
-        height: 350px !important;
+        height: 240px !important;
     }
 }
 
@@ -80,15 +80,15 @@
         right: 38%;
     }
     .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
-        height: 250px !important;
+        height: 170px !important;
     }
 
     .bs-slider {
-        height: 250px !important;
+        height: 170px !important;
     }
 
     .hero-slider {
-        height: 250px !important;
+        height: 170px !important;
     }
 }
 /*IPHONE 6 PLUS*/
@@ -103,15 +103,15 @@
         right: 38%;
     }
     .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
-        height: 250px !important;
+        height: 170px !important;
     }
 
     .bs-slider {
-        height: 250px !important;
+        height: 70px !important;
     }
 
     .hero-slider {
-        height: 250px !important;
+        height: 170px !important;
     }
 }
 
@@ -222,4 +222,9 @@ body::-webkit-scrollbar-thumb {
     .site-logo {
         width: 186px;
     }
+}
+
+.indicators-line > .carousel-indicators li {
+    width: 10px;
+    height: 10px;
 }
