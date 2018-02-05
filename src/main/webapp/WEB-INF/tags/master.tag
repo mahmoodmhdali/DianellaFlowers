@@ -11,21 +11,28 @@
 <html lang="en">
     <head>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82755844-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-82755844-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-            gtag('config', 'UA-82755844-1');
-        </script>
+  gtag('config', 'UA-82755844-1');
+</script>
 
+        <meta property="fb:app_id" content="313816629061279" />
+        <meta name="msvalidate.01" content="A8BFD4B15E86537FA1A78297210A7389" />
+        <meta property="og:type" />
+        <meta property="og:url" content="http://dianellaflowers.com" />
+        <meta property="og:title" content="Introducing our New Site" />
+        <meta property="og:image" content="http://dianellaflowers.com/assets/img/logo/log2.png" />
+        <meta property="og:description" content="Flowers are the most magical gift. Flowers can bring someone out of his/her busy life to a piece of joyful cloud, it can recover someone’s soul, it makes someone feels better." />
+    
+    
+    
         <meta charset="utf-8">        
-        <meta name="description" content="Flowers are the most magical gift. Flowers can bring someone out of his/her busy life to a piece of joyful cloud, it can recover someone’s soul, it makes someone feels better.">
-        <meta name="keywords" content="delivery flowers,flowers,buy flowers,
-              deliver flowers,dianella  flowers, dianella, exotica, gift, surprise">
+        <meta name="description" content="Flowers are the most magical gift. Flowers can bring someone out of his/her busy life to a piece of joyful cloud, it can recover someone’s soul, it makes someone feels better. dianella flowers,flowers in lebanon,flowers in beirut,occassions in lebanon,best sellers in lebanon,cheap flowers,lebanon flowers,beirut flowers,florist,lebanon gifts,gifts in lebanon,lebanon,beirut,online flowers shop,best flowers shop, teachers day gift,mothers day gift, occassional gift,best gift, Send flowers to Lebanon, flower gifts Lebanon, online flower shops in Lebanon, Lebanon flowers free delivery, flowers to Beirut, online florists Lebanon, get well flowers to Lebanon, flowers Lebanon, balloons Lebanon, Lebanon flowers, send flowers on mother's day to Lebanon, send flowers on valentine's day in Lebanon, flowers on father's day in Lebanon, Easter Lebanon and flowers for all occasions in Lebanon, Champagne chocolate roses valentine's day Lebanon;  Flowers to Lebanon;   Flowers to Lebanon on Valentine's Day;  Lebanese online gifts shop for mothers;   Lebanon Flowers Shop FREE Delivery;   Lebanon mother's day gifts;  Saoud flowers Lebanon;  Send flowers and plants on Easter to Lebanon;  Send flower arrangements on Easter to Lebanon;  Send flowers on Easter to Lebanon;  Send gifts on Easter to Lebanon;  Send gifts on Valentine to Lebanon;  Send on Easter to Lebanon;  Send plants on Easter to Lebanon;  Valentine Gadgets to Lebanon;  Valentine gift ideas Lebanon;  Valentine gifts to Lebanon;  Valentine's Day surprise Lebanon;  birthday gifts to Lebanon;   bonsai plants to Lebanon;  plants to Lebanon;   cheap gifts to Lebanon;  cheap gifts for Christmas to Lebanon;  free delivery to Lebanon;  Christmas arrangements to Lebanon; Christmas flower delivery to Lebanon; affordable Christmas gifts to Lebanon;  Christmas gifts delivery in Lebanon; Christmas flowers online to Lebanon;  Christmas plant to Lebanon; Christmas tree to Lebanon;  Creative flower arrangements to Lebanon; Custom flower baskets to Lebanon; Custom plant baskets to Lebanon; Exotica flowers in Lebanon;  Fast delivery flowers in Lebanon; Fast flowers delivery in Lebanon; Free flowers delivery in Lebanon; Flowers delivery in Lebanon for free; Florist Lebanon free delivery; Florists in Lebanon; Free flower delivery in Lebanon;  Flower gifts Lebanon;  Flowers Lebanon;  Flower shops in Lebanon;  Flowers delivery Lebanon com net;  Flowers delivery to Beirut;  free delivery all over Lebanon;  gift for valentine to Lebanon; gift for wife in Lebanon; gift free delivery in Lebanon; gifts for Valentine in Lebanon; gifts for lady in Lebanon; gifts from Lebanon to Lebanon; gifts to Beirut; gifts to Lebanon;  great gifts to Lebanon; mother's day in Lebanon mother's day in Lebanon; mother's day in Lebanon; nado flowers Lebanon;  online florist Lebanon; online gift shop Lebanon;  plush arrangements to Lebanon;  poinsettia plant to Lebanon; Ramadan arrangements to Lebanon; Ramadan karim in Lebanon; Romantic flower arrangement  to Lebanon; Romantic plant arrangement to Lebanon; Roses for Valentine's Day in Lebanon; same day gift delivery Lebanon; send fresh flowers to your mother to Lebanon; send flowers and gifts on Easter; send flowers and gifts to Beirut;  send flowers and plants to Lebanon on mother's day; send flowers to Lebanon;  send flowers to Lebanon on Father's Day;  send gift to Lebanon; send flowers to star academy Lebanon; send gifts for mom in Lebanon; send gifts to Lebanon;  send roses to mother in Lebanon; send surprise gifts to nominees star academy Lebanon; sending flowers to Lebanon;  sending gifts on mother's day to Lebanon; special gifts to Lebanon; special offers on flowers Lebanon;  star academy  Lebanon; Unique gifts to Lebanon; Unique holiday gifts to Lebanon; unusual Christmas gifts to Lebanon; unusual gifts to Lebanon; valentine Flowers to Lebanon; wedding flowers Lebanon; Free delivery all over Lebanon for all flower arrangements; Fashionable arrangements in Lebanon; Unique flower arrangements to Lebanon; Free flowers delivery all over Lebanon.">
+        <meta name="keywords" content="dianella flowers,flowers in lebanon,flowers in beirut,occassions in lebanon,best sellers in lebanon,cheap flowers,lebanon flowers,beirut flowers,florist,lebanon gifts,gifts in lebanon,lebanon,beirut,online flowers shop,best flowers shop, teachers day gift,mothers day gift, occassional gift,best gift, Send flowers to Lebanon, flower gifts Lebanon, online flower shops in Lebanon, Lebanon flowers free delivery, flowers to Beirut, online florists Lebanon, get well flowers to Lebanon, flowers Lebanon, balloons Lebanon, Lebanon flowers, send flowers on mother's day to Lebanon, send flowers on valentine's day in Lebanon, flowers on father's day in Lebanon, Easter Lebanon and flowers for all occasions in Lebanon, Champagne chocolate roses valentine's day Lebanon;  Flowers to Lebanon;   Flowers to Lebanon on Valentine's Day;  Lebanese online gifts shop for mothers;   Lebanon Flowers Shop FREE Delivery;   Lebanon mother's day gifts;  Saoud flowers Lebanon;  Send flowers and plants on Easter to Lebanon;  Send flower arrangements on Easter to Lebanon;  Send flowers on Easter to Lebanon;  Send gifts on Easter to Lebanon;  Send gifts on Valentine to Lebanon;  Send on Easter to Lebanon;  Send plants on Easter to Lebanon;  Valentine Gadgets to Lebanon;  Valentine gift ideas Lebanon;  Valentine gifts to Lebanon;  Valentine's Day surprise Lebanon;  birthday gifts to Lebanon;   bonsai plants to Lebanon;  plants to Lebanon;   cheap gifts to Lebanon;  cheap gifts for Christmas to Lebanon;  free delivery to Lebanon;  Christmas arrangements to Lebanon; Christmas flower delivery to Lebanon; affordable Christmas gifts to Lebanon;  Christmas gifts delivery in Lebanon; Christmas flowers online to Lebanon;  Christmas plant to Lebanon; Christmas tree to Lebanon;  Creative flower arrangements to Lebanon; Custom flower baskets to Lebanon; Custom plant baskets to Lebanon; Exotica flowers in Lebanon;  Fast delivery flowers in Lebanon; Fast flowers delivery in Lebanon; Free flowers delivery in Lebanon; Flowers delivery in Lebanon for free; Florist Lebanon free delivery; Florists in Lebanon; Free flower delivery in Lebanon;  Flower gifts Lebanon;  Flowers Lebanon;  Flower shops in Lebanon;  Flowers delivery Lebanon com net;  Flowers delivery to Beirut;  free delivery all over Lebanon;  gift for valentine to Lebanon; gift for wife in Lebanon; gift free delivery in Lebanon; gifts for Valentine in Lebanon; gifts for lady in Lebanon; gifts from Lebanon to Lebanon; gifts to Beirut; gifts to Lebanon;  great gifts to Lebanon; mother's day in Lebanon mother's day in Lebanon; mother's day in Lebanon; nado flowers Lebanon;  online florist Lebanon; online gift shop Lebanon;  plush arrangements to Lebanon;  poinsettia plant to Lebanon; Ramadan arrangements to Lebanon; Ramadan karim in Lebanon; Romantic flower arrangement  to Lebanon; Romantic plant arrangement to Lebanon; Roses for Valentine's Day in Lebanon; same day gift delivery Lebanon; send fresh flowers to your mother to Lebanon; send flowers and gifts on Easter; send flowers and gifts to Beirut;  send flowers and plants to Lebanon on mother's day; send flowers to Lebanon;  send flowers to Lebanon on Father's Day;  send gift to Lebanon; send flowers to star academy Lebanon; send gifts for mom in Lebanon; send gifts to Lebanon;  send roses to mother in Lebanon; send surprise gifts to nominees star academy Lebanon; sending flowers to Lebanon;  sending gifts on mother's day to Lebanon; special gifts to Lebanon; special offers on flowers Lebanon;  star academy  Lebanon; Unique gifts to Lebanon; Unique holiday gifts to Lebanon; unusual Christmas gifts to Lebanon; unusual gifts to Lebanon; valentine Flowers to Lebanon; wedding flowers Lebanon; Free delivery all over Lebanon for all flower arrangements; Fashionable arrangements in Lebanon; Unique flower arrangements to Lebanon; Free flowers delivery all over Lebanon.">
         <meta name="google-site-verification" content="LY5Qqz1M4e_YLHxorxdddS75U0Ql74EavNx4k0H63es" />
         <meta name="author" content="Mahmoud Mohamed Ali">
         <!-- Mobile Specific Meta Tag-->
@@ -47,7 +54,7 @@
         <!-- touch slider-->
         <link href="<c:url value='/assets/css/bootstrap-touch-slider.css'/>" rel="stylesheet" />
         <!-- Custom Updates-->
-        <link href="<c:url value='/assets/css/CustomUpdated.css'/>" rel="stylesheet" />
+        <link href="<c:url value='/assets/css/CustomUpdatedV1.0.css'/>" rel="stylesheet" />
         <!-- Blueimp-->
         <link href="<c:url value='/assets/blueimp/css/blueimp-gallery.css'/>" rel="stylesheet" />
         <link href="<c:url value='/assets/blueimp/css/blueimp-gallery-indicator.css'/>" rel="stylesheet" />
@@ -103,10 +110,10 @@
         <div class="topbar">
             <div class="topbar-column">
                 <a class="hidden-md-down" style="color: white" href="mailto:dianellaflowers@gmail.com"><i class="icon-mail"></i>&nbsp; dianellaflowers@gmail.com</a>
-                <a class="" style="color: white" href="tel:0096170068057"><i class="fa fa-phone"></i>&nbsp; +961 70 068 057</a>
+                                <a class="" style="color: white" href="tel:0096170068057"><i class="fa fa-phone"></i>&nbsp; +961 70 068 057</a>
                 <a class="social-button sb-facebook shape-none pull-right" style="color: white" href="https://www.facebook.com/DianellaFlowers/" target="_blank"><i class="socicon-facebook"></i></a>
                 <a class="social-button sb-instagram shape-none sb-dark pull-right" style="color: white" href="https://www.instagram.com/DianellaFlowers" target="_blank"><i class="socicon-instagram"></i></a>
-                <!--                <a class="social-button sb-pinterest shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-pinterest"></i></a>-->
+<!--                <a class="social-button sb-pinterest shape-none sb-dark" style="color: white" href="#" target="_blank"><i class="socicon-pinterest"></i></a>-->
             </div>
         </div>
         <!-- Navbar-->
@@ -311,81 +318,81 @@
         <script src="<c:url value='/assets/blueimp/js/jquery.blueimp-gallery.js'/>"></script>
         <jsp:invoke fragment="js"/>
         <script>
-    $('document').ready(function () {
+            $('document').ready(function () {
 
-        $('.carousel-indicators').addClass('text-center');
+                $('.carousel-indicators').addClass('text-center');
 
-        var URLPath = window.location.pathname.toLowerCase();
-        if (URLPath.indexOf('aboutus') >= 0) {
-            $('.aboutUsLi').addClass('active');
-        } else if (URLPath.indexOf('contactus') >= 0) {
-            $('.contactUsLi').addClass('active');
-        } else if (URLPath.indexOf('products/flowers') >= 0) {
-            $('.flowersLi').addClass('active');
-        } else if (URLPath.indexOf('products') >= 0) {
-            $('.categoriesLi').addClass('active');
-        } else if (URLPath === '/dianellaflowers/') {
-            $('.homeLi').addClass('active');
-        }
-        $('.subscribe-form').on('submit', function (e)
-        {
-            e.preventDefault();
-            $('.submit-form-btn').lockBtn('');
-            $.ajax({
-                url: '<c:url value="/addNewSubscription"/>',
-                type: 'post',
-                data: $(this).serialize(),
-                success: function (data) {
-                    if (data.statusCode == '0')
-                    {
-                        $('.subscribe-form').HandleFormSuccess('email');
-                        $('.subscribe-form').find('[name=email]').addClass('successStyle');
-                        $('.subscribe-form').find('.input-group-addon').css('top', '33%');
-                        $('.subscribe-form')[0].reset();
-                    } else if (data.statusCode == '1')
-                    {
-                        $.notify('danger', 'Error', 'Not well formated email address.', 'topRight');
-                    } else {
-                        $.handleAjaxRequest(data, $('.subscribe-form'));
-                    }
-                },
-                error: function (error) {
-                    $.notify('danger', 'Error', 'Internal server error!.', 'topRight');
-                },
-                complete: function () {
-                    $('.submit-form-btn').unLockBtn();
+                var URLPath = window.location.pathname.toLowerCase();
+                if (URLPath.indexOf('aboutus') >= 0) {
+                    $('.aboutUsLi').addClass('active');
+                } else if (URLPath.indexOf('contactus') >= 0) {
+                    $('.contactUsLi').addClass('active');
+                } else if (URLPath.indexOf('products/flowers') >= 0) {
+                    $('.flowersLi').addClass('active');
+                } else if (URLPath.indexOf('products') >= 0) {
+                    $('.categoriesLi').addClass('active');
+                } else if (URLPath === '/dianellaflowers/') {
+                    $('.homeLi').addClass('active');
                 }
-            });
-        });
+                $('.subscribe-form').on('submit', function (e)
+                {
+                    e.preventDefault();
+                    $('.submit-form-btn').lockBtn('');
+                    $.ajax({
+                        url: '<c:url value="/addNewSubscription"/>',
+                        type: 'post',
+                        data: $(this).serialize(),
+                        success: function (data) {
+                            if (data.statusCode == '0')
+                            {
+                                $('.subscribe-form').HandleFormSuccess('email');
+                                $('.subscribe-form').find('[name=email]').addClass('successStyle');
+                                $('.subscribe-form').find('.input-group-addon').css('top', '33%');
+                                $('.subscribe-form')[0].reset();
+                            } else if (data.statusCode == '1')
+                            {
+                                $.notify('danger', 'Error', 'Not well formated email address.', 'topRight');
+                            } else {
+                                $.handleAjaxRequest(data, $('.subscribe-form'));
+                            }
+                        },
+                        error: function (error) {
+                            $.notify('danger', 'Error', 'Internal server error!.', 'topRight');
+                        },
+                        complete: function () {
+                            $('.submit-form-btn').unLockBtn();
+                        }
+                    });
+                });
 
-        $('.subscribe-form').find('[name=email]').focusin(function () {
-            $(this).parent().removeClass('has-success');
-            $('.form-control-feedback').remove();
-            $(this).removeClass('form-control-success');
-            $(this).removeClass('successStyle');
-            $('.subscribe-form').find('.input-group-addon').css('top', '50%');
-        });
+                $('.subscribe-form').find('[name=email]').focusin(function () {
+                    $(this).parent().removeClass('has-success');
+                    $('.form-control-feedback').remove();
+                    $(this).removeClass('form-control-success');
+                    $(this).removeClass('successStyle');
+                    $('.subscribe-form').find('.input-group-addon').css('top', '50%');
+                });
 
-        $('body').on('click', '.add-to-cart-btn', function () {
-            var currentBtn = $(this);
-            var bouquetId = currentBtn.attr("data-bouquet-id");
-            var csrfObj = $.getCSRFObj();
-            currentBtn.lockBtn('');
-            var ajaxData = {
-                'id': bouquetId,
-                '_csrf': csrfObj.value
-            };
-            $.ajax({
-                url: '<c:url value="/cart/add"/>',
-                data: ajaxData,
-                type: 'post',
-                success: function (data) {
-                    var bouquetData = $.parseJSON(data.responseObject);
-                    $('.totalCart1').html('$' + (data.statusMessage).split("~")[1]);
-                    if ($('.cartData').length == 0) {
-                        $('.countCart').html(Number($('.countCart').html()) + 1);
-                        $('.noCartFoundDiv').remove();
-                        $('.cartDataDiv').append('<div class="toolbar-dropdown cartData"><div class="dropdown-product-item" style="cursor: default" data-cart-id="' + (data.statusMessage).split("~")[0] + '">\n\
+                $('body').on('click', '.add-to-cart-btn', function () {
+                    var currentBtn = $(this);
+                    var bouquetId = currentBtn.attr("data-bouquet-id");
+                    var csrfObj = $.getCSRFObj();
+                    currentBtn.lockBtn('');
+                    var ajaxData = {
+                        'id': bouquetId,
+                        '_csrf': csrfObj.value
+                    };
+                    $.ajax({
+                        url: '<c:url value="/cart/add"/>',
+                        data: ajaxData,
+                        type: 'post',
+                        success: function (data) {
+                            var bouquetData = $.parseJSON(data.responseObject);
+                            $('.totalCart1').html('$' + (data.statusMessage).split("~")[1]);
+                            if ($('.cartData').length == 0) {
+                                $('.countCart').html(Number($('.countCart').html()) + 1);
+                                $('.noCartFoundDiv').remove();
+                                $('.cartDataDiv').append('<div class="toolbar-dropdown cartData"><div class="dropdown-product-item" style="cursor: default" data-cart-id="' + (data.statusMessage).split("~")[0] + '">\n\
                                                         <span class="dropdown-product-remove remove-from-cart-btn" style="cursor: pointer" data-cart-id="' + (data.statusMessage).split("~")[0] + '">\n\
                                                         <i class="icon-cross"></i></span>\n\
                                                         <a class="dropdown-product-thumb" href="#"><img src="' + bouquetData.compressedImagePath + '" alt="' + bouquetData.name + '">\n\
@@ -401,130 +408,130 @@
                                                             <div class="column"><a class="btn btn-sm btn-block btn-outline-danger clearCart" href="#">Clear Cart</a></div>\n\
                                                         </div>\n\
                                                         </div>');
-                    } else {
-                        var userCartDiv = $('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]');
-                        if (userCartDiv.length > 0) {
-                            var newQuantity = parseInt($('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]').find($('.productQuantity')).html());
-                            $('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]').find($('.productQuantity')).html(++newQuantity);
-                        } else {
-                            $('.countCart').html(Number($('.countCart').html()) + 1);
-                            $('.cartData').prepend('<div class="dropdown-product-item" style="cursor: default" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><span class="dropdown-product-remove remove-from-cart-btn" style="cursor: pointer" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="' + bouquetData.compressedImagePath + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details productQuantity">' + (data.statusMessage).split("~")[2] + '</span><span class="dropdown-product-details"> x $' + bouquetData.price + '</span></div></div>');
+                            } else {
+                                var userCartDiv = $('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]');
+                                if (userCartDiv.length > 0) {
+                                    var newQuantity = parseInt($('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]').find($('.productQuantity')).html());
+                                    $('div[data-cart-id="' + (data.statusMessage).split("~")[0] + '"]').find($('.productQuantity')).html(++newQuantity);
+                                } else {
+                                    $('.countCart').html(Number($('.countCart').html()) + 1);
+                                    $('.cartData').prepend('<div class="dropdown-product-item" style="cursor: default" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><span class="dropdown-product-remove remove-from-cart-btn" style="cursor: pointer" data-cart-id="' + (data.statusMessage).split("~")[0] + '"><i class="icon-cross"></i></span><a class="dropdown-product-thumb" href="#"><img src="' + bouquetData.compressedImagePath + '" alt="Product"></a><div class="dropdown-product-info"><a class="dropdown-product-title" href="#">' + bouquetData.name + '</a><span class="dropdown-product-details productQuantity">' + (data.statusMessage).split("~")[2] + '</span><span class="dropdown-product-details"> x $' + bouquetData.price + '</span></div></div>');
+                                }
+                                $('.totalCart').html('$' + (data.statusMessage).split("~")[1]);
+                            }
+                            $.notify('success', 'Success', 'Product added successfully to your cart', 'topLeft');
+                        },
+                        error: function (error) {
+                        },
+                        complete: function () {
+                            currentBtn.unLockBtn();
                         }
-                        $('.totalCart').html('$' + (data.statusMessage).split("~")[1]);
-                    }
-                    $.notify('success', 'Success', 'Product added successfully to your cart', 'topLeft');
-                },
-                error: function (error) {
-                },
-                complete: function () {
-                    currentBtn.unLockBtn();
-                }
-            });
-        });
+                    });
+                });
 
-        $('body').on('click', '.remove-from-cart-btn', function (e) {
-            e.preventDefault();
-            var currentBtn = $(this);
-            var cartId = currentBtn.attr("data-cart-id");
-            var userCartDiv = $('div[data-cart-id="' + cartId + '"]');
-            var userCartTR = $('tr[data-cart-id="' + cartId + '"]');
-            var csrfObj = $.getCSRFObj();
-            currentBtn.lockBtn('');
-            var ajaxData = {
-                'id': cartId,
-                '_csrf': csrfObj.value
-            };
-            $.ajax({
-                url: '<c:url value="/cart/remove"/>',
-                data: ajaxData,
-                type: 'post',
-                success: function (data) {
-                    $('.countCart').html(Number($('.countCart').html()) - 1);
-                    userCartDiv.remove();
-                    if ($('.dropdown-product-item').length == 0) {
-                        $('.totalCart1').html('$0.0');
-                        $('.cartData').replaceWith('<div class="toolbar-dropdown noCartFoundDiv">\n\
+                $('body').on('click', '.remove-from-cart-btn', function (e) {
+                    e.preventDefault();
+                    var currentBtn = $(this);
+                    var cartId = currentBtn.attr("data-cart-id");
+                    var userCartDiv = $('div[data-cart-id="' + cartId + '"]');
+                    var userCartTR = $('tr[data-cart-id="' + cartId + '"]');
+                    var csrfObj = $.getCSRFObj();
+                    currentBtn.lockBtn('');
+                    var ajaxData = {
+                        'id': cartId,
+                        '_csrf': csrfObj.value
+                    };
+                    $.ajax({
+                        url: '<c:url value="/cart/remove"/>',
+                        data: ajaxData,
+                        type: 'post',
+                        success: function (data) {
+                            $('.countCart').html(Number($('.countCart').html()) - 1);
+                            userCartDiv.remove();
+                            if ($('.dropdown-product-item').length == 0) {
+                                $('.totalCart1').html('$0.0');
+                                $('.cartData').replaceWith('<div class="toolbar-dropdown noCartFoundDiv">\n\
                                         <div class="toolbar-dropdown-group notFound text-center">\n\
                                             Cart is Empty\n\
                                         </div>\n\
                                     </div>');
-                    } else {
-                        $('.totalCart1').html('$' + data.responseObject);
-                        $('.totalCart').html('$' + data.responseObject);
-                    }
-                    if (userCartTR.length > 0) {
-                        $('.totalCartPrice').html('$' + data.responseObject);
-                        userCartTR.remove();
-                        $('.tooltip').hide();
-                        if ($('.carItem').length == 0) {
+                            } else {
+                                $('.totalCart1').html('$' + data.responseObject);
+                                $('.totalCart').html('$' + data.responseObject);
+                            }
+                            if (userCartTR.length > 0) {
+                                $('.totalCartPrice').html('$' + data.responseObject);
+                                userCartTR.remove();
+                                $('.tooltip').hide();
+                                if ($('.carItem').length == 0) {
+                                    $('.shopping-cart-footer').remove();
+                                    $('.shopping-cart-footer').remove();
+                                    $('.cartBody').append('<th colspan="5" class="text-center text-lg">\n\
+                                                            <br>\n\
+                                                            Cart is Empty\n\
+                                                            </th>');
+                                }
+                            }
+                            $.notify('success', 'Success', 'Product removed successfully from your cart', 'topLeft');
+                        },
+                        error: function (error) {
+                        },
+                        complete: function () {
+                            currentBtn.unLockBtn();
+                        }
+                    });
+                });
+
+                $('body').on('click', '.clearCart', function (e) {
+                    e.preventDefault();
+                    var currentBtn = $(this);
+                    currentBtn.lockBtn('');
+                    var csrfObj = $.getCSRFObj();
+                    var ajaxData = {
+                        '_csrf': csrfObj.value
+                    };
+                    $.ajax({
+                        url: '<c:url value="/cart/clearCart"/>',
+                        data: ajaxData,
+                        type: 'post',
+                        success: function () {
+                            $('.countCart').html('0');
+                            $('.totalCart1').html('$0.0');
+                            $('.cartData').replaceWith('<div class="toolbar-dropdown noCartFoundDiv">\n\
+                                        <div class="toolbar-dropdown-group notFound text-center">\n\
+                                            Cart is Empty\n\
+                                        </div>\n\
+                                    </div>');
+                            $('.cartBody').empty();
                             $('.shopping-cart-footer').remove();
                             $('.shopping-cart-footer').remove();
                             $('.cartBody').append('<th colspan="5" class="text-center text-lg">\n\
                                                             <br>\n\
                                                             Cart is Empty\n\
                                                             </th>');
+                            $.notify('success', 'Success', 'Products removed successfully from your cart', 'topLeft');
+                        },
+                        error: function (error) {
+                        },
+                        complete: function () {
+                            currentBtn.unLockBtn();
                         }
-                    }
-                    $.notify('success', 'Success', 'Product removed successfully from your cart', 'topLeft');
-                },
-                error: function (error) {
-                },
-                complete: function () {
-                    currentBtn.unLockBtn();
-                }
+                    });
+                });
+
+                $('#blueimp-gallery').on('open', function () {
+                    $('.topbar').addClass('zIndexZero');
+                    $('.navbar').addClass('zIndexZero');
+                    $('.scroll-to-top-btn').addClass('zIndexZero');
+                });
+
+                $('#blueimp-gallery').on('closed', function () {
+                    $('.topbar').removeClass('zIndexZero');
+                    $('.navbar').removeClass('zIndexZero');
+                    $('.scroll-to-top-btn').removeClass('zIndexZero');
+                });
+
             });
-        });
-
-        $('body').on('click', '.clearCart', function (e) {
-            e.preventDefault();
-            var currentBtn = $(this);
-            currentBtn.lockBtn('');
-            var csrfObj = $.getCSRFObj();
-            var ajaxData = {
-                '_csrf': csrfObj.value
-            };
-            $.ajax({
-                url: '<c:url value="/cart/clearCart"/>',
-                data: ajaxData,
-                type: 'post',
-                success: function () {
-                    $('.countCart').html('0');
-                    $('.totalCart1').html('$0.0');
-                    $('.cartData').replaceWith('<div class="toolbar-dropdown noCartFoundDiv">\n\
-                                        <div class="toolbar-dropdown-group notFound text-center">\n\
-                                            Cart is Empty\n\
-                                        </div>\n\
-                                    </div>');
-                    $('.cartBody').empty();
-                    $('.shopping-cart-footer').remove();
-                    $('.shopping-cart-footer').remove();
-                    $('.cartBody').append('<th colspan="5" class="text-center text-lg">\n\
-                                                            <br>\n\
-                                                            Cart is Empty\n\
-                                                            </th>');
-                    $.notify('success', 'Success', 'Products removed successfully from your cart', 'topLeft');
-                },
-                error: function (error) {
-                },
-                complete: function () {
-                    currentBtn.unLockBtn();
-                }
-            });
-        });
-
-        $('#blueimp-gallery').on('open', function () {
-            $('.topbar').addClass('zIndexZero');
-            $('.navbar').addClass('zIndexZero');
-            $('.scroll-to-top-btn').addClass('zIndexZero');
-        });
-
-        $('#blueimp-gallery').on('closed', function () {
-            $('.topbar').removeClass('zIndexZero');
-            $('.navbar').removeClass('zIndexZero');
-            $('.scroll-to-top-btn').removeClass('zIndexZero');
-        });
-
-    });
         </script>
     </body>
 </html>
