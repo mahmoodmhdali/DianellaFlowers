@@ -138,7 +138,7 @@ public class Utilities {
         // Email message
         //Log.append("Email Message Data [Sender ==> " + "Outbound Dialer <" + environment.getRequiredProperty("mail.username") + ">" + ", Receivers ==>" + receiversEmails + ", Body ==>" + text + ", Subject ==>" + subject + "]", "", "", Log.LOG_TYPE_NORMAL);
         SimpleMailMessage passwordResetEmail = new SimpleMailMessage();
-        passwordResetEmail.setFrom("Outbound Dialer <" + environment.getRequiredProperty("mail.username") + ">");
+        passwordResetEmail.setFrom("Dianella flowers order <" + environment.getRequiredProperty("mail.username") + ">");
         passwordResetEmail.setBcc(to);//setTo(to) is not used here in order not to show all recepient mails;
         passwordResetEmail.setSubject(subject);
         passwordResetEmail.setText(text);

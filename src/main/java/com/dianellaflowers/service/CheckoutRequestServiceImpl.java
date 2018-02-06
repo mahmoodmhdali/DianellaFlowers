@@ -18,12 +18,14 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.internet.AddressException;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.codec.Hex;
@@ -45,6 +47,9 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
 
     @Autowired
     UserCartDao userCartDao;
+
+    @Autowired
+    Utilities utilities;
 
     @Override
     public synchronized UserCart addCheckoutRequest(UserCart userCart) throws Exception {
@@ -170,6 +175,17 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
                     checkoutRequest.setCustomerIP(payfortResponse.get("customer_ip").get(0));
                 }
                 if (payfortResponse.get("status").get(0).equals("14")) {
+                    if (checkoutRequest.getCheckoutDate() != null || checkoutRequest.getCheckoutDate().equals("")) {
+                        try {
+                            List<String> sendToList = new ArrayList<String>();
+                            sendToList.add("dianellaflowers@gmail.com");
+                            String[] sendTo = new String[sendToList.size()];
+                            sendToList.toArray(sendTo);
+                            utilities.sendEmail("You have a new order with track ID : " + genericResponse.getStatusMessage(), sendTo, "New DianellaFlowers Order");
+                        } catch (AddressException ex) {
+                            Logger.getLogger(CheckoutRequestServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
                     checkoutRequest.setCheckoutDate(new Date());
                     genericResponse = new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.NONE.ordinal(), checkoutRequest.getTrackId(), "");
                 } else {
