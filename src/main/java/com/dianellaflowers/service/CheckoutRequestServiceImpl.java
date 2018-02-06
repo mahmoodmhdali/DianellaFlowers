@@ -181,7 +181,7 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
                             sendToList.add("dianellaflowers@gmail.com");
                             String[] sendTo = new String[sendToList.size()];
                             sendToList.toArray(sendTo);
-                            utilities.sendEmail("You have a new order with track ID : " + genericResponse.getStatusMessage(), sendTo, "New DianellaFlowers Order");
+                            utilities.sendEmail("You have a new order with track ID : " + checkoutRequest.getTrackId(), sendTo, "New DianellaFlowers Order");
                         } catch (AddressException ex) {
                             Logger.getLogger(CheckoutRequestServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
                         }
