@@ -52,6 +52,7 @@ public class CheckoutRequestDaoImpl extends AbstractDao<Integer, CheckoutRequest
         }
         if (!forPayfortRequest) {
             crit.add(Restrictions.ne("responseCode", "14"));
+            crit.add(Restrictions.ne("responseCode", "00047"));
         }
         if (findWithSession) {
             crit.add(Restrictions.eq("sessionID", Id));
@@ -59,7 +60,12 @@ public class CheckoutRequestDaoImpl extends AbstractDao<Integer, CheckoutRequest
             crit.add(Restrictions.eq("trackId", Id));
         }
         crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-        CheckoutRequest checkoutRequest = (CheckoutRequest) crit.uniqueResult();
+        crit.addOrder(Order.asc("id"));
+        List<CheckoutRequest> checkoutRequests = (List<CheckoutRequest>) crit.list();
+        CheckoutRequest checkoutRequest = null;
+        if (checkoutRequests.size() > 0) {
+            checkoutRequest = checkoutRequests.get(0);
+        }
         if (checkoutRequest != null) {
             Hibernate.initialize(checkoutRequest.getUserCartCollectionn());
         }
@@ -81,7 +87,13 @@ public class CheckoutRequestDaoImpl extends AbstractDao<Integer, CheckoutRequest
         crit.add(Restrictions.eq("sessionID", sessionId));
         crit.add(Restrictions.eq("bouquetAlias.id", bouquetId));
         crit.add(Restrictions.ne("responseCode", "14"));
-        CheckoutRequest checkoutRequest = (CheckoutRequest) crit.uniqueResult();
+        crit.add(Restrictions.ne("responseCode", "00047"));
+        crit.addOrder(Order.asc("id"));
+        List<CheckoutRequest> checkoutRequests = (List<CheckoutRequest>) crit.list();
+        CheckoutRequest checkoutRequest = null;
+        if (checkoutRequests.size() > 0) {
+            checkoutRequest = checkoutRequests.get(0);
+        }
         if (checkoutRequest != null) {
             Hibernate.initialize(checkoutRequest.getUserCartCollectionn());
         }
@@ -91,7 +103,7 @@ public class CheckoutRequestDaoImpl extends AbstractDao<Integer, CheckoutRequest
     @Override
     public List<CheckoutRequest> getAllCheckoutRequests() {
         Criteria crit = createEntityCriteria();
-        crit.add(Restrictions.eq("responseCode", "14"));
+        crit.add(Restrictions.or(Restrictions.eq("responseCode", "14"), Restrictions.eq("responseCode", "00047")));
         crit.addOrder(Order.desc("shippingDateTime"));
         List<CheckoutRequest> checkoutRequests = (List<CheckoutRequest>) crit.list();
         return checkoutRequests;

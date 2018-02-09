@@ -188,6 +188,9 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
                     }
                     checkoutRequest.setCheckoutDate(new Date());
                     genericResponse = new GenericResponse(ResponseStatus.SUCCESS.ordinal(), ResponseMessageType.NONE.ordinal(), checkoutRequest.getTrackId(), "");
+                    if (payfortResponse.get("response_code").get(0).equals("00047")) {
+                        checkoutRequest.setResponseCode("00047");
+                    }
                 } else {
                     genericResponse = new GenericResponse(ResponseStatus.VALIDATION_ERROR_AS_NOT.ordinal(), ResponseMessageType.ININPUT.ordinal(), payfortResponse.get("response_message").get(0), checkoutRequest);
                 }

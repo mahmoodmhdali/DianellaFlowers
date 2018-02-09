@@ -59,7 +59,7 @@ public class CartController extends AbstractController {
         CheckoutRequest checkoutRequest = checkoutRequestService.findByTrackIdOrSessionId(trackId, false, false, true);
         if (checkoutRequest == null) {
             return "error404";
-        } else if (checkoutRequest.getResponseCode().equals("14")) {
+        } else if (checkoutRequest.getResponseCode().equals("14") || checkoutRequest.getResponseCode().equals("00047")) {
             return "error404";
         }
         model.addAttribute("trackId", trackId);
