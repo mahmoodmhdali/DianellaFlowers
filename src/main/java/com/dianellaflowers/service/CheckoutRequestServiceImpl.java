@@ -174,8 +174,8 @@ public class CheckoutRequestServiceImpl implements CheckoutRequestService {
                 if (payfortResponse.get("customer_ip") != null) {
                     checkoutRequest.setCustomerIP(payfortResponse.get("customer_ip").get(0));
                 }
-                if (payfortResponse.get("status").get(0).equals("14")) {
-                    if (checkoutRequest.getCheckoutDate() != null || checkoutRequest.getCheckoutDate().equals("")) {
+                if (payfortResponse.get("status").get(0).equals("14") || payfortResponse.get("response_code").get(0).equals("00047")) {
+                    if (checkoutRequest.getCheckoutDate() == null) {
                         try {
                             List<String> sendToList = new ArrayList<String>();
                             sendToList.add("dianellaflowers@gmail.com");

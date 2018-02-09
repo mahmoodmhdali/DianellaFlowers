@@ -39,7 +39,7 @@ public class HandleGlobalException {
     @ResponseBody
     public String handleCustomException(Exception ex) {
         String msg = ex.getMessage();
-        return "You can add any Hibernate error jsp page here \n error message: " + msg;
+        return "An error has occured please copy this message and contact the admin: " + msg;
     }
 
     @ExceptionHandler(value = {CannotCreateTransactionException.class})
